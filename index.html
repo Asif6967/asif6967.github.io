@@ -2,48 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Asif Teach Global | Dashboard</title>
+    <title>ASIF TEACH GLOBAL | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div id="global-bg"></div>
+    <canvas id="particle-canvas"></canvas>
 
-    <div class="sidebar">
-        <h2><i class="fa-solid fa-bullhorn"></i> Sarkari Updates</h2>
-        
-        <div class="job-cat">
-            <h4>Results</h4>
-            <div id="res-list"><p style="font-size:11px; color:gray;">Loading Data...</p></div>
+    <nav>
+        <div class="logo">ASIF TEACH <span>GLOBAL</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Management Meets Technology</h1>
+        <p style="color:#cbd5e1; font-size:18px;">Bridging the gap between Strategy and Code.</p>
+    </div>
+
+    <div class="container">
+        <div class="glass-box" id="about">
+            <h2>About Me</h2>
+            <p>Pursuing MBA at Vivek University, combining Management with Tech.</p>
         </div>
 
-        <div class="job-cat">
-            <h4>Admit Cards</h4>
-            <div id="adm-list"><p style="font-size:11px; color:gray;">Loading Data...</p></div>
-        </div>
-
-        <div class="job-cat">
-            <h4>New Jobs</h4>
-            <div id="job-list"><p style="font-size:11px; color:gray;">Loading Data...</p></div>
+        <div class="glass-box" id="projects">
+            <h2>Tech Stack</h2>
+            <p>Java, Python, Web Development & Business Strategy.</p>
         </div>
     </div>
 
-    <div class="main-area">
-        <div class="hero-box">
-            <h1>Asif Teach <span>Global</span></h1>
-            <p style="color: #cbd5e1; margin-top: 10px;">Management Meets Technology</p>
-        </div>
-
-        <div class="grid-container">
-            <div class="glass-card java-theme">
-                <h3 style="color:#f59e0b;"><i class="fa-brands fa-java"></i> Java Core</h3>
-                <p style="font-size:14px; margin-top:10px; color:#aaa;">Enterprise logic aur advanced algorithms ka istemal.</p>
-            </div>
-
-            <div class="glass-card">
-                <h3 style="color:#3b82f6;"><i class="fa-brands fa-python"></i> Python Tech</h3>
-                <p style="font-size:14px; margin-top:10px; color:#aaa;">Automation aur Security scripts ke liye Python analyzer.</p>
-            </div>
-        </div>
+    <div class="news-ticker-container">
+        <div style="background:#ef4444; color:white; padding:0 15px; height:100%; display:flex; align-items:center; font-weight:bold;">LIVE NEWS</div>
+        <div class="ticker-content" id="newsFeed"><span>Loading Updates...</span></div>
     </div>
 
     <script src="script.js"></script>
