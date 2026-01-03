@@ -2,105 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asif Teach Global | Real Updates</title>
-    
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
 <body>
-
     <div id="global-bg"></div>
-    <canvas id="particle-canvas"></canvas>
 
-    <nav>
-        <div class="logo">Asif Teach<span> Global</span></div>
-        <div class="nav-links">
-            <a href="#updates" style="color:#eab308;">Live Jobs</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <div class="hero">
-        <div style="margin-bottom:15px; color:#3b82f6; font-weight:bold; letter-spacing: 2px;">LIVE DATA • GOVT JOBS</div>
-        <h1>Your Career Portal</h1>
-        <p style="color:#cbd5e1; font-size:18px; max-width: 600px;">Real-time updates fetched directly from Job Feeds.</p>
-    </div>
-
-    <div class="container">
-
-        <div class="glass-box" id="updates">
-            <h2 style="color:white; text-align:center; margin-bottom:10px;">📢 Sarkari Updates (Live)</h2>
-            <p style="text-align:center; color:#aaa; font-size:12px; margin-bottom:20px;">* Updates are fetched automatically via RSS Feeds.</p>
-            
-            <div class="sarkari-grid">
-                
-                <div class="update-column col-result">
-                    <div class="update-header">Results</div>
-                    <div id="result-list">
-                        <span style="color:gray; font-size:12px;">Loading Real Data...</span>
-                    </div>
-                </div>
-
-                <div class="update-column col-admit">
-                    <div class="update-header">Admit Cards</div>
-                    <div id="admit-list">
-                        <span style="color:gray; font-size:12px;">Loading Real Data...</span>
-                    </div>
-                </div>
-
-                <div class="update-column col-job">
-                    <div class="update-header">Latest Jobs</div>
-                    <div id="job-list">
-                        <span style="color:gray; font-size:12px;">Loading Real Data...</span>
-                    </div>
-                </div>
-
-            </div>
+    <div class="sidebar">
+        <div class="update-heading"><i class="fa-solid fa-bullhorn"></i> Sarkari Updates</div>
+        
+        <div class="job-section">
+            <h4>Results</h4>
+            <div id="result-list"><p style="font-size:10px; color:gray;">Fetching...</p></div>
         </div>
 
-        <div class="glass-box" id="projects">
-            <h2 style="color:white; text-align:center; margin-bottom:20px;">Tech Projects</h2>
-            <div class="split-grid">
-                <div class="project-card java-card">
-                    <h3 style="color:#f59e0b;"><i class="fa-brands fa-java"></i> Java App</h3>
-                    <p style="color:#ccc;">Enterprise logic & algorithms.</p>
-                </div>
-                <div class="project-card python-card">
-                    <h3 style="color:#3b82f6;"><i class="fa-brands fa-python"></i> Data Analysis</h3>
-                    <p style="color:#ccc;">Python automation scripts.</p>
-                </div>
-            </div>
+        <div class="job-section">
+            <h4>Admit Cards</h4>
+            <div id="admit-list"><p style="font-size:10px; color:gray;">Fetching...</p></div>
         </div>
 
-        <div class="glass-box" id="python" style="border-top-color: #eab308;">
-            <h3 style="color:#eab308; text-align:center; margin-bottom:10px;">
-                <i class="fa-solid fa-shield-halved"></i> Password Analyzer
-            </h3>
-            <div class="security-box">
-                <input type="password" id="passInput" class="pass-input" placeholder="Enter Password..." py-input="check_password">
-                <div id="resultOutput" class="result-text" style="color: #aaa; margin-top:10px;">WAITING...</div>
-            </div>
-            <py-script src="./main.py"></py-script>
-        </div>
-
-        <div class="glass-box" id="contact" style="max-width:600px; margin:0 auto;">
-            <h3 style="text-align:center; color:white;">Contact Me</h3>
-            <form id="contactForm">
-                <input type="text" placeholder="Name" class="contact-input" required>
-                <button class="btn-submit">Send Message</button>
-            </form>
+        <div class="job-section">
+            <h4>Latest Jobs</h4>
+            <div id="job-list"><p style="font-size:10px; color:gray;">Fetching...</p></div>
         </div>
     </div>
 
-    <div class="news-ticker-container">
-        <div style="background:#ef4444; color:white; padding:0 20px; height:100%; display:flex; align-items:center; font-weight:bold;">UPDATES</div>
-        <div class="ticker-content" id="newsFeed"><span>Loading...</span></div>
+    <div class="main-content">
+        <nav style="display:flex; justify-content:space-between; margin-bottom:50px;">
+            <h2 style="color:white;">ASIF TEACH <span style="color:#3b82f6;">GLOBAL</span></h2>
+        </nav>
+
+        <div class="hero">
+            <h1>Management Meets Technology</h1>
+            <p style="color:#cbd5e1;">Bridging the gap between Strategy and Code.</p>
+        </div>
+
+        <div class="glass-box" style="margin-top:50px;">
+            <h3>Project Analytics</h3>
+            <canvas id="techChart" height="100"></canvas>
+        </div>
     </div>
 
     <script src="script.js"></script>
