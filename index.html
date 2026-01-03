@@ -6,7 +6,6 @@
     <title>ASIF | MBA & Tech Portfolio</title>
     
     <link rel="stylesheet" href="style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -17,6 +16,7 @@
 <body>
 
     <div id="global-bg"></div>
+    <canvas id="particle-canvas"></canvas>
 
     <div class="news-ticker-container">
         <div style="background:#ef4444; color:white; padding:0 15px; height:100%; display:flex; align-items:center;">LIVE NEWS</div>
@@ -26,47 +26,79 @@
     <nav>
         <div class="logo">ASIF<span>.PRO</span></div>
         <div class="nav-links">
-            <a href="#projects">My Code</a>
-            <a href="#python">Live Python</a>
+            <a href="#projects">Code</a>
+            <a href="#python">Security Tool</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <div class="hero">
-        <div style="margin-bottom:20px; color:#3b82f6; font-weight:bold;">WEB • JAVA • PYTHON</div>
-        <h1>Full Stack & MBA</h1>
-        <p style="color:#cbd5e1; font-size:18px;">Showcasing my projects in Java, Python & Web Dev.</p>
+        <div style="margin-bottom:20px; color:#3b82f6; font-weight:bold;">CYBER • MBA • TECH</div>
+        <h1>Full Stack & Strategy</h1>
+        <p style="color:#cbd5e1; font-size:18px;">Showcasing secure code and business logic.</p>
     </div>
 
     <div class="container">
+        
         <div class="glass-box" id="projects">
-            <h2 style="color:white; text-align:center; margin-bottom:20px;">My Coding Projects</h2>
+            <h2 style="color:white; text-align:center; margin-bottom:20px;">My Projects</h2>
             <div class="project-card java-card">
-                <h3 style="color:#f59e0b;"><i class="fa-brands fa-java"></i> Java Application</h3>
-                <p style="color:#ccc;">Enterprise level application logic built with Java.</p>
-                <a href="#" class="code-btn">View Java Code</a>
+                <h3 style="color:#f59e0b;"><i class="fa-brands fa-java"></i> Java App</h3>
+                <p style="color:#ccc;">Enterprise logic & algorithms.</p>
             </div>
             <div class="project-card python-card">
-                <h3 style="color:#3b82f6;"><i class="fa-brands fa-python"></i> Python Automation</h3>
-                <p style="color:#ccc;">Data analysis and automation scripts.</p>
-                <a href="#" class="code-btn">View Python Code</a>
-            </div>
-            <div class="project-card" style="border-color: #ec4899;">
-                <h3 style="color:#ec4899;"><i class="fa-brands fa-css3-alt"></i> CSS & JS</h3>
-                <p style="color:#ccc;">Styled with style.css & Powered by script.js.</p>
+                <h3 style="color:#3b82f6;"><i class="fa-brands fa-python"></i> Data Analysis</h3>
+                <p style="color:#ccc;">Python automation scripts.</p>
             </div>
         </div>
 
         <div class="glass-box" id="python" style="border-top-color: #eab308;">
-            <h3 style="color:#eab308;"><i class="fa-brands fa-python"></i> Run Python Here</h3>
-            <div class="py-terminal">
-                <py-repl>
-                    print("System Check:")
-                    print("- HTML: OK")
-                    print("- CSS: OK")
-                    print("- JS: OK")
-                </py-repl>
+            <h3 style="color:#eab308; text-align:center; margin-bottom:20px;">
+                <i class="fa-solid fa-shield-halved"></i> Python Password Analyzer
+            </h3>
+            <p style="text-align:center; color:#ccc; margin-bottom:20px;">
+                Type a password below. <b>Python</b> runs in your browser to check its strength instantly.
+            </p>
+            
+            <div class="security-box">
+                <input type="password" id="passInput" class="pass-input" placeholder="Type password here..." py-input="check_password">
+                
+                <div id="resultOutput" class="result-text" style="color: #555;">WAITING FOR INPUT...</div>
             </div>
+
+            <py-script>
+                from js import document
+
+                def check_password(e):
+                    password = document.getElementById("passInput").value
+                    output = document.getElementById("resultOutput")
+                    
+                    score = 0
+                    
+                    # Logic: Check Length
+                    if len(password) > 0:
+                        if len(password) >= 8: score += 1
+                        if any(c.isupper() for c in password): score += 1
+                        if any(c.isdigit() for c in password): score += 1
+                        if any(c in "!@#$%^&*()_+" for c in password): score += 1
+                        
+                        # Logic: Determine Result
+                        if score == 0:
+                            output.innerHTML = "TOO SHORT"
+                            output.style.color = "gray"
+                        elif score <= 2:
+                            output.innerHTML = "⚠️ WEAK PASSWORD"
+                            output.style.color = "#ef4444" # Red
+                        elif score == 3:
+                            output.innerHTML = "⚠️ MODERATE"
+                            output.style.color = "#f59e0b" # Orange
+                        else:
+                            output.innerHTML = "✅ SECURE & STRONG"
+                            output.style.color = "#22c55e" # Green
+                    else:
+                        output.innerHTML = "WAITING FOR INPUT..."
+                        output.style.color = "#555"
+            </py-script>
         </div>
 
         <div class="split-grid">
@@ -78,12 +110,11 @@
             <h3 style="text-align:center; color:white;">Contact Me</h3>
             <form id="contactForm">
                 <input type="text" placeholder="Name" class="contact-input" required>
-                <button class="btn-submit">Send</button>
+                <button class="btn-submit">Send Message</button>
             </form>
         </div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>

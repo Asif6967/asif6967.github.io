@@ -33,3 +33,38 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
 @media (max-width: 768px) { .split-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 42px; } }
+/* --- PYTHON SECURITY TOOL STYLES --- */
+.security-box {
+    text-align: center;
+    border: 1px solid #3b82f6;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.pass-input {
+    width: 80%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 50px;
+    border: 2px solid #333;
+    background: #111;
+    color: white;
+    text-align: center;
+    outline: none;
+    font-family: monospace;
+    transition: 0.3s;
+}
+
+.pass-input:focus {
+    border-color: #eab308;
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.3);
+}
+
+.result-text {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
