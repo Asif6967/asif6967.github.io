@@ -1,0 +1,261 @@
+<?php
+// --- DATABASE CONNECTION & LOGIC ---
+// Error reporting band taaki choti-moti baaton par site na ruke
+error_reporting(0);
+
+$servername = "sql207.infinityfree.com";
+$username = "if0_40817481";
+$password = "asif696788";
+$dbname = "if0_40817481_cybervault";
+
+// Database se connect karne ki koshish
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Default values agar database connect na ho paye
+$total_visits = 150; // Ek fake number dikhane ke liye
+$db_status = "OFFLINE";
+$user_ip = $_SERVER['REMOTE_ADDR'];
+
+// Agar connection safal raha to asli kaam karo
+if (!$conn->connect_error) {
+    $db_status = "ONLINE";
+    
+    // 1. Visitors Table Check/Create
+    $conn->query("CREATE TABLE IF NOT EXISTS visitors (
+        id INT AUTO_INCREMENT PRIMARY KEY, 
+        ip_address VARCHAR(50), 
+        visit_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )");
+    
+    // 2. Naye Visitor ko darj karo
+    $conn->query("INSERT INTO visitors (ip_address) VALUES ('$user_ip')");
+    
+    // 3. Total ginti nikalo
+    $res = $conn->query("SELECT COUNT(*) as total FROM visitors");
+    if($res) {
+        $row = $res->fetch_assoc();
+        $total_visits = $row['total'];
+    }
+
+    // --- CONTACT FORM HANDLING ---
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['send_msg'])) {
+        // Notes table check/create
+        $conn->query("CREATE TABLE IF NOT EXISTS notes (
+            id INT AUTO_INCREMENT PRIMARY KEY, 
+            username VARCHAR(100), 
+            note TEXT, 
+            time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )");
+        
+        $name = $conn->real_escape_string($_POST['name']);
+        $msg = $conn->real_escape_string($_POST['message']);
+        
+        if($conn->query("INSERT INTO notes (username, note) VALUES ('$name', '$msg')")) {
+            echo "<script>alert('✅ Message Sent Successfully!'); window.location.href='index.php';</script>";
+        } else {
+            echo "<script>alert('❌ Error: Could not send message.');</script>";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIF | MBA & Tech Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* --- GLOBAL STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; color: #e2e8f0; background-color: #0f172a; overflow-x: hidden; }
+
+        /* --- LAYOUT & CONTAINER --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 30px; color: white; }
+
+        /* --- GLASS BOXES (Professional Look) --- */
+        .glass-box {
+            background: rgba(30, 41, 59, 0.7); /* Dark Glass */
+            backdrop-filter: blur(12px);
+            padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 40px; border-top: 5px solid #3b82f6; /* Blue Top */
+            opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out;
+        }
+        .glass-box.active { opacity: 1; transform: translateY(0); }
+        .glass-box:hover { border-color: #3b82f6; box-shadow: 0 0 25px rgba(59, 130, 246, 0.3); transform: translateY(-5px); }
+        
+        .mba-box { border-top-color: #ef4444; } /* Red Top for MBA */
+        .mba-box:hover { border-color: #ef4444; box-shadow: 0 0 25px rgba(239, 68, 68, 0.3); }
+
+        /* --- HERO SECTION & BADGES --- */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .hero h1 { font-size: 56px; font-weight: 700; margin-bottom: 15px; color: white; text-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
+        .badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 20px; border-radius: 50px; font-size: 13px; font-weight: 600; text-transform: uppercase; margin: 0 5px; backdrop-filter: blur(5px); }
+
+        /* --- VISITOR COUNTER --- */
+        .visitor-badge {
+            background: rgba(0,0,0,0.5); border: 1px solid #3b82f6; 
+            padding: 8px 15px; border-radius: 50px; 
+            color: #3b82f6; font-size: 14px; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
+        }
+
+        /* --- PRODUCT CARDS (My Gear) --- */
+        .product-card { text-align: center; position: relative; transition: 0.3s; }
+        .product-img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); }
+        .buy-btn { display: inline-block; padding: 10px 25px; margin-top: 15px; background: linear-gradient(45deg, #f59e0b, #d97706); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); transition: 0.3s; }
+        .buy-btn:hover { transform: scale(1.05); box-shadow: 0 4px 25px rgba(245, 158, 11, 0.6); }
+
+        /* --- CONTACT FORM (Standard Professional Style) --- */
+        .contact-section input, .contact-section textarea {
+            width: 100%; padding: 15px; margin-bottom: 15px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: white; border-radius: 10px; outline: none; transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+        .contact-section input:focus, .contact-section textarea:focus {
+            border-color: #3b82f6; background: rgba(255,255,255,0.1);
+        }
+        .btn-submit {
+            width: 100%; padding: 15px; background: #3b82f6; color: white;
+            border: none; border-radius: 10px; font-weight: bold; cursor: pointer;
+            transition: 0.3s; font-size: 16px;
+        }
+        .btn-submit:hover { background: #2563eb; transform: translateY(-2px); }
+
+        /* --- NAVBAR & EXTRAS --- */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { font-size: 24px; font-weight: 700; color: white; display: flex; align-items: center; }
+        .logo span { color: #3b82f6; }
+        .live-dot { height: 10px; width: 10px; background-color: #22c55e; border-radius: 50%; display: inline-block; margin-left: 10px; animation: pulse-green 2s infinite; }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+        .nav-links a { color: #cbd5e1; text-decoration: none; margin-left: 25px; font-size: 14px; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: #3b82f6; }
+
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0f172a; z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.5s ease; }
+        .loader { width: 60px; height: 60px; border: 5px solid rgba(59, 130, 246, 0.2); border-top: 5px solid #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 20px; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        #global-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920') center/cover fixed; transition: background 2s ease-in-out; }
+        #particle-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; pointer-events: none; }
+
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 2000; display: flex; justify-content: center; align-items: center; transition:0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        @media (max-width: 768px) { .split-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 42px; } .glass-box { padding: 30px; } }
+    </style>
+</head>
+<body>
+
+    <div id="preloader"><div class="loader"></div><div style="color:white; font-weight:600; letter-spacing:2px;">LOADING PORTFOLIO...</div></div>
+    
+    <div id="global-bg"></div><canvas id="particle-canvas"></canvas>
+
+    <nav>
+        <div class="logo">ASIF<span>.PRO</span> <div class="live-dot" title="Online"></div></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#analytics">Skills</a>
+            <a href="#shop">Gear</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="visitor-badge">
+            <i class="fa-solid fa-eye"></i> Total Visits: <?php echo $total_visits; ?>
+        </div>
+
+        <div style="margin-bottom:20px;">
+            <span class="badge">MBA Student</span>
+            <span class="badge" style="background: rgba(239, 68, 68, 0.4); border-color:#ef4444;">Tech Enthusiast</span>
+        </div>
+        <h1>Management Meets Technology</h1>
+        <p style="color:#cbd5e1; max-width:600px; margin-top:20px; font-size:18px;">
+            Bridging the gap between Business Strategy and Full Stack Development.
+        </p>
+        <div style="margin-top:50px; font-size:12px; opacity:0.7;">SCROLL TO EXPLORE ↓</div>
+    </div>
+
+    <div class="container">
+        
+        <div class="glass-box" id="about">
+            <h3 style="font-size:28px; margin-bottom:20px; color:white;">Who am I?</h3>
+            <p style="line-height:1.8; color:#cbd5e1; font-size:16px;">
+                Hi, I'm <b>Asif</b>. I am currently pursuing my <b>MBA</b> at <b>Vivek University</b>. 
+                I have a unique profile that combines professional <b>Business Management</b> skills with passion for <b>Technology and Development</b>.
+            </p>
+        </div>
+
+        <h2 class="section-title" id="analytics">Performance Analytics</h2>
+        <div class="split-grid">
+            <div class="glass-box">
+                <h3 style="text-align:center; color:#3b82f6; margin-bottom:20px;">Technical Skills</h3>
+                <canvas id="techChart"></canvas>
+            </div>
+            <div class="glass-box mba-box">
+                <h3 style="text-align:center; color:#ef4444; margin-bottom:20px;">Management Core</h3>
+                <canvas id="mbaChart"></canvas>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="shop">My Recommended Gear</h2>
+        <div class="split-grid">
+            <div class="glass-box product-card">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca4?q=80&w=400" class="product-img" alt="Laptop">
+                <h3 style="color:white; font-size:20px; margin-bottom:10px;">MacBook Air M2</h3>
+                <p style="color:#cbd5e1; font-size:14px;">Perfect for coding and business tasks. Fast & reliable.</p>
+                <a href="YOUR_AMAZON_LINK_HERE" class="buy-btn" target="_blank">Check Price <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="glass-box product-card">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=400" class="product-img" alt="Hosting">
+                <h3 style="color:white; font-size:20px; margin-bottom:10px;">Premium Hosting</h3>
+                <p style="color:#cbd5e1; font-size:14px;">Reliable server for hosting professional websites.</p>
+                <a href="YOUR_HOSTING_LINK_HERE" class="buy-btn" target="_blank">Get Hosting <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="contact">Get In Touch</h2>
+        <div class="glass-box contact-section" style="max-width:600px; margin:0 auto;">
+            <p style="text-align:center; margin-bottom:25px; color:#cbd5e1;">Have a project or want to connect? Drop me a message!</p>
+            <form method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+                <button type="submit" name="send_msg" class="btn-submit">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+
+    </div>
+
+    <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // 1. Preloader
+        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('preloader').style.opacity = '0'; setTimeout(() => document.getElementById('preloader').style.display = 'none', 500); }, 500); });
+        
+        // 2. Scroll Reveal Animation
+        window.addEventListener('scroll', () => { document.querySelectorAll('.glass-box').forEach(box => { if(box.getBoundingClientRect().top < window.innerHeight - 100) box.classList.add('active'); }); });
+
+        // 3. Background Changer & Particles
+        const imgs=["https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920","https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1920"];let idx=0;const bg=document.getElementById("global-bg");setInterval(()=>{idx=(idx+1)%imgs.length;bg.style.background=`linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('${imgs[idx]}')`;bg.style.backgroundSize="cover";bg.style.backgroundPosition="center";bg.style.backgroundAttachment="fixed";},15000);
+        const canvas=document.getElementById("particle-canvas"),ctx=canvas.getContext("2d");canvas.width=window.innerWidth;canvas.height=window.innerHeight;let particlesArray=[];class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=Math.random()-0.5;this.speedY=Math.random()-0.5;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.size>0.2)this.size-=0.01;if(this.size<=0.2){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;}}draw(){ctx.fillStyle='rgba(255, 255, 255, 0.3)';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}function init(){for(let i=0;i<50;i++)particlesArray.push(new Particle());}function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);for(let i=0;i<particlesArray.length;i++){particlesArray[i].update();particlesArray[i].draw();}requestAnimationFrame(animate);}init();animate();
+
+        // 4. Charts Configuration
+        Chart.defaults.color = '#cbd5e1'; Chart.defaults.borderColor = 'rgba(255,255,255,0.1)';
+        new Chart(document.getElementById('techChart'), { type: 'bar', data: { labels: ['PHP/Web', 'SQL/Data', 'Linux', 'Python'], datasets: [{ label: 'Proficiency (%)', data: [90, 85, 80, 70], backgroundColor: 'rgba(59, 130, 246, 0.8)', borderColor: '#3b82f6', borderWidth: 1 }] }, options: { responsive: true, scales: { y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.05)' } }, x: { grid: { display: false } } }, plugins: { legend: { display: false } } } });
+        new Chart(document.getElementById('mbaChart'), { type: 'radar', data: { labels: ['Strategy', 'Finance', 'Marketing', 'Leadership', 'Ops'], datasets: [{ label: 'Skill Level', data: [88, 92, 75, 85, 80], backgroundColor: 'rgba(239, 68, 68, 0.4)', borderColor: '#ef4444', borderWidth: 2, pointBackgroundColor: '#fff' }] }, options: { responsive: true, scales: { r: { angleLines: { color: 'rgba(255,255,255,0.1)' }, grid: { color: 'rgba(255,255,255,0.1)' }, pointLabels: { font: { size: 12 } } } }, plugins: { legend: { display: false } } } });
+    </script>
+</body>
+</html>
