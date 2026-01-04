@@ -74,11 +74,22 @@
   </div>
 
   <!-- Dynamic Background -->
-  <script>
-    const bg = document.getElementById('dynamic-bg');
-    const randomNumber = Math.floor(Math.random() * 10000);
-    const imageUrl = `https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80&rand=${randomNumber}`;
-    bg.style.backgroundImage = `url('${imageUrl}')`;
+<script>
+  const bg = document.getElementById('dynamic-bg');
+  const images = [
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1522204508132-3e473b8a3c6b?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=1600&q=80"
+  ];
+
+  function changeBackground() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    bg.style.backgroundImage = `url('${images[randomIndex]}')`;
+  }
+
+  changeBackground(); // initial load
+  setInterval(changeBackground, 10000); // har 10 sec me update
   </script>
 </body>
 </html>
