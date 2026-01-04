@@ -5,47 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asif Teach Global | Business & Tech Insights</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="dynamic-bg"></div>
 
+    <!-- Navigation -->
     <nav>
         <div class="logo">Asif Teach<span> Global</span></div>
         <div class="nav-links">
             <a href="#insights">Insights</a>
             <a href="#about">About</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <div class="hero">
         <h1>Asif Teach Global</h1>
         <p>Leading the Digital Transformation in Business Education.</p>
     </div>
 
+    <!-- Insights Section -->
     <div class="container">
         <div class="glass-box" id="insights">
             <h2 class="section-title">Latest Tech Insights</h2>
+            
             <div class="article-card">
                 <h3>Impact of AI on MBA Careers</h3>
-                <p>Artificial intelligence is redefining organizational structures in 2026.</p>
+                <p>Artificial intelligence is redefining organizational structures and leadership frameworks in 2026.</p>
                 <a href="mba-ai-impact.html" class="read-more">Read Full Insight →</a>
+            </div>
+
+            <div class="article-card">
+                <h3>Digital Marketing 2026: Beyond Automation</h3>
+                <p>Discover how AI-powered marketing strategies are shaping the future of customer engagement.</p>
+                <a href="marketing.html" class="read-more">Read Full Insight →</a>
+            </div>
+
+            <div class="article-card">
+                <h3>Top 5 AI Tools Every Business Student Should Use</h3>
+                <p>From ChatGPT to Midjourney, explore how smart tools are redefining business learning and creativity.</p>
+                <a href="#" class="read-more">Read Full Insight →</a>
+            </div>
+
+            <div class="article-card">
+                <h3>Future of Business Schools in a Digital World</h3>
+                <p>Why universities embracing AI, cloud, and analytics are creating the next generation of leaders.</p>
+                <a href="#" class="read-more">Read Full Insight →</a>
             </div>
         </div>
     </div>
 
+    <!-- About Section -->
+    <div class="container" id="about">
+        <div class="glass-box">
+            <h2 class="section-title">About Asif Teach Global</h2>
+            <p>We are committed to bridging business education with emerging technologies. Our mission is to empower future leaders through practical AI, data, and digital transformation insights.</p>
+        </div>
+    </div>
 
-<script>
-        // Unlimited Business & Tech Backgrounds Logic
+    <!-- Background Script -->
+    <script>
         const bg = document.getElementById('dynamic-bg');
-        
-        // Isse har baar refresh par ek unique number generate hoga
-        const randomNumber = Math.floor(Math.random() * 10000); 
-        
-        // Business aur Technology keywords ke saath photo fetch karega
-        const imageUrl = `https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80&sig=${randomNumber}`;
-        
-        // Dynamic set karna
+        const randomNumber = Math.floor(Math.random() * 10000);
+        const imageUrl = `https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80&rand=${randomNumber}`;
         bg.style.backgroundImage = `url('${imageUrl}')`;
     </script>
 </body>
