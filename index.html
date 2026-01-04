@@ -34,11 +34,19 @@
         </div>
     </div>
 
-    <script>
-        // Automatic Background Script - Working Method
+
+<script>
+        // Unlimited Business & Tech Backgrounds Logic
         const bg = document.getElementById('dynamic-bg');
-        // Hamne fixed business image use ki hai jo pakka load hogi
-        bg.style.backgroundImage = "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80')";
+        
+        // Isse har baar refresh par ek unique number generate hoga
+        const randomNumber = Math.floor(Math.random() * 10000); 
+        
+        // Business aur Technology keywords ke saath photo fetch karega
+        const imageUrl = `https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80&sig=${randomNumber}`;
+        
+        // Dynamic set karna
+        bg.style.backgroundImage = `url('${imageUrl}')`;
     </script>
 </body>
 </html>
