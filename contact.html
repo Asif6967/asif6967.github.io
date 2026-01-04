@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Asif Teach Global</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="dynamic-bg"></div>
+
+  <nav>
+    <div class="logo">Asif Teach<span> Global</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="container glass-box">
+    <h1>Contact Us</h1>
+    <p>Have questions or collaboration ideas? Send us a message below:</p>
+
+    <form action="https://formspree.io/f/yourFormID" method="POST">
+      <label>Your Name</label>
+      <input type="text" name="name" required placeholder="Enter your name" style="width:100%;padding:10px;margin-bottom:10px;border-radius:5px;border:none;">
+
+      <label>Your Email</label>
+      <input type="email" name="email" required placeholder="Enter your email" style="width:100%;padding:10px;margin-bottom:10px;border-radius:5px;border:none;">
+
+      <label>Message</label>
+      <textarea name="message" required placeholder="Write your message..." style="width:100%;padding:10px;height:120px;border-radius:5px;border:none;"></textarea>
+
+      <button type="submit" style="margin-top:10px;padding:10px 20px;background:#ffae42;border:none;color:white;border-radius:5px;cursor:pointer;">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>
