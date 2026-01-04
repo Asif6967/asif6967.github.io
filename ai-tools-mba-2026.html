@@ -1,38 +1,77 @@
-<div id="article-body" style="filter: blur(10px); pointer-events: none; transition: 0.5s;">
-    <h1>Top 10 AI Tools for MBA Students in 2026</h1>
-    <p>AI has transformed how management is taught... (Yahan aapka pura article hai)</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 2026 Business Revolution | Asif Teach Global</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: #020617; color: white; font-family: 'Poppins', sans-serif; line-height: 1.8; margin: 0;">
 
-<div id="lock-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 9999;">
-    <div class="glass-box" style="text-align: center; max-width: 400px; border: 2px solid #3b82f6; padding: 30px;">
-        <h2 style="color: #3b82f6;">🔒 Premium Article</h2>
-        <p>Please pay ₹10 to unlock or enter your access code.</p>
+    <div id="article-body" style="filter: blur(20px); pointer-events: none; padding: 60px 10%; transition: 1s ease;">
         
-        <a href="YOUR_PAYMENT_LINK" style="background:#ff9900; color:black; padding:10px 20px; border-radius:20px; text-decoration:none; font-weight:bold; display:block; margin-bottom:20px;">
-            Pay Now to Unlock
-        </a>
+        <h1 style="font-size: 40px; color: #3b82f6; text-align: center;">The Future of Global Business: AI Transformation 2026</h1>
+        
+        <section style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
+            <h2 style="color: #eab308;">Page 1: The Predictive Economy</h2>
+            <p>In 2026, global business has moved beyond digital tools to autonomous intelligence. Companies now use neural networks to manage inventory with zero human intervention. This shift has redefined the MBA landscape, making algorithmic literacy the most important skill for any graduate.</p>
+        </section>
 
-        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        <section style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
+            <h2 style="color: #eab308;">Page 2: Hyper-Personalized Marketing</h2>
+            <p>Traditional ads are dead. AI now generates unique visual content and pricing for every individual shopper. By analyzing psychological data in real-time, brands can offer exactly what a customer needs before they even search for it.</p>
+        </section>
 
-        <input type="password" id="masterKey" placeholder="Enter Admin Password" style="padding: 10px; border-radius: 5px; border: none; width: 80%;">
-        <button onclick="checkMasterKey()" style="margin-top: 10px; background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-            Unlock Now
-        </button>
+        <section style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
+            <h2 style="color: #eab308;">Page 3: The Human-Machine Leadership</h2>
+            <p>While machines handle data, humans handle ethics. The most successful firms in 2026 are led by 'Centaur Managers' who balance AI's speed with human empathy and emotional intelligence. High-EQ leadership is now the highest-paid corporate trait.</p>
+        </section>
+
+        <section style="margin-bottom: 40px;">
+            <h2 style="color: #eab308;">Page 4: Strategy for 2030</h2>
+            <p>The road to 2030 requires mastering 'Prompt Auditing'. The article concludes that the Trillion-dollar companies of the future will be those that use AI not just for profit, but for solving global supply chain and sustainability crises.</p>
+        </section>
+
     </div>
-</div>
 
-<script>
-    function checkMasterKey() {
-        var key = document.getElementById("masterKey").value;
-        var mySecret = "asif@#69#@"; // <--- YE AAPKA PASSWORD HAI (Ise badal sakte hain)
+    <div id="lock-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); display: flex; align-items: center; justify-content: center; z-index: 9999; backdrop-filter: blur(8px);">
+        <div class="glass-box" style="text-align: center; max-width: 400px; border: 2px solid #3b82f6; padding: 40px; border-radius: 25px;">
+            <h2 style="color: #3b82f6; margin-bottom: 15px;">🔒 Premium 4-Page Insight</h2>
+            <p style="color: #ccc;">Is detailed business article ko unlock karne ke liye ₹10 pay karein.</p>
+            
+            <a href="upi://pay?pa=9568591635@ybl&pn=Asif&am=10&cu=INR" 
+               style="background:#ff9900; color:black; padding:15px 30px; border-radius:30px; text-decoration:none; font-weight:bold; display:block; margin: 25px 0; transition: 0.3s;">
+                Pay ₹10 via UPI
+            </a>
 
-        if (key === mySecret) {
-            // Agar password sahi hai toh blur hat jayega
-            document.getElementById("lock-screen").style.display = "none";
-            document.getElementById("article-body").style.filter = "none";
-            document.getElementById("article-body").style.pointerEvents = "auto";
-        } else {
-            alert("Galat Password! Payment kijiye ya sahi code daaliye.");
+            <hr style="border: 0.5px solid #333; margin: 25px 0;">
+
+            <p style="font-size: 14px; margin-bottom: 10px;">Already Paid? Enter Access Code:</p>
+            <input type="password" id="masterKey" placeholder="Enter Access Code" 
+                   style="padding: 12px; border-radius: 10px; border: 1px solid #333; width: 85%; background: rgba(255,255,255,0.1); color: white; text-align: center;">
+            
+            <button onclick="checkMasterKey()" 
+                    style="margin-top: 15px; background: #3b82f6; color: white; border: none; padding: 12px 40px; border-radius: 10px; cursor: pointer; font-weight: bold; width: 85%;">
+                Unlock Now
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function checkMasterKey() {
+            var key = document.getElementById("masterKey").value;
+            // Aapka Secret Password
+            if (key === "asif@#69#@") {
+                document.getElementById("lock-screen").style.opacity = "0";
+                setTimeout(() => {
+                    document.getElementById("lock-screen").style.display = "none";
+                    document.getElementById("article-body").style.filter = "none";
+                    document.getElementById("article-body").style.pointerEvents = "auto";
+                }, 500);
+            } else {
+                alert("Galat Password! Kripya ₹10 pay karein ya sahi code daalein.");
+            }
         }
-    }
-</script>
+    </script>
+</body>
+</html>
