@@ -185,39 +185,52 @@
     changeBackground();
     setInterval(changeBackground, 10000);
   </script>
+<!-- 🎥 Latest From YouTube -->
+<section id="youtube-section" class="glass-box">
+  <h2>🎬 Latest From Real Asif Universe Global</h2>
+  <div id="youtube-videos" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <p>Loading latest videos...</p>
+  </div>
+</section>
+
+<!-- ✅ YouTube API Script -->
 <script>
-  // 🔑 अपनी YouTube API key यहाँ डालो
-  const API_KEY = "AlzaSyANSuEATqQN2D5P6AsTHV23W5UQhwdUdyo";  
-
-  // 📺 अपने चैनल का ID यहाँ डालो
-  const CHANNEL_ID = "UCRfvXfU4toossqCIbuXNblA";  
-
-  const maxResults = 4;
+  const API_KEY = "AIzaSyDdbmzW7oLnAlv4cDqxPYkgLYv7E7lMKDM ";   // ← यहाँ अपनी असली key डाल
+  const CHANNEL_ID = "UCRfvXfU4toossqCIbuXNblA"; // ← तेरा YouTube Channel ID
+  const MAX_RESULTS = 4;
 
   async function loadYouTubeVideos() {
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${maxResults}`;
+    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
 
     try {
-      const res = await fetch(url);
-      const data = await res.json();
-      const container = document.getElementById('youtube-videos');
-      container.innerHTML = '';
+      const response = await fetch(url);
+      const data = await response.json();
+      const container = document.getElementById("youtube-videos");
+      container.innerHTML = "";
 
-      data.items.forEach(item => {
-        if (item.id.videoId) {
-          const videoEl = document.createElement('div');
-          videoEl.classList.add('video-card');
-          videoEl.innerHTML = `
-            <iframe src="https://www.youtube.com/embed/${item.id.videoId}" 
-                    frameborder="0" allowfullscreen></iframe>
-            <h4>${item.snippet.title}</h4>
-          `;
-          container.appendChild(videoEl);
-        }
-      });
+      if (data.items && data.items.length > 0) {
+        data.items.forEach((item) => {
+          if (item.id.videoId) {
+            const videoCard = document.createElement("div");
+            videoCard.style.width = "300px";
+            videoCard.style.borderRadius = "10px";
+            videoCard.style.overflow = "hidden";
+            videoCard.style.boxShadow = "0 0 15px rgba(255,255,255,0.2)";
+            videoCard.style.background = "rgba(0,0,0,0.5)";
+            videoCard.innerHTML = `
+              <iframe width="100%" height="170" 
+                src="https://www.youtube.com/embed/${item.id.videoId}" 
+                frameborder="0" allowfullscreen></iframe>
+              <h4 style="padding:10px; color:#ffae42; font-size:1rem;">${item.snippet.title}</h4>
+            `;
+            container.appendChild(videoCard);
+          }
+        });
+      } else {
+        container.innerHTML = "<p>⚠️ No videos found — check API key or restrictions.</p>";
+      }
     } catch (error) {
-      console.error('Error fetching YouTube videos:', error);
-      document.getElementById('youtube-videos').innerHTML = `<p>⚠️ Failed to load videos.</p>`;
+      document.getElementById("youtube-videos").innerHTML = `<p>⚠️ ${error.message}</p>`;
     }
   }
 
