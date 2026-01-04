@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Teach Global | Tech & Management</title>
+    <title>Asif Teach Global | Business & Tech Insights</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="dynamic-bg" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; filter: brightness(0.3);"></div>
+    <div id="dynamic-bg"></div>
 
     <nav>
         <div class="logo">Asif Teach<span> Global</span></div>
         <div class="nav-links">
-            <a href="#about">About</a>
             <a href="#insights">Insights</a>
+            <a href="#about">About</a>
         </div>
     </nav>
 
@@ -25,22 +25,21 @@
 
     <div class="container">
         <div class="glass-box" id="insights">
-            <h2 style="color:#eab308; text-align:center;">Latest Tech Insights</h2>
-            <div class="insights-grid">
-                <div class="article-card">
-                    <h4>Impact of AI on MBA Careers</h4>
-                    <p>Artificial intelligence is redefining organizational structures.</p>
-                    <a href="mba-ai-impact.html">Read Full Insight</a>
-                </div>
+            <h2 class="section-title">Latest Tech Insights</h2>
+            <div class="article-card">
+                <h3>Impact of AI on MBA Careers</h3>
+                <p>Artificial intelligence is redefining organizational structures in 2026.</p>
+                <a href="mba-ai-impact.html" class="read-more">Read Full Insight</a>
             </div>
         </div>
     </div>
 
     <script>
-        // Har baar refresh par naya Business background lane ke liye
-        const keywords = ['business', 'technology', 'office', 'finance', 'startup'];
-        const randomKey = keywords[Math.floor(Math.random() * keywords.length)];
-        document.getElementById('dynamic-bg').style.backgroundImage = `url('https://source.unsplash.com/featured/?${randomKey}')`;
+        // Pakka working background script
+        const bg = document.getElementById('dynamic-bg');
+        const timestamp = new Date().getTime(); 
+        // Har baar naya image load hoga
+        bg.style.backgroundImage = `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80&sig=${timestamp}')`;
     </script>
 </body>
 </html>
