@@ -1,67 +1,69 @@
-<section style="padding: 80px 20px; background: transparent; font-family: 'Segoe UI', sans-serif;">
-    <div style="max-width: 1300px; margin: 0 auto; text-align: center;">
-        <h1 style="color: #ffae42; font-size: 38px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 3px;">Global Project Archive</h1>
-        <p style="color: #888; margin-bottom: 60px; font-size: 18px;">20+ High-Performance Digital Solutions Delivered Worldwide</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asif Tech | Global Archive</title>
+    <style>
+        body { background: #000; color: white; font-family: sans-serif; margin: 0; }
+        /* Language Bar Style */
+        #google_translate_element { padding: 10px; text-align: right; background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.1); }
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">AI #01</span>
-                <h3 style="color: #fff; margin: 10px 0;">Predictive Analysis Tool</h3>
-                <p style="color: #666; font-size: 14px;">Enterprise-level data prediction for retail chains.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">AI #02</span>
-                <h3 style="color: #fff; margin: 10px 0;">NLP Chatbot (Multi-lang)</h3>
-                <p style="color: #666; font-size: 14px;">Automated customer support in 15+ languages.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">AI #03</span>
-                <h3 style="color: #fff; margin: 10px 0;">Computer Vision Security</h3>
-                <p style="color: #666; font-size: 14px;">Facial recognition for corporate headquarters.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">AI #04</span>
-                <h3 style="color: #fff; margin: 10px 0;">Automated Billing System</h3>
-                <p style="color: #666; font-size: 14px;">AI-driven invoice processing for FinTech.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">AI #05</span>
-                <h3 style="color: #fff; margin: 10px 0;">Smart Logistics AI</h3>
-                <p style="color: #666; font-size: 14px;">Route optimization for supply chain management.</p>
-            </div>
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px; }
+        .card { 
+            background: rgba(255,255,255,0.05); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            padding: 25px; border-radius: 15px; cursor: pointer; transition: 0.3s;
+        }
+        .card:hover { border-color: #ffae42; transform: translateY(-5px); }
+        .card h3 { color: #ffae42; margin: 10px 0; }
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); }
+        .modal-content { background: #111; margin: 10% auto; padding: 30px; border: 1px solid #ffae42; width: 70%; border-radius: 15px; }
+        .close { color: #ffae42; float: right; font-size: 28px; cursor: pointer; }
+    </style>
+</head>
+<body>
 
-            <div style="background: rgba(255,255,255,0.05); border: 1px solid #ffae42; border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">WEB #06</span>
-                <h3 style="color: #fff; margin: 10px 0;">B2B Global Marketplace</h3>
-                <p style="color: #666; font-size: 14px;">Scalable E-commerce for wholesale traders.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">WEB #07</span>
-                <h3 style="color: #fff; margin: 10px 0;">Crypto Wallet Dashboard</h3>
-                <p style="color: #666; font-size: 14px;">Secure interface for multi-currency transactions.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">WEB #08</span>
-                <h3 style="color: #fff; margin: 10px 0;">University Portal System</h3>
-                <p style="color: #666; font-size: 14px;">End-to-end student management architecture.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">WEB #09</span>
-                <h3 style="color: #fff; margin: 10px 0;">SaaS CRM Platform</h3>
-                <p style="color: #666; font-size: 14px;">Custom relationship management for startups.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left;">
-                <span style="color: #ffae42; font-size: 12px; font-weight: bold;">WEB #10</span>
-                <h3 style="color: #fff; margin: 10px 0;">Hospitality Booking Engine</h3>
-                <p style="color: #666; font-size: 14px;">Real-time API integration for hotel chains.</p>
-            </div>
+    <div id="google_translate_element"></div>
 
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: left; grid-column: 1 / -1;">
-                <h3 style="color: #ffae42;">+10 More Enterprise Deployments</h3>
-                <p style="color: #888;">Including Cloud Infrastructure, Penetration Testing, and Data Warehousing Solutions for Fortune 500 clients.</p>
-            </div>
+    <h1 style="text-align:center; margin-top:40px; color:#ffae42;">PROJECT CASE STUDIES</h1>
 
+    <div class="grid" id="mainGrid"></div>
+
+    <div id="pModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeM()">&times;</span>
+            <div id="modalText"></div>
         </div>
     </div>
-</section>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        const pList = [
+            { id: 1, t: "AI Data Predictor", d: "<b>1. Goal:</b> Forecast stock for retail.<br><b>2. Tech:</b> Python AI.<br><b>3. Result:</b> 40% cost saving." },
+            { id: 2, t: "Global Payment Hub", d: "<b>1. Goal:</b> Secure B2B payments.<br><b>2. Tech:</b> Blockchain & SSL.<br><b>3. Result:</b> Zero fraud reported." }
+        ];
+
+        for(let i=3; i<=20; i++) {
+            pList.push({ id: i, t: "Enterprise Solution #"+i, d: "<b>Goal:</b> High-level corporate implementation.<br><b>Architecture:</b> Cloud-based Scalability.<br><b>Outcome:</b> Global Deployment Success." });
+        }
+
+        const grid = document.getElementById('mainGrid');
+        pList.forEach(p => {
+            grid.innerHTML += `<div class="card" onclick="openM(${p.id})"><h3>${p.t}</h3><p>Click for details...</p></div>`;
+        });
+
+        function openM(id) {
+            const p = pList.find(x => x.id === id);
+            document.getElementById('modalText').innerHTML = `<h2>${p.t}</h2><hr><p style="line-height:1.8">${p.d}</p>`;
+            document.getElementById('pModal').style.display = "block";
+        }
+        function closeM() { document.getElementById('pModal').style.display = "none"; }
+    </script>
+</body>
+</html>
