@@ -5,10 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Asif Tech Global</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Professional Layout Styling */
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+      justify-content: center;
+    }
+    .contact-info, .contact-form-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex: 1;
+      min-width: 300px;
+    }
+    .contact-info h2 { color: #ffae42; }
+    .social-btns { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+    .btn {
+      padding: 12px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-linkedin { background: #0077b5; color: white; }
+    .btn-whatsapp { background: #25d366; color: white; }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #444;
+      border-radius: 8px;
+      color: white;
+    }
+    .submit-btn {
+      background: #ffae42;
+      color: black;
+      border: none;
+      padding: 15px;
+      width: 100%;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
   <div id="dynamic-bg"></div>
-
   <nav>
     <div class="logo">Asif Tech<span> Global</span></div>
     <div class="nav-links">
@@ -18,53 +67,33 @@
     </div>
   </nav>
 
-  <section class="container glass-box" style="max-width: 600px; margin: 50px auto; padding: 30px; border-radius: 15px; background: rgba(0,0,0,0.7);">
-    <h1>Contact Us</h1>
-    <p style="margin-bottom: 20px;">Have questions or collaboration ideas? Send us a message below:</p>
-
-    <form action="https://formspree.io/f/xojvrpog" method="POST">
-      
-      <label style="display:block; margin-bottom:5px;">Your Name</label>
-      <input type="text" name="name" required placeholder="Enter your name" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #444; background: rgba(255,255,255,0.1); color: white;">
-
-      <label style="display:block; margin-bottom:5px;">Company / Organization Name</label>
-      <input type="text" name="company" placeholder="Enter company name (for B2B)" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #444; background: rgba(255,255,255,0.1); color: white;">
-
-      <label style="display:block; margin-bottom:5px;">Your Email</label>
-      <input type="email" name="email" required placeholder="Enter your work email" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #444; background: rgba(255,255,255,0.1); color: white;">
-
-      <label style="display:block; margin-bottom:5px;">Message</label>
-      <textarea name="message" required placeholder="How can we collaborate?" style="width:100%; padding:10px; height:120px; border-radius:5px; border:1px solid #444; background: rgba(255,255,255,0.1); color: white;"></textarea>
-
-      <button type="submit" style="margin-top:10px; padding:12px 25px; background:#ffae42; border:none; color:white; border-radius:5px; cursor:pointer; font-weight:bold; width: 100%;">Send Message to Asif Tech</button>
-    </form>
-
-    <div style="margin-top: 30px; text-align: center; border-top: 1px solid #444; padding-top: 20px;">
-      <p style="font-size: 0.9em; color: #ccc;">Direct Professional Connect:</p>
-      <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank" style="color: #0077b5; text-decoration: none; font-weight: bold; margin: 0 10px;">LinkedIn Profile</a>
-      <span style="color:#555;">|</span>
-      <a href="https://wa.me/91YOUR_NUMBER" target="_blank" style="color: #25d366; text-decoration: none; font-weight: bold; margin: 0 10px;">WhatsApp Business</a>
-    </div>
-  </section>
-</form>
-  </section> <footer style="margin-top: 50px; text-align: center; padding: 40px 20px; background: rgba(0,0,0,0.8); border-top: 2px solid #ffae42;">
-      <h3 style="color: #ffae42; margin-bottom: 20px;">Connect with Mohd Asif</h3>
-      
-      <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
-          <a href="https://www.linkedin.com/in/mohd-asif-4ab4652a9/" target="_blank" 
-             style="padding: 12px 25px; background: #0077b5; color: white; border-radius: 30px; text-decoration: none; font-weight: bold; display: flex; align-items: center;">
-             LinkedIn Profile
-          </a>
-
-          <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" target="_blank" 
-             style="padding: 12px 25px; background: #25d366; color: white; border-radius: 30px; text-decoration: none; font-weight: bold;">
-             WhatsApp Channel
-          </a>
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h2>Contact Us</h2>
+        <p>Badi companies aur collaboration ke liye humse judiye.</p>
+        <div class="social-btns">
+          <a href="https://www.linkedin.com/in/mohd-asif-4ab4652a9/" target="_blank" class="btn btn-linkedin">LinkedIn Profile</a>
+          <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" target="_blank" class="btn btn-whatsapp">WhatsApp Channel</a>
+        </div>
       </div>
 
-      <p style="color: #888; font-size: 0.9em;">© 2026 Asif Tech Global | Professional Digital Solutions</p>
+      <div class="contact-form-card">
+        <form action="https://formspree.io/f/xojvrpog" method="POST" enctype="multipart/form-data">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="text" name="company" placeholder="Company Name (Optional)">
+          <input type="email" name="email" placeholder="Work Email" required>
+          <label style="font-size: 12px; color: #aaa;">Upload Project Details (PDF/Image):</label>
+          <input type="file" name="upload">
+          <textarea name="message" placeholder="How can we help?" required rows="4"></textarea>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align:center; padding: 40px; color: #666;">
+    © 2026 Asif Tech Global | Professional Solutions
   </footer>
-  </body>
-</html>
 </body>
 </html>
