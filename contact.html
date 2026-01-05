@@ -18,22 +18,33 @@
     </div>
   </nav>
 
-  <section class="container glass-box">
+  <section class="container glass-box" style="max-width: 600px; margin: 50px auto; padding: 30px; border-radius: 15px; background: rgba(0,0,0,0.7);">
     <h1>Contact Us</h1>
-    <p>Have questions or collaboration ideas? Send us a message below:</p>
+    <p style="margin-bottom: 20px;">Have questions or collaboration ideas? Send us a message below:</p>
 
-    <form action="https://formspree.io/f/yourFormID" method="POST">
-      <label>Your Name</label>
-      <input type="text" name="name" required placeholder="Enter your name" style="width:100%;padding:10px;margin-bottom:10px;border-radius:5px;border:none;">
+    <form action="https://formspree.io/f/xojvrpog" method="POST">
+      
+      <label style="display:block; margin-bottom:5px;">Your Name</label>
+      <input type="text" name="name" required placeholder="Enter your name" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #444; background: rgba(255,255,255,0.1); color: white;">
 
-      <label>Your Email</label>
-      <input type="email" name="email" required placeholder="Enter your email" style="width:100%;padding:10px;margin-bottom:10px;border-radius:5px;border:none;">
+      <label style="display:block; margin-bottom:5px;">Company / Organization Name</label>
+      <input type="text" name="company" placeholder="Enter company name (for B2B)" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #444; background: rgba(255,255,255,0.1); color: white;">
 
-      <label>Message</label>
-      <textarea name="message" required placeholder="Write your message..." style="width:100%;padding:10px;height:120px;border-radius:5px;border:none;"></textarea>
+      <label style="display:block; margin-bottom:5px;">Your Email</label>
+      <input type="email" name="email" required placeholder="Enter your work email" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #444; background: rgba(255,255,255,0.1); color: white;">
 
-      <button type="submit" style="margin-top:10px;padding:10px 20px;background:#ffae42;border:none;color:white;border-radius:5px;cursor:pointer;">Send Message</button>
+      <label style="display:block; margin-bottom:5px;">Message</label>
+      <textarea name="message" required placeholder="How can we collaborate?" style="width:100%; padding:10px; height:120px; border-radius:5px; border:1px solid #444; background: rgba(255,255,255,0.1); color: white;"></textarea>
+
+      <button type="submit" style="margin-top:10px; padding:12px 25px; background:#ffae42; border:none; color:white; border-radius:5px; cursor:pointer; font-weight:bold; width: 100%;">Send Message to Asif Tech</button>
     </form>
+
+    <div style="margin-top: 30px; text-align: center; border-top: 1px solid #444; padding-top: 20px;">
+      <p style="font-size: 0.9em; color: #ccc;">Direct Professional Connect:</p>
+      <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank" style="color: #0077b5; text-decoration: none; font-weight: bold; margin: 0 10px;">LinkedIn Profile</a>
+      <span style="color:#555;">|</span>
+      <a href="https://wa.me/91YOUR_NUMBER" target="_blank" style="color: #25d366; text-decoration: none; font-weight: bold; margin: 0 10px;">WhatsApp Business</a>
+    </div>
   </section>
 </body>
 </html>
