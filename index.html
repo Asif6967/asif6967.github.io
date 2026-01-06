@@ -84,6 +84,77 @@
 
 </section>
   <!-- Insights Section -->
+<div class="container" id="tools">
+        <h2 style="color: #ffae42; text-align: center; margin-bottom: 20px;">🚀 Free Business & Tech Tools</h2>
+        
+        <div class="split-grid">
+            
+            <div class="glass-box" style="text-align: center;">
+                <h3 style="color: #3b82f6;"><i class="fa-solid fa-lock"></i> Secure Password Gen</h3>
+                <p style="font-size: 12px; color: #ccc; margin-bottom: 15px;">Create un-hackable passwords instantly.</p>
+                
+                <div style="background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px; margin-bottom: 10px; color: #22c55e; font-family: monospace; font-size: 18px;" id="passwordDisplay">Click Generate</div>
+                
+                <button onclick="generatePass()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold;">Generate New</button>
+                <button onclick="copyPass()" style="background: transparent; border: 1px solid #fff; color: white; padding: 10px; border-radius: 50px; cursor: pointer; margin-left: 5px;"><i class="fa-solid fa-copy"></i></button>
+            </div>
+
+            <div class="glass-box" style="text-align: center;">
+                <h3 style="color: #eab308;"><i class="fa-solid fa-calculator"></i> Business ROI Calc</h3>
+                <p style="font-size: 12px; color: #ccc; margin-bottom: 15px;">Calculate profit percentage.</p>
+                
+                <input type="number" id="invest" placeholder="Investment (₹)" style="width: 45%; padding: 8px; border-radius: 5px; border: none; margin-bottom: 10px;">
+                <input type="number" id="return" placeholder="Revenue (₹)" style="width: 45%; padding: 8px; border-radius: 5px; border: none; margin-bottom: 10px;">
+                
+                <h4 id="roiResult" style="color: #22c55e; margin: 10px 0;">ROI: 0%</h4>
+                
+                <button onclick="calcROI()" style="background: #eab308; color: black; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold;">Calculate</button>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <p style="color: #aaa; font-size: 12px; margin-bottom: 10px;">Like these tools? Share with friends!</p>
+            <button onclick="shareSite()" style="background: #25d366; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);">
+                <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Password Generator Logic
+        function generatePass() {
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+            let password = "";
+            for (let i = 0; i < 12; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById("passwordDisplay").innerText = password;
+        }
+
+        function copyPass() {
+            const pass = document.getElementById("passwordDisplay").innerText;
+            navigator.clipboard.writeText(pass);
+            alert("Password Copied!");
+        }
+
+        // ROI Calculator Logic
+        function calcROI() {
+            const inv = document.getElementById("invest").value;
+            const rev = document.getElementById("return").value;
+            if(inv && rev) {
+                const profit = rev - inv;
+                const roi = (profit / inv) * 100;
+                document.getElementById("roiResult").innerText = "ROI: " + roi.toFixed(2) + "%";
+            }
+        }
+
+        // Viral Share Logic
+        function shareSite() {
+            const msg = "Check out these amazing Free Business & Tech Tools on Asif Tech Global! Use them here: https://asif6967.github.io/";
+            window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
+        }
+    </script>
   <div class="container" id="insights">
     <h2 class="section-title">Latest Tech Insights</h2>
     <div class="glass-box">
