@@ -19,7 +19,7 @@
   <nav>
        <div class="logo">Asif Tech<span> Global</span></div>
     <div class="nav-links">
-      <a href="#home">Hone</>
+      <a href="#home">Home</>
       <a href="#insights">Insights</a>
       <a href="portfolio.html">Portfolio</a>   
       <a href="#about">About</a>
@@ -84,76 +84,83 @@
 
 </section>
   <!-- Insights Section -->
-<div class="container" id="tools">
-        <h2 style="color: #ffae42; text-align: center; margin-bottom: 20px;">🚀 Free Business & Tech Tools</h2>
+<div class="container" id="tools" style="margin: 60px auto; padding: 20px;">
+        <h2 style="color: #ffae42; text-align: center; margin-bottom: 30px;">🚀 Free Business Finance Tools</h2>
         
-        <div class="split-grid">
+        <div class="split-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
             
-            <div class="glass-box" style="text-align: center;">
-                <h3 style="color: #3b82f6;"><i class="fa-solid fa-lock"></i> Secure Password Gen</h3>
-                <p style="font-size: 12px; color: #ccc; margin-bottom: 15px;">Create un-hackable passwords instantly.</p>
+            <div class="glass-box" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                <h3 style="color: #58a6ff; margin-bottom: 15px;"><i class="fa-solid fa-file-invoice-dollar"></i> GST Calculator</h3>
+                <p style="font-size: 13px; color: #aaa; margin-bottom: 20px;">Calculate tax instantly for invoices.</p>
                 
-                <div style="background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px; margin-bottom: 10px; color: #22c55e; font-family: monospace; font-size: 18px;" id="passwordDisplay">Click Generate</div>
+                <input type="number" id="gstAmount" placeholder="Enter Amount (₹)" style="width: 80%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 15px;">
                 
-                <button onclick="generatePass()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold;">Generate New</button>
-                <button onclick="copyPass()" style="background: transparent; border: 1px solid #fff; color: white; padding: 10px; border-radius: 50px; cursor: pointer; margin-left: 5px;"><i class="fa-solid fa-copy"></i></button>
+                <select id="gstRate" style="width: 85%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 20px; cursor: pointer;">
+                    <option value="5">5% GST</option>
+                    <option value="12">12% GST</option>
+                    <option value="18" selected>18% GST (Standard)</option>
+                    <option value="28">28% GST</option>
+                </select>
+                
+                <h4 id="gstResult" style="color: #fff; font-size: 18px; margin: 10px 0;">Total: ₹0</h4>
+                
+                <button onclick="calcGST()" style="background: #58a6ff; color: white; border: none; padding: 10px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px;">Calculate Tax</button>
             </div>
 
-            <div class="glass-box" style="text-align: center;">
-                <h3 style="color: #eab308;"><i class="fa-solid fa-calculator"></i> Business ROI Calc</h3>
-                <p style="font-size: 12px; color: #ccc; margin-bottom: 15px;">Calculate profit percentage.</p>
+            <div class="glass-box" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                <h3 style="color: #ffae42; margin-bottom: 15px;"><i class="fa-solid fa-chart-line"></i> Profit Margin</h3>
+                <p style="font-size: 13px; color: #aaa; margin-bottom: 20px;">Check your actual business profit %.</p>
                 
-                <input type="number" id="invest" placeholder="Investment (₹)" style="width: 45%; padding: 8px; border-radius: 5px; border: none; margin-bottom: 10px;">
-                <input type="number" id="return" placeholder="Revenue (₹)" style="width: 45%; padding: 8px; border-radius: 5px; border: none; margin-bottom: 10px;">
+                <input type="number" id="costPrice" placeholder="Cost Price (₹)" style="width: 40%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 15px;">
+                <input type="number" id="sellPrice" placeholder="Selling Price (₹)" style="width: 40%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 15px;">
                 
-                <h4 id="roiResult" style="color: #22c55e; margin: 10px 0;">ROI: 0%</h4>
+                <h4 id="marginResult" style="color: #fff; font-size: 18px; margin: 10px 0;">Margin: 0%</h4>
                 
-                <button onclick="calcROI()" style="background: #eab308; color: black; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold;">Calculate</button>
+                <button onclick="calcMargin()" style="background: #ffae42; color: black; border: none; padding: 10px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px;">Check Profit</button>
             </div>
 
         </div>
 
-        <div style="text-align: center; margin-bottom: 40px;">
-            <p style="color: #aaa; font-size: 12px; margin-bottom: 10px;">Like these tools? Share with friends!</p>
-            <button onclick="shareSite()" style="background: #25d366; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);">
-                <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
+        <div style="text-align: center; margin-top: 40px;">
+            <p style="color: #aaa; font-size: 12px; margin-bottom: 10px;">Help other businesses grow!</p>
+            <button onclick="shareBiz()" style="background: #25d366; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);">
+                <i class="fa-brands fa-whatsapp"></i> Share Tools on WhatsApp
             </button>
         </div>
     </div>
 
     <script>
-        // Password Generator Logic
-        function generatePass() {
-            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-            let password = "";
-            for (let i = 0; i < 12; i++) {
-                password += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            document.getElementById("passwordDisplay").innerText = password;
-        }
-
-        function copyPass() {
-            const pass = document.getElementById("passwordDisplay").innerText;
-            navigator.clipboard.writeText(pass);
-            alert("Password Copied!");
-        }
-
-        // ROI Calculator Logic
-        function calcROI() {
-            const inv = document.getElementById("invest").value;
-            const rev = document.getElementById("return").value;
-            if(inv && rev) {
-                const profit = rev - inv;
-                const roi = (profit / inv) * 100;
-                document.getElementById("roiResult").innerText = "ROI: " + roi.toFixed(2) + "%";
+        // GST Logic
+        function calcGST() {
+            const amount = parseFloat(document.getElementById("gstAmount").value);
+            const rate = parseFloat(document.getElementById("gstRate").value);
+            if(amount) {
+                const tax = (amount * rate) / 100;
+                const total = amount + tax;
+                document.getElementById("gstResult").innerHTML = 
+                    `Tax: ₹${tax.toFixed(2)} | <span style="color:#58a6ff">Total: ₹${total.toFixed(2)}</span>`;
             }
         }
 
-        // Viral Share Logic
-        function shareSite() {
-            const msg = "Check out these amazing Free Business & Tech Tools on Asif Tech Global! Use them here: https://asif6967.github.io/";
+        // Profit Margin Logic
+        function calcMargin() {
+            const cost = parseFloat(document.getElementById("costPrice").value);
+            const sell = parseFloat(document.getElementById("sellPrice").value);
+            if(cost && sell) {
+                const profit = sell - cost;
+                const margin = (profit / sell) * 100;
+                const color = margin > 0 ? "#22c55e" : "#ef4444";
+                document.getElementById("marginResult").innerHTML = 
+                    `Profit: ₹${profit} | <span style="color:${color}">${margin.toFixed(2)}% Margin</span>`;
+            }
+        }
+
+        // Business Share Logic
+        function shareBiz() {
+            const msg = "Calculate GST and Profit Margins instantly with Asif Tech Global's Free Business Tools! Check here: https://asif6967.github.io/";
             window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
         }
+    </script>
     </script>
   <div class="container" id="insights">
     <h2 class="section-title">Latest Tech Insights</h2>
