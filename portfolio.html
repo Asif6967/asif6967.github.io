@@ -41,29 +41,18 @@
             new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <script>
-        const pList = [
-            { id: 1, t: "AI Data Predictor", d: "<b>1. Goal:</b> Forecast stock for retail.<br><b>2. Tech:</b> Python AI.<br><b>3. Result:</b> 40% cost saving." },
-            { id: 2, t: "Global Payment Hub", d: "<b>1. Goal:</b> Secure B2B payments.<br><b>2. Tech:</b> Blockchain & SSL.<br><b>3. Result:</b> Zero fraud reported." }
-        ];
-
-        for(let i=3; i<=20; i++) {
-            pList.push({ id: i, t: "Enterprise Solution #"+i, d: "<b>Goal:</b> High-level corporate implementation.<br><b>Architecture:</b> Cloud-based Scalability.<br><b>Outcome:</b> Global Deployment Success." });
-        }
-
-        const grid = document.getElementById('mainGrid');
-        pList.forEach(p => {
-            grid.innerHTML += `<div class="card" onclick="openM(${p.id})"><h3>${p.t}</h3><p>Click for details...</p></div>`;
-        });
-
-        function openM(id) {
-            const p = pList.find(x => x.id === id);
-            document.getElementById('modalText').innerHTML = `<h2>${p.t}</h2><hr><p style="line-height:1.8">${p.d}</p>`;
-            document.getElementById('pModal').style.display = "block";
-        }
-        function closeM() { document.getElementById('pModal').style.display = "none"; }
-    </script>
-</body>
+<div class="project-card" style="background: #161b22; border: 1px solid #ffae42; padding: 25px; border-radius: 15px; text-align: left; box-shadow: 0 0 10px rgba(255, 174, 66, 0.2);">
+                <div style="color: #ffae42; font-size: 30px; margin-bottom: 15px;">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                
+                <h3 style="color: #fff; margin-bottom: 10px;">Business Automation Hub</h3>
+                <p style="color: #aaa; font-size: 14px; margin-bottom: 20px;">
+                    A live financial dashboard with GST Calculator, Profit Margin analysis, and Real-time Global Currency Converter (Python & JS).
+                </p>
+                
+                <a href="index.html" style="display: inline-block; text-decoration: none; background: #ffae42; color: #000; padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 14px;">
+                    <i class="fa-solid fa-rocket"></i> Try Live Tools
+                </a>
+            </div>
 </html>
