@@ -42,19 +42,13 @@ async function sendMessage() {
     messages.appendChild(loading);
     messages.scrollTop = messages.scrollHeight;
 
-    try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${MY_KEY}`, {
+try {
+        // 👇👇 CHANGE: Yahan humne 'gemini-pro' kar diya hai 👇👇
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${FINAL_KEY}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{
-                        text: `You are Asif Tech AI. Keep answers short and in Hinglish. User: ${text}`
-                    }]
-                }]
-            })
+            body: JSON.stringify({ contents: [{ parts: [{ text: `You are Asif Tech AI. Hinglish. User: ${text}` }] }] })
         });
-
         const data = await response.json();
 
         // Loading hatao
