@@ -482,36 +482,20 @@
         .curr-val { font-size: 18px; color: #fff; font-weight: bold; margin-top: 5px; }
         .curr-label { font-size: 12px; color: #888; }
     </style>
+<div class="currency-wrapper">
 
-    <div class="dashboard-container">
-        <h2 style="color: #fff; text-align: center;">🌐 Global Operations Hub</h2>
-        <p style="text-align: center; color: #aaa;">Live Tracking: Time & Forex</p>
-
-        <div class="dashboard-grid">
-            <div class="time-card">
-                <div class="city-name">🇺🇸 New York</div>
-                <div id="timeNY" class="clock-time">--:--</div>
-            </div>
-            <div class="time-card">
-                <div class="city-name">🇬🇧 London</div>
-                <div id="timeLondon" class="clock-time">--:--</div>
-            </div>
-            <div class="time-card">
-                <div class="city-name">🇦🇪 Dubai</div>
-                <div id="timeDubai" class="clock-time">--:--</div>
-            </div>
-            <div class="time-card">
-                <div class="city-name">🇮🇳 India (HQ)</div>
-                <div id="timeIndia" class="clock-time">--:--</div>
-            </div>
-        </div>
-
-        <div class="currency-wrapper">
-            <h3 style="color: #ffae42;"><i class="fa-solid fa-coins"></i> Global Forex Converter</h3>
-            <p style="color: #888; font-size: 13px; margin-bottom: 20px;">Enter USD ($) to see worldwide value</p>
+           <h3 style="color: #ffae42;"><i class="fa-solid fa-coins"></i> Global Forex Converter</h3>
+            <p style="color: #888; font-size: 13px; margin-bottom: 25px;">Enter USD ($) and click Convert</p>
             
-            <input type="number" id="usdInput" placeholder="Enter USD Amount ($)" oninput="convertCurrency()" 
-                style="padding: 12px; border-radius: 50px; border: 2px solid #ffae42; font-size: 18px; width: 60%; text-align: center; outline: none; background: #000; color: #fff;">
+            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px;">
+                <input type="number" id="usdInput" placeholder="Enter USD Amount ($)" 
+                    style="padding: 12px; border-radius: 50px; border: 2px solid #ffae42; font-size: 18px; width: 250px; text-align: center; outline: none; background: #000; color: #fff;">
+                
+                <button onclick="convertCurrency()" 
+                    style="background: #ffae42; color: #000; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s;">
+                    Convert
+                </button>
+            </div>
 
             <div class="currency-grid">
                 <div class="curr-box" style="border-color: #22c55e;">
@@ -532,46 +516,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <script>
-        // Clock Logic
-        function updateClocks() {
-            const now = new Date();
-            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
-            
-            document.getElementById('timeNY').innerText = now.toLocaleTimeString('en-US', { timeZone: 'America/New_York', ...options }).toUpperCase();
-            document.getElementById('timeLondon').innerText = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/London', ...options }).toUpperCase();
-            document.getElementById('timeDubai').innerText = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Dubai', ...options }).toUpperCase();
-            document.getElementById('timeIndia').innerText = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', ...options }).toUpperCase();
-        }
-        setInterval(updateClocks, 1000);
-        updateClocks();
-
-        // Multi-Currency Logic
-        function convertCurrency() {
-            const usd = parseFloat(document.getElementById('usdInput').value);
-            
-            // Fixed Rates (Approx)
-            const rateINR = 86.50;
-            const rateEUR = 0.92;
-            const rateGBP = 0.78;
-            const rateAED = 3.67;
-
-            if(usd) {
-                document.getElementById('outINR').innerText = "₹ " + (usd * rateINR).toFixed(2);
-                document.getElementById('outEUR').innerText = "€ " + (usd * rateEUR).toFixed(2);
-                document.getElementById('outGBP').innerText = "£ " + (usd * rateGBP).toFixed(2);
-                document.getElementById('outAED').innerText = "د.إ " + (usd * rateAED).toFixed(2);
-            } else {
-                document.getElementById('outINR').innerText = "₹ 0.00";
-                document.getElementById('outEUR').innerText = "€ 0.00";
-                document.getElementById('outGBP').innerText = "£ 0.00";
-                document.getElementById('outAED').innerText = "د.إ 0.00";
-            }
-        }
-    </script>
-    </script>
 <script>
   const API_KEY = "empty ";   // ← यहाँ अपनी असली key डाल
   const CHANNEL_ID = "UCRfvXfU4toossqCIbuXNblA"; // ← तेरा YouTube Channel ID
