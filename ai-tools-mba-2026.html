@@ -1,93 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 2026 Business Revolution | Asif Teach Global</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body style="background: #020617; color: white; font-family: 'Poppins', sans-serif; line-height: 1.8; margin: 0;">
+<!-- LOCK SCREEN -->
+<div id="lock-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; z-index: 9999; backdrop-filter: blur(10px);">
+  <div class="glass-box" style="text-align: center; max-width: 450px; border: 2px solid #3b82f6; padding: 40px; border-radius: 30px;">
+    <h2 style="color: #3b82f6; margin-bottom: 15px;">🔒 Premium 4-Page Insight</h2>
+    <p style="color: #ccc; margin-bottom: 20px;">Unlock the full business article for ₹10.</p>
 
-    <div id="article-body" style="filter: blur(25px); pointer-events: none; padding: 60px 10%; transition: 1s ease;">
-        <h1 style="font-size: 40px; color: #3b82f6; text-align: center;">The Future of Global Business: AI Transformation 2026</h1>
-        
-        <section style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-            <h2 style="color: #eab308;">Page 1: The Predictive Economy</h2>
-            <p>In 2026, global business has moved beyond digital tools to autonomous intelligence. Companies now use neural networks to manage inventory with zero human intervention. Algorithmic literacy is the most important skill for any MBA graduate today.</p>
-        </section>
-
-        <section style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-            <h2 style="color: #eab308;">Page 2: Hyper-Personalized Marketing</h2>
-            <p>Traditional ads are officially dead. AI now generates unique visual content and pricing for every individual shopper in real-time. Brands know what you want before you even search for it.</p>
-        </section>
-
-        <section style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-            <h2 style="color: #eab308;">Page 3: The Human-Machine Partnership</h2>
-            <p>While machines handle data, humans handle empathy. The leaders of 2026 are 'Centaur Managers' who combine AI's speed with human emotional intelligence. High-EQ leadership is now the highest-valued trait.</p>
-        </section>
-
-        <section style="margin-bottom: 40px;">
-            <h2 style="color: #eab308;">Page 4: Strategic Orchestration 2030</h2>
-            <p>The road to 2030 requires mastering 'Prompt Auditing'. Trillion-dollar companies will be those that use AI for sustainability and solving global supply chain crises.</p>
-        </section>
-    </div>
-
-    <div id="lock-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; z-index: 9999; backdrop-filter: blur(10px);">
-        <div class="glass-box" style="text-align: center; max-width: 450px; border: 2px solid #3b82f6; padding: 40px; border-radius: 30px;">
-            <h2 style="color: #3b82f6; margin-bottom: 15px;">🔒 Premium 4-Page Insight</h2>
-            <p style="color: #ccc; margin-bottom: 25px;">Unlock the full lamba business article for ₹10.</p>
-            
-            <a href="upi://pay?pa=9568591635@ybl&pn=Asif&am=10&cu=INR" 
-               style="display: block; background: #ff9900; color: black !important; padding: 18px; border-radius: 40px; text-decoration: none; font-weight: 800; font-size: 18px; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(255,153,0,0.4);">
-                Pay ₹10 via UPI
-            </a>
-
-            <hr style="border: 0.5px solid #333; margin: 25px 0;">
-
-            <p style="font-size: 14px; margin-bottom: 15px;">Enter Access Code to Read:</p>
-            <input type="text" id="masterKey" placeholder="Paste Code Here" 
-                   style="padding: 15px; border-radius: 12px; border: 1px solid #3b82f6; width: 80%; background: rgba(255,255,255,0.05); color: white; text-align: center; font-size: 16px; outline: none;">
-<div id="payment-area" style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 20px; margin-bottom: 25px;">
-    
-    <a href="upi://pay?pa=9568591635@ybl&pn=Asif&am=10&cu=INR" 
-       style="display: block; background: #ff9900; color: black !important; padding: 15px; border-radius: 35px; text-decoration: none; font-weight: 800; font-size: 18px; margin-bottom: 15px;">
-       📲 Click to Pay ₹10 (Mobile)
+    <!-- Primary UPI button -->
+    <a href="upi://pay?pa=9568591635@ybl&pn=Asif&am=10&cu=INR"
+       onclick="openUPI(); return false;"
+       style="display: block; background: #ff9900; color: black !important; padding: 15px; border-radius: 40px; text-decoration: none; font-weight: 800; font-size: 18px; margin-bottom: 22px; box-shadow: 0 4px 20px rgba(255,153,0,0.4);">
+      📲 Pay ₹10 via UPI
     </a>
 
-    <p style="font-size: 12px; color: #aaa; margin: 10px 0;">OR Scan this QR Code:</p>
+    <div id="payment-area" style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 20px; margin-bottom: 25px;">
+      <p style="font-size: 12px; color: #aaa; margin: 10px 0;">OR Scan this QR Code:</p>
 
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=9568591635@ybl%26pn=Asif%26am=10%26cu=INR" 
-         alt="Scan to Pay" style="width: 150px; border: 5px solid white; border-radius: 10px; margin-bottom: 10px;">
-
-</div>            
-
-
-        </div>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=9568591635@ybl%26pn=Asif%26am=10%26cu=INR" 
+           alt="Scan to Pay"
+           style="width: 150px; border: 5px solid white; border-radius: 10px; margin-bottom: 10px;">
     </div>
 
-    <script>
-        function checkKey() {
-            const inputKey = document.getElementById("masterKey").value.trim();
-            const secretKey = "asif@#69#@"; // Aapka password
+    <hr style="border: 0.5px solid #333; margin: 20px 0;">
 
-            if (inputKey === secretKey) {
-                // Unlock Animation
-                document.getElementById("lock-screen").style.opacity = "0";
-                setTimeout(() => {
-                    document.getElementById("lock-screen").style.display = "none";
-                    document.getElementById("article-body").style.filter = "none";
-                    document.getElementById("article-body").style.pointerEvents = "auto";
-                }, 500);
-            } else {
-                alert("Galat Code! Kripya sahi code daalein ya ₹10 pay karein.");
-            }
-        }
-// Is function ko apne script tag mein jodiye
-function openUPI() {
+    <p style="font-size: 14px; margin-bottom: 10px;">Enter Access Code to Read:</p>
+    <input type="text" id="masterKey" placeholder="Paste Code Here" 
+           onkeyup="if(event.key === 'Enter') checkKey();"
+           style="padding: 12px; border-radius: 12px; border: 1px solid #3b82f6; width: 80%; background: rgba(255,255,255,0.05); color: white; text-align: center; font-size: 16px; outline: none;">
+
+    <button onclick="checkKey()"
+            style="margin-top: 14px; padding: 10px 24px; border-radius: 20px; border: none; background:#3b82f6; color:#fff; font-weight:700; cursor:pointer;">
+      Unlock Article
+    </button>
+  </div>
+</div>
+
+<script>
+  function checkKey() {
+    const inputKey = document.getElementById("masterKey").value.trim();
+    const secretKey = "asif@#69#@"; // Access code
+
+    if (inputKey === secretKey) {
+      const lock = document.getElementById("lock-screen");
+      const article = document.getElementById("article-body");
+
+      lock.style.opacity = "0";
+      setTimeout(() => {
+        lock.style.display = "none";
+        article.style.filter = "none";
+        article.style.pointerEvents = "auto";
+      }, 500);
+    } else {
+      alert("Galat Code! Sahi code daalo ya ₹10 pay karo.");
+    }
+  }
+
+  function openUPI() {
+    // Mobile browsers me UPI intent open karega
     window.location.href = "upi://pay?pa=9568591635@ybl&pn=Asif&am=10&cu=INR";
-}
-
-    </script>
-</body>
-</html>
-
+  }
+</script>

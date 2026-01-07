@@ -3,47 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asif Tech Market</title>
+  <title>Asif Tech Market | Tech Deals</title>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
   <style>
-    body {
-      background-color: #0d1117;
-      color: #c9d1d9;
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
+    :root {
+      --bg-main: #0d1117;
+      --bg-card: #161b22;
+      --border-soft: #30363d;
+      --text-main: #c9d1d9;
+      --accent-gold: #ffae42;
+      --accent-orange: #ff8c00;
+      --accent-green: #22c55e;
+      --accent-blue: #00a4ef;
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      margin: 0;
+    }
+
+    /* NAV */
     nav {
       background: #161b22;
-      padding: 15px 20px;
-      border-bottom: 1px solid #30363d;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border-soft);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    nav .brand {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    nav .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
     }
     nav .nav-links a {
-      color: #fff;
+      color: #f9fafb;
       text-decoration: none;
-      margin-left: 20px;
       font-size: 14px;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    nav .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange));
+      transition: width 0.25s ease;
+    }
+    nav .nav-links a:hover::after {
+      width: 100%;
     }
     nav .nav-links a:hover {
-      color: #ffae42;
+      color: var(--accent-gold);
     }
 
     /* HERO */
     .hero {
       position: relative;
-      background: linear-gradient(135deg, #ffae42, #ff8c00);
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
       color: #fff;
       text-align: center;
-      padding: 100px 20px 80px;
+      padding: 90px 20px 70px;
       overflow: hidden;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+    .hero p {
+      color: #fff9;
+      font-size: 1.05rem;
+      margin-bottom: 22px;
+    }
+    .hero a.hero-cta {
+      display: inline-block;
+      background: #0d1117;
+      color: var(--accent-gold);
+      padding: 11px 26px;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+    .hero a.hero-cta:hover {
+      background: #ffffff;
+      color: #0d1117;
+      border-color: #0d1117;
     }
     .hero img {
       width: 380px;
@@ -58,124 +132,195 @@
       50% { transform: translateY(-8px); }
       100% { transform: translateY(0); }
     }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      color: #fff9;
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-    }
-    .hero a {
-      background: #0d1117;
-      color: #ffae42;
-      padding: 12px 28px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-    .hero a:hover {
-      background: #ffae42;
-      color: #0d1117;
-    }
 
     /* TICKER */
     .ticker-container {
       overflow: hidden;
       background: #000;
-      border-bottom: 2px solid #ffae42;
+      border-bottom: 2px solid var(--accent-gold);
       padding: 8px 0;
     }
     .ticker-track {
       display: flex;
-      animation: scrollTicker 20s linear infinite;
+      animation: scrollTicker 22s linear infinite;
       white-space: nowrap;
+      align-items: center;
     }
     .ticker-track:hover { animation-play-state: paused; }
     .deal-panel {
       display: inline-flex;
       align-items: center;
       background: #1f2937;
-      border: 1px solid #ffae42;
+      border: 1px solid var(--accent-gold);
       border-radius: 50px;
       padding: 5px 20px 5px 5px;
-      margin-right: 50vw;
+      margin-right: 40vw;
       text-decoration: none;
+      color: #f9fafb;
     }
     .deal-panel img {
       height: 40px;
+      width: 40px;
+      object-fit: cover;
       border-radius: 50%;
-      border: 2px solid #ffae42;
+      border: 2px solid var(--accent-gold);
       margin-right: 15px;
+    }
+    .deal-title {
+      font-weight: 700;
+      margin-right: 14px;
+      font-size: 0.9rem;
+    }
+    .deal-price {
+      color: var(--accent-green);
+      background: rgba(34, 197, 94, 0.12);
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
     @keyframes scrollTicker {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
 
-    /* PRODUCT GRID */
+    /* MAIN CONTAINER */
     .container {
       max-width: 1100px;
-      margin: 40px auto;
-      padding: 20px;
+      margin: 34px auto 40px;
+      padding: 0 20px 30px;
       text-align: center;
     }
+
+    /* AFFILIATE NOTE */
+    .aff-note {
+      font-size: 12px;
+      color: #8b949e;
+      margin-top: 8px;
+    }
+
+    /* PRODUCT GRID */
     .market-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 26px;
+      margin-top: 26px;
     }
     .product-card {
-      background: #161b22;
-      border: 1px solid #30363d;
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
       border-radius: 15px;
-      padding: 20px;
+      padding: 18px;
       text-align: center;
-      transition: 0.3s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
       position: relative;
     }
     .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
+      border-color: var(--accent-gold);
     }
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      padding: 3px 9px;
+      font-size: 11px;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .badge-ai { background: var(--accent-blue); }
+    .badge-budget { background: var(--accent-green); }
+    .badge-sale { background: #ef4444; }
+
     .product-img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+    }
+    .product-title {
+      color: #f9fafb;
+      margin-bottom: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .product-sub {
+      color: #9ca3af;
+      font-size: 13px;
+      margin-bottom: 8px;
     }
     .price-tag {
       font-size: 18px;
       color: #fff;
       font-weight: bold;
-      margin: 10px 0;
+      margin: 8px 0 10px;
     }
+
     .buy-btn {
       display: inline-block;
       padding: 10px 20px;
-      border-radius: 5px;
+      border-radius: 6px;
       text-decoration: none;
-      font-weight: bold;
-      margin-top: 10px;
+      font-weight: 700;
+      margin-top: 6px;
       width: 80%;
-      transition: 0.3s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+      font-size: 0.95rem;
+      border: none;
+    }
+    .buy-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .btn-blue {
+      background: var(--accent-blue);
+      color: #fff;
+    }
+    .btn-green {
+      background: var(--accent-green);
+      color: #fff;
+    }
+    .btn-gold {
+      background: var(--accent-gold);
+      color: #000;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 16px 20px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #8b949e;
     }
 
     @media (max-width: 768px) {
+      nav {
+        justify-content: center;
+        gap: 8px;
+      }
+      .hero {
+        padding: 70px 16px 60px;
+      }
       .hero h1 { font-size: 2rem; }
       .hero img { width: 280px; }
+      .deal-panel {
+        margin-right: 20vw;
+      }
     }
   </style>
 </head>
 <body>
   <!-- NAV -->
   <nav>
-    <div style="font-size: 20px; font-weight: bold; color: #ffae42;">
-      <i class="fa-solid fa-store"></i> Asif Store
+    <div class="brand">
+      <i class="fa-solid fa-store"></i>
+      <span>Asif Tech Market</span>
     </div>
     <div class="nav-links">
       <a href="#">Home</a>
@@ -187,12 +332,13 @@
   <!-- HERO -->
   <section class="hero">
     <h1>Welcome to Asif Tech Market</h1>
-    <p>Explore exclusive tech deals & the latest gadgets</p>
-    <a href="#deals">Shop Now</a>
+    <p>Explore exclusive tech deals & the latest gadgets curated for smart buyers.</p>
+    <a href="#deals" class="hero-cta">Shop Now</a>
     <br />
     <img
       src="https://images.unsplash.com/photo-1602080858428-57174f9431b1?w=1200&q=80"
       alt="Surface Laptop"
+      loading="lazy"
     />
   </section>
 
@@ -202,62 +348,101 @@
       <a
         href="https://www.amazon.in/dp/B09RXN8J2D?tag=realasifuni0f-21"
         target="_blank"
+        rel="nofollow sponsored"
         class="deal-panel"
       >
         <img
           src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?w=100&q=80"
-          alt="Alexa"
+          alt="Alexa Echo Dot"
+          loading="lazy"
         />
-        <div style="color: #fff; font-weight: bold; margin-right: 15px">
-          🔥 FLASH DEAL: Alexa Echo Dot
-        </div>
-        <div
-          style="
-            color: #22c55e;
-            background: rgba(34, 197, 94, 0.1);
-            padding: 2px 10px;
-            border-radius: 10px;
-          "
-        >
-          ₹3,499
-        </div>
+        <div class="deal-title">🔥 FLASH DEAL: Alexa Echo Dot</div>
+        <div class="deal-price">₹3,499</div>
       </a>
     </div>
   </div>
 
   <!-- PRODUCTS -->
   <div class="container" id="deals">
-    <h1 style="color: #ffae42;">🔥 Exclusive Tech Deals</h1>
-    <p style="color: #8b949e;">Laptops, Gadgets & Gear Handpicked by Asif</p>
+    <h1 style="color: var(--accent-gold); margin-bottom: 6px;">🔥 Exclusive Tech Deals</h1>
+    <p style="color: #8b949e;">Laptops, gadgets & gear handpicked by Asif</p>
+    <p class="aff-note">
+      As an Amazon Associate, I earn from qualifying purchases. Prices and availability are subject to change. [Required affiliate disclosure] [web:46]
+    </p>
 
     <div class="market-grid">
-      <div class="product-card" style="border: 1px solid #00a4ef;">
-        <div style="position:absolute;top:10px;right:10px;background:#00a4ef;color:white;padding:2px 8px;font-size:12px;border-radius:4px;font-weight:bold;">AI PC</div>
-        <img src="https://images.unsplash.com/photo-1602080858428-57174f9431b1?w=800&q=80" alt="Surface Laptop" class="product-img" />
-        <h3 style="color:#fff;margin-bottom:5px;">Microsoft Surface Laptop 7</h3>
-        <p style="color:#888;font-size:13px;">Snapdragon X Plus, Copilot+ AI</p>
-        <div class="price-tag">₹1,08,990</div>
-        <a href="https://www.amazon.in/dp/B0G2C7YM7V?tag=realasifuni0f-21" target="_blank" class="buy-btn" style="background:#00a4ef;color:white;">Check Offer</a>
-      </div>
-
-      <div class="product-card" style="border:1px solid #22c55e;">
-        <div style="position:absolute;top:10px;right:10px;background:#22c55e;color:white;padding:2px 8px;font-size:12px;border-radius:4px;font-weight:bold;">BUDGET</div>
-        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80" alt="Primebook" class="product-img" />
-        <h3 style="color:#fff;margin-bottom:5px;">Primebook 2 Pro 2025</h3>
-        <p style="color:#888;font-size:13px;">4G SIM Support, Android 15</p>
-        <div class="price-tag">₹18,990</div>
-        <a href="https://www.amazon.in/dp/B0FFM8M9B5?tag=realasifuni0f-21" target="_blank" class="buy-btn" style="background:#22c55e;color:white;">Check Offer</a>
-      </div>
-
+      <!-- Product 1 -->
       <div class="product-card">
-        <div style="position:absolute;top:10px;right:10px;background:#ef4444;color:white;padding:2px 8px;font-size:12px;border-radius:4px;font-weight:bold;">SALE</div>
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80" alt="Shoes" class="product-img" />
-        <h3 style="color:#fff;margin-bottom:5px;">Trend Setter Sneakers</h3>
-        <p style="color:#888;font-size:13px;">Lightweight Running Shoes</p>
+        <span class="badge badge-ai">AI PC</span>
+        <img
+          src="https://images.unsplash.com/photo-1602080858428-57174f9431b1?w=800&q=80"
+          alt="Microsoft Surface Laptop 7"
+          class="product-img"
+          loading="lazy"
+        />
+        <h3 class="product-title">Microsoft Surface Laptop 7</h3>
+        <p class="product-sub">Snapdragon X Plus, Copilot+ AI</p>
+        <div class="price-tag">₹1,08,990</div>
+        <a
+          href="https://www.amazon.in/dp/B0G2C7YM7V?tag=realasifuni0f-21"
+          target="_blank"
+          rel="nofollow sponsored"
+          class="buy-btn btn-blue"
+        >
+          Check Offer
+        </a>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <span class="badge badge-budget">BUDGET</span>
+        <img
+          src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80"
+          alt="Primebook 2 Pro 2025"
+          class="product-img"
+          loading="lazy"
+        />
+        <h3 class="product-title">Primebook 2 Pro 2025</h3>
+        <p class="product-sub">4G SIM Support, Android 15</p>
+        <div class="price-tag">₹18,990</div>
+        <a
+          href="https://www.amazon.in/dp/B0FFM8M9B5?tag=realasifuni0f-21"
+          target="_blank"
+          rel="nofollow sponsored"
+          class="buy-btn btn-green"
+        >
+          Check Offer
+        </a>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <span class="badge badge-sale">SALE</span>
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80"
+          alt="Trend Setter Sneakers"
+          class="product-img"
+          loading="lazy"
+        />
+        <h3 class="product-title">Trend Setter Sneakers</h3>
+        <p class="product-sub">Lightweight Running Shoes</p>
         <div class="price-tag">₹499</div>
-        <a href="https://www.amazon.in/dp/B0F4KSHS9K?tag=realasifuni0f-21" target="_blank" class="buy-btn" style="background:#ffae42;color:black;">Buy Now</a>
+        <a
+          href="https://www.amazon.in/dp/B0F4KSHS9K?tag=realasifuni0f-21"
+          target="_blank"
+          rel="nofollow sponsored"
+          class="buy-btn btn-gold"
+        >
+          Buy Now
+        </a>
       </div>
     </div>
   </div>
+
+  <!-- FOOTER (simple contact anchor) -->
+  <footer id="contact">
+    <div>© 2026 Asif Tech Market · All rights reserved.</div>
+    <div style="margin-top:4px;">For queries, contact via your main site contact page.</div>
+  </footer>
 </body>
 </html>
