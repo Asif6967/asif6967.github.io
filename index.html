@@ -133,112 +133,6 @@
         }
     </style>
 
-    <div class="container" id="tools" style="margin: 50px auto;">
-        <h2 style="color: #ffae42; text-align: center; margin-bottom: 10px;">🚀 Free Business Finance Tools</h2>
-        
-        <div class="tools-container">
-            
-            <div class="tool-card">
-                <h3 style="color: #58a6ff; margin-bottom: 10px;"><i class="fa-solid fa-file-invoice-dollar"></i> GST Calculator</h3>
-                <p style="font-size: 13px; color: #ccc; margin-bottom: 15px;">Calculate 18% GST instantly.</p>
-                
-                <input type="number" id="gstAmount" placeholder="Enter Amount (₹)" class="tool-input">
-                
-                <select id="gstRate" class="tool-select">
-                    <option value="18">18% GST (Standard)</option>
-                    <option value="5">5% GST</option>
-                    <option value="12">12% GST</option>
-                    <option value="28">28% GST</option>
-                </select>
-                
-                <div id="gstResult" class="result-box">Total: ₹0</div>
-                
-                <button onclick="calcGST()" style="background: #58a6ff; color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px; width: 100%;">Calculate</button>
-            </div>
-
-            <div class="tool-card">
-                <h3 style="color: #ffae42; margin-bottom: 10px;"><i class="fa-solid fa-chart-line"></i> Profit Margin</h3>
-                <p style="font-size: 13px; color: #ccc; margin-bottom: 15px;">Know your true profit percentage.</p>
-                
-                <input type="number" id="costPrice" placeholder="Cost Price (₹)" class="tool-input">
-                <input type="number" id="sellPrice" placeholder="Selling Price (₹)" class="tool-input">
-                
-                <div id="marginResult" class="result-box">Margin: 0%</div>
-                
-                <button onclick="calcMargin()" style="background: #ffae42; color: black; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 10px; width: 100%;">Check Profit</button>
-            </div>
-
-        </div>
-
-        <div style="text-align: center; margin-top: 40px; margin-bottom: 50px;">
-            <button onclick="shareBiz()" style="background: #25d366; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);">
-                <i class="fa-brands fa-whatsapp"></i> Share Tools on WhatsApp
-            </button>
-        </div>
-    </div>
-
-    <script>
-        function calcGST() {
-            const amount = parseFloat(document.getElementById("gstAmount").value);
-            const rate = parseFloat(document.getElementById("gstRate").value);
-            if(amount) {
-                const tax = (amount * rate) / 100;
-                const total = amount + tax;
-                document.getElementById("gstResult").innerHTML = 
-                    `Tax: ₹${tax.toFixed(2)} <br> Total: ₹${total.toFixed(2)}`;
-            }
-        }
-
-        function calcMargin() {
-            const cost = parseFloat(document.getElementById("costPrice").value);
-            const sell = parseFloat(document.getElementById("sellPrice").value);
-            if(cost && sell) {
-                const profit = sell - cost;
-                const margin = (profit / sell) * 100;
-                const color = margin > 0 ? "#22c55e" : "#ef4444";
-                document.getElementById("marginResult").innerHTML = 
-                    `Profit: ₹${profit} <br> <span style="color:${color}">${margin.toFixed(2)}% Margin</span>`;
-            }
-        }
-
-        function shareBiz() {
-            const msg = "Use Asif Tech Global's Free Business Calculators here: https://asif6967.github.io/";
-            window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
-        }
-    </script>
-    <script>
-        // GST Logic
-        function calcGST() {
-            const amount = parseFloat(document.getElementById("gstAmount").value);
-            const rate = parseFloat(document.getElementById("gstRate").value);
-            if(amount) {
-                const tax = (amount * rate) / 100;
-                const total = amount + tax;
-                document.getElementById("gstResult").innerHTML = 
-                    `Tax: ₹${tax.toFixed(2)} | <span style="color:#58a6ff">Total: ₹${total.toFixed(2)}</span>`;
-            }
-        }
-
-        // Profit Margin Logic
-        function calcMargin() {
-            const cost = parseFloat(document.getElementById("costPrice").value);
-            const sell = parseFloat(document.getElementById("sellPrice").value);
-            if(cost && sell) {
-                const profit = sell - cost;
-                const margin = (profit / sell) * 100;
-                const color = margin > 0 ? "#22c55e" : "#ef4444";
-                document.getElementById("marginResult").innerHTML = 
-                    `Profit: ₹${profit} | <span style="color:${color}">${margin.toFixed(2)}% Margin</span>`;
-            }
-        }
-
-        // Business Share Logic
-        function shareBiz() {
-            const msg = "Calculate GST and Profit Margins instantly with Asif Tech Global's Free Business Tools! Check here: https://asif6967.github.io/";
-            window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
-        }
-    </script>
-    </script>
   <div class="container" id="insights">
     <h2 class="section-title">Latest Tech Insights</h2>
     <div class="glass-box">
@@ -399,7 +293,47 @@
 
   loadYouTubeVideos();
 </script>
+<script>
+        // GST Logic
+        function calcGST() {
+            const amount = parseFloat(document.getElementById("gstAmount").value);
+            const rate = parseFloat(document.getElementById("gstRate").value);
+            if(amount) {
+                const tax = (amount * rate) / 100;
+                const total = amount + tax;
+                document.getElementById("gstResult").innerHTML = 
+                    `Tax: ₹${tax.toFixed(2)} <br> Total: ₹${total.toFixed(2)}`;
+            }
+        }
+        function clearGST() {
+            document.getElementById("gstAmount").value = "";
+            document.getElementById("gstResult").innerHTML = "Total: ₹0";
+        }
 
+        // Profit Margin Logic
+        function calcMargin() {
+            const cost = parseFloat(document.getElementById("costPrice").value);
+            const sell = parseFloat(document.getElementById("sellPrice").value);
+            if(cost && sell) {
+                const profit = sell - cost;
+                const margin = (profit / sell) * 100;
+                const color = margin > 0 ? "#22c55e" : "#ef4444";
+                document.getElementById("marginResult").innerHTML = 
+                    `Profit: ₹${profit} <br> <span style="color:${color}">${margin.toFixed(2)}% Margin</span>`;
+            }
+        }
+        function clearMargin() {
+            document.getElementById("costPrice").value = "";
+            document.getElementById("sellPrice").value = "";
+            document.getElementById("marginResult").innerHTML = "Margin: 0%";
+        }
+
+        // WhatsApp Share
+        function shareBiz() {
+            const msg = "Check out Asif Tech Global's Free Business Tools: https://asif6967.github.io/";
+            window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
+        }
+    </script>
 <footer style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); color: #ffffff; padding: 60px 20px 30px 20px; border-top: 1px solid rgba(255, 255, 255, 0.2); margin-top: 100px; font-family: sans-serif;">
     <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
         
