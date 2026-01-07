@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2165852461534798" crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-2165852461534798">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="lQmX6fzrD22ySePMX50nKU4tR30UrdQo_sayAEJB4FQ" />
-    <title>Asif Tech Global | Business & Tech Insights</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Asif Tech Global | Business & Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #0f172a; color: white; overflow-x: hidden; }
+        
+        /* Dynamic Background */
+        #dynamic-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center; 
+            z-index: -1; opacity: 0.3; transition: background-image 1s ease-in-out;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 50px; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-size: 24px; font-weight: bold; color: white; }
+        .logo span { color: #3b82f6; }
+        .nav-links a { margin: 0 15px; text-decoration: none; color: #ddd; font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: #3b82f6; }
+
+        /* Sections */
+        .container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; text-align: center; }
+        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero span { color: #3b82f6; }
+        .cta-btn { padding: 15px 30px; background: #3b82f6; color: white; text-decoration: none; border-radius: 30px; font-weight: bold; margin-top: 20px; display: inline-block; transition: 0.3s; }
+        .cta-btn:hover { background: #2563eb; transform: scale(1.05); }
+
+        /* Cards (Tools & Insights) */
+        .glass-box, .tool-card, .article-card {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px); padding: 25px; border-radius: 15px;
+            text-align: left; transition: 0.3s; color: white;
+        }
+        .tool-card { text-align: center; }
+        .article-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.1); }
+        .section-title { font-size: 2rem; margin-bottom: 40px; border-bottom: 2px solid #3b82f6; display: inline-block; padding-bottom: 10px; }
+        
+        /* Footer */
+        footer { background: #000; padding: 20px; text-align: center; color: #888; font-size: 14px; margin-top: 50px; }
+
+        /* Inputs */
+        input { background: rgba(0,0,0,0.5); border: 1px solid #444; color: white; border-radius: 5px; }
+    </style>
 </head>
 
 <body>
@@ -19,59 +62,34 @@
         <div class="logo">Asif Tech<span> Global</span></div>
         <div class="nav-links">
             <a href="#home">Home</a>
+            <a href="#tools">Tools</a>
             <a href="#insights">Insights</a>
-            <a href="portfolio.html">Portfolio</a>   
             <a href="#about">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="live-news.html" style="color: #ef4444; font-weight: bold;">🔴 Live News</a>
-        </div>
-        
-        <div style="text-align: right; padding-right: 20px;">
-            <div id="google_translate_element"></div>
         </div>
     </nav>
 
     <section class="hero" id="home">
-        <h1>Asif Tech <span>Global</span></h1>
-        <p>Leading the Digital Transformation in Business Education.</p>
-        <a href="#insights" class="cta-btn">Explore Insights</a>
+        <h1>Welcome to Asif Tech <span>Global</span></h1>
+        <p>Empowering Business with AI & Digital Tools.</p>
+        <a href="#tools" class="cta-btn">Try Free Tools</a>
     </section>
 
-    <div class="container">
-        <h2 class="section-title">Latest Videos</h2>
-        <div id="youtube-videos" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px;">
-            <p style="color:white;">Loading Videos...</p>
-        </div>
-    </div>
-
-    <div class="container">
+    <div class="container" id="tools">
         <h2 class="section-title">Business Tools</h2>
-        <div class="tools-container" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
             
-            <div class="tool-card" style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; width: 300px; text-align: center; color: white;">
-                <h3>GST Calculator</h3>
-                <input type="number" id="gstAmount" placeholder="Amount (₹)" style="width: 90%; padding: 8px; margin: 5px;">
-                <input type="number" id="gstRate" placeholder="Tax Rate (%)" style="width: 90%; padding: 8px; margin: 5px;">
-                <button onclick="calcGST()" style="background: #22c55e; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">Calculate</button>
-                <button onclick="clearGST()" style="background: #ef4444; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">Clear</button>
-                <div id="gstResult" style="margin-top: 10px; font-weight: bold;">Total: ₹0</div>
+            <div class="tool-card" style="width: 300px;">
+                <h3 style="color:#22c55e;"><i class="fa-solid fa-calculator"></i> GST Calculator</h3>
+                <input type="number" id="gstAmount" placeholder="Amount (₹)" style="width: 90%; padding: 10px; margin: 10px 0;">
+                <input type="number" id="gstRate" placeholder="Rate (%)" style="width: 90%; padding: 10px; margin: 10px 0;">
+                <button onclick="calcGST()" style="background: #22c55e; border: none; padding: 10px 20px; color: white; border-radius: 5px; cursor: pointer;">Calculate</button>
+                <div id="gstResult" style="margin-top: 15px; font-weight: bold;">Total: ₹0</div>
             </div>
 
-            <div class="tool-card" style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; width: 300px; text-align: center; color: white;">
-                <h3>Profit Margin</h3>
-                <input type="number" id="costPrice" placeholder="Cost Price" style="width: 90%; padding: 8px; margin: 5px;">
-                <input type="number" id="sellPrice" placeholder="Selling Price" style="width: 90%; padding: 8px; margin: 5px;">
-                <button onclick="calcMargin()" style="background: #eab308; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">Calculate</button>
-                <button onclick="clearMargin()" style="background: #ef4444; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">Clear</button>
-                <div id="marginResult" style="margin-top: 10px; font-weight: bold;">Margin: 0%</div>
-            </div>
-
-            <div class="tool-card" style="border: 1px solid #22c55e; background: rgba(0,0,0,0.6); padding: 20px; border-radius: 15px; width: 300px; text-align: center; color: white;">
-                <div class="icon-box" style="color: #22c55e; font-size: 24px; margin-bottom: 10px;"><i class="fa-solid fa-shield-halved"></i></div>
-                <h3>Security Check</h3>
-                <input type="text" id="passInput" placeholder="Type password..." onkeyup="checkPassword()"
-                       style="width: 90%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #30363d; background: #0d1117; color: white;">
-                <div id="passResult" style="font-weight: bold; margin-top: 10px; color: #777;">WAITING...</div>
+            <div class="tool-card" style="width: 300px;">
+                <h3 style="color:#3b82f6;"><i class="fa-solid fa-lock"></i> Security Check</h3>
+                <input type="text" id="passInput" placeholder="Enter Password..." onkeyup="checkPassword()" style="width: 90%; padding: 10px; margin: 10px 0;">
+                <div id="passResult" style="margin-top: 15px; font-weight: bold; color: #888;">WAITING...</div>
             </div>
 
         </div>
@@ -79,217 +97,118 @@
 
     <div class="container" id="insights">
         <h2 class="section-title">Latest Insights</h2>
-        <div class="insights-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-            <div class="article-card" style="background: white; padding: 20px; border-radius: 10px; width: 300px;">
-                <h4>AI in MBA Careers</h4>
-                <p>How Artificial intelligence is redefining leadership in 2026.</p>
-                <a href="mba-ai-impact.html" style="color: blue;">Read More →</a>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div class="article-card" style="width: 300px;">
+                <h4>🤖 AI in 2026</h4>
+                <p style="font-size: 13px; color: #ccc; margin: 10px 0;">How AI agents are replacing traditional apps.</p>
+                <a href="#" style="color: #3b82f6; text-decoration: none;">Read More →</a>
             </div>
-            <div class="article-card" style="background: white; padding: 20px; border-radius: 10px; width: 300px;">
-                <h4>Digital Marketing</h4>
-                <p>Beyond automation: The future of customer engagement.</p>
-                <a href="marketing.html" style="color: blue;">Read More →</a>
+            <div class="article-card" style="width: 300px;">
+                <h4>📈 Market Trends</h4>
+                <p style="font-size: 13px; color: #ccc; margin: 10px 0;">Digital marketing strategies for the new era.</p>
+                <a href="#" style="color: #3b82f6; text-decoration: none;">Read More →</a>
             </div>
         </div>
     </div>
 
-    <div class="container" id="about" style="text-align: center; color: white; padding: 50px;">
-        <div class="glass-box" style="background: rgba(0,0,0,0.5); padding: 30px; border-radius: 20px;">
-            <h2 class="section-title">About Asif Tech Global</h2>
-            <p>Empowering future leaders through practical AI, data, and digital transformation insights.</p>
-            <button onclick="shareBiz()" style="margin-top: 20px; padding: 10px 20px; background: #25D366; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
-            </button>
-        </div>
-    </div>
+    <footer>
+        <p>&copy; 2026 Asif Tech Global. All rights reserved.</p>
+        <p>Built with ❤️ and AI.</p>
+    </footer>
 
-    <button onclick="toggleChat()" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #007bff; border-radius: 50%; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; display: flex; align-items: center; justify-content: center;">
-        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="AI" style="width: 35px; height: 35px;">
+    <button onclick="toggleChat()" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #3b82f6; border-radius: 50%; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 9999; display: flex; align-items: center; justify-content: center;">
+        <i class="fa-solid fa-robot" style="font-size: 24px; color: white;"></i>
     </button>
 
-    <div id="ai-chat-box" style="position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; background: white; border-radius: 15px; box-shadow: 0 5px 30px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 9999; font-family: 'Segoe UI', sans-serif;">
-        
-        <div style="background: linear-gradient(135deg, #007bff, #0056b3); padding: 15px; color: white; display: flex; align-items: center; gap: 10px;">
-            <div style="width: 10px; height: 10px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88;"></div>
-            <div style="flex-grow: 1;">
-                <div style="font-weight: bold; font-size: 16px;">Asif Tech AI</div>
-                <div style="font-size: 11px; opacity: 0.8;">Powered by Gemini Pro</div>
-            </div>
-            <span onclick="toggleChat()" style="cursor: pointer; font-size: 20px;">✖</span>
+    <div id="ai-chat-box" style="position: fixed; bottom: 90px; right: 20px; width: 320px; height: 450px; background: white; border-radius: 15px; box-shadow: 0 5px 30px rgba(0,0,0,0.5); display: none; flex-direction: column; overflow: hidden; z-index: 9999; color: black;">
+        <div style="background: #3b82f6; padding: 15px; color: white; display: flex; justify-content: space-between; align-items: center;">
+            <strong>Asif Tech AI</strong>
+            <span onclick="toggleChat()" style="cursor: pointer;">✖</span>
         </div>
-
         <div id="messages" style="flex-grow: 1; padding: 15px; overflow-y: auto; background: #f8f9fa; display: flex; flex-direction: column; gap: 10px;">
-            <div style="align-self: flex-start; background: white; padding: 10px 15px; border-radius: 15px 15px 15px 0; border: 1px solid #e9ecef; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 85%;">
-                👋 Hello! Main Asif Tech AI hoon. Bataiye kaise madad karun?
-            </div>
+            <div style="background: #e9ecef; padding: 10px; border-radius: 10px; align-self: flex-start; max-width: 80%;">Hello! Main kaise madad karun?</div>
         </div>
-
-        <div style="padding: 15px; background: white; border-top: 1px solid #dee2e6; display: flex; gap: 10px;">
-            <input type="text" id="userInput" placeholder="Ask anything..." onkeypress="handleEnter(event)"
-                   style="flex-grow: 1; border: 1px solid #ced4da; padding: 10px; border-radius: 25px; outline: none;">
-            <button onclick="sendMessage()" style="background: #007bff; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                ➤
-            </button>
+        <div style="padding: 10px; border-top: 1px solid #ddd; display: flex;">
+            <input type="text" id="userInput" placeholder="Ask anything..." onkeypress="handleEnter(event)" style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; background: white; color: black;">
+            <button onclick="sendMessage()" style="background: #3b82f6; color: white; border: none; padding: 0 15px; margin-left: 5px; border-radius: 5px; cursor: pointer;">➤</button>
         </div>
     </div>
 
     <script>
-        // 1. GOOGLE TRANSLATE
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <script>
-        // 2. BACKGROUND SLIDER
+        // 1. BACKGROUND CHANGER
         const bg = document.getElementById('dynamic-bg');
-        const businessPhotos = [
-             "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80",
-             "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
-             "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a6?auto=format&fit=crop&w=1600&q=80"
+        const images = [
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80"
         ];
-        function changeBackground() {
-             const randomIndex = Math.floor(Math.random() * businessPhotos.length);
-             bg.style.backgroundImage = `url('${businessPhotos[randomIndex]}')`;
+        let idx = 0;
+        function changeBg() {
+            bg.style.backgroundImage = `url('${images[idx]}')`;
+            idx = (idx + 1) % images.length;
         }
-        setInterval(changeBackground, 10000);
-        changeBackground();
+        setInterval(changeBg, 5000);
+        changeBg(); // Start immediately
 
-        // 3. TOOLS LOGIC (GST & MARGIN)
+        // 2. TOOLS LOGIC
         function calcGST() {
-            const amount = parseFloat(document.getElementById("gstAmount").value);
-            const rate = parseFloat(document.getElementById("gstRate").value);
-            if(amount) {
-                const tax = (amount * rate) / 100;
-                document.getElementById("gstResult").innerHTML = `Tax: ₹${tax.toFixed(2)} | Total: ₹${(amount + tax).toFixed(2)}`;
-            }
-        }
-        function clearGST() {
-            document.getElementById("gstAmount").value = "";
-            document.getElementById("gstResult").innerHTML = "Total: ₹0";
+            let a = parseFloat(document.getElementById("gstAmount").value);
+            let r = parseFloat(document.getElementById("gstRate").value);
+            if(a && r) document.getElementById("gstResult").innerText = `Total: ₹${(a + (a*r/100)).toFixed(2)}`;
         }
 
-        function calcMargin() {
-            const cost = parseFloat(document.getElementById("costPrice").value);
-            const sell = parseFloat(document.getElementById("sellPrice").value);
-            if(cost && sell) {
-                const profit = sell - cost;
-                const margin = (profit / sell) * 100;
-                document.getElementById("marginResult").innerHTML = `Profit: ₹${profit} (${margin.toFixed(2)}%)`;
-            }
-        }
-        function clearMargin() {
-            document.getElementById("costPrice").value = "";
-            document.getElementById("sellPrice").value = "";
-            document.getElementById("marginResult").innerHTML = "Margin: 0%";
-        }
-
-        function shareBiz() {
-            const msg = "Check out Asif Tech Global: https://asif6967.github.io/";
-            window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
-        }
-
-        // 4. PASSWORD SECURITY CHECK (JS Version - Fast)
         function checkPassword() {
-            const password = document.getElementById("passInput").value;
-            const output = document.getElementById("passResult");
-            let score = 0;
-
-            if (password.length > 0) {
-                if (password.length >= 8) score++;
-                if (/[A-Z]/.test(password)) score++;
-                if (/[0-9]/.test(password)) score++;
-                if (/[^A-Za-z0-9]/.test(password)) score++;
-
-                if (score <= 1) { output.innerText = "❌ WEAK"; output.style.color = "#ef4444"; }
-                else if (score <= 3) { output.innerText = "⚠️ MODERATE"; output.style.color = "#f59e0b"; }
-                else { output.innerText = "✅ STRONG"; output.style.color = "#22c55e"; }
-            } else {
-                output.innerText = "WAITING...";
-                output.style.color = "#777";
-            }
+            let p = document.getElementById("passInput").value;
+            let msg = document.getElementById("passResult");
+            if(p.length < 1) { msg.innerText = "WAITING..."; msg.style.color="#888"; return; }
+            if(p.length < 6) { msg.innerText = "❌ WEAK"; msg.style.color="red"; }
+            else if(p.match(/[0-9]/) && p.match(/[!@#$%^&*]/)) { msg.innerText = "✅ STRONG"; msg.style.color="green"; }
+            else { msg.innerText = "⚠️ MEDIUM"; msg.style.color="orange"; }
         }
 
-        // 5. YOUTUBE VIDEO LOADER
-        // Note: YouTube needs a separate API Key. If you have one, put it below.
-        const YT_API_KEY = "YOUR_YOUTUBE_API_KEY_HERE"; 
-        const CHANNEL_ID = "UCRfvXfU4toossqCIbuXNblA";
-
-        async function loadYouTubeVideos() {
-            if (YT_API_KEY === "YOUR_YOUTUBE_API_KEY_HERE") {
-                document.getElementById('youtube-videos').innerHTML = "<p style='color:white;'>⚠️ YouTube API Key Missing</p>";
-                return;
-            }
-            // Code to fetch videos (Hidden to prevent errors if key is missing)
-        }
-        // loadYouTubeVideos(); // Uncomment this line when you add a valid YouTube Key
-
-        // ==========================================
-        // 6. AI CHATBOT LOGIC (SECURE & ENCODED) 🔐
-        // ==========================================
-        
-        // 👇 Aapki Encoded Key (Encoded from Base64Encode.org)
-        const ENCODED_KEY = "QUl6YVN5QmdBc2xDVXN4d2xaNDhSOW50TUl5MFZKR1d3dWxkUmVB";
-        
-        // 👇 Unlock Key
-        const API_KEY = atob(ENCODED_KEY);
+        // 3. SECURE AI CHATBOT (GEMINI 1.5 FLASH)
+        const ENCODED_KEY = "QUl6YVN5QmdBc2xDVXN4d2xaNDhSOW50TUl5MFZKR1d3dWxkUmVB"; // Locked Key
+        const API_KEY = atob(ENCODED_KEY); // Unlock
 
         function toggleChat() {
-            const chat = document.getElementById('ai-chat-box');
-            const input = document.getElementById('userInput');
-            if (chat.style.display === 'none' || chat.style.display === '') {
-                chat.style.display = 'flex';
-                input.focus();
-            } else {
-                chat.style.display = 'none';
-            }
+            let box = document.getElementById('ai-chat-box');
+            box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        function handleEnter(e) { if (e.key === 'Enter') sendMessage(); }
+        function handleEnter(e) { if(e.key === 'Enter') sendMessage(); }
 
         async function sendMessage() {
-            const input = document.getElementById('userInput');
-            const messages = document.getElementById('messages');
-            const text = input.value.trim();
+            let input = document.getElementById('userInput');
+            let msgs = document.getElementById('messages');
+            let txt = input.value.trim();
+            if(!txt) return;
 
-            if (!text) return;
+            msgs.innerHTML += `<div style="background:#3b82f6; color:white; padding:10px; border-radius:10px; align-self:flex-end; max-width:80%; margin-bottom:5px;">${txt}</div>`;
+            input.value = "";
+            msgs.scrollTop = msgs.scrollHeight;
 
-            // User Message
-            messages.innerHTML += `<div style="align-self: flex-end; background: #007bff; color: white; padding: 10px 15px; border-radius: 15px 15px 0 15px; max-width: 85%; margin-bottom: 5px;">${text}</div>`;
-            input.value = '';
-            messages.scrollTop = messages.scrollHeight;
-
-            // Loading
-            const loading = document.createElement('div');
-            loading.id = 'loading';
-            loading.innerHTML = '<span style="color:#666; font-size:12px;">Thinking... 🔐</span>';
-            messages.appendChild(loading);
+            let loading = document.createElement("div");
+            loading.innerText = "Thinking... ⚡";
+            loading.style.fontSize = "12px"; loading.style.color = "#666"; loading.id = "loading";
+            msgs.appendChild(loading);
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`, {
+                // Using Gemini 1.5 Flash (Faster & Newer)
+                let res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: `You are Asif Tech AI. Answer in Hinglish. User: ${text}` }] }] })
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: "Answer shortly in Hinglish: " + txt }] }] })
                 });
-
-                const data = await response.json();
-                if(document.getElementById('loading')) document.getElementById('loading').remove();
-
-                if (data.error) throw new Error(data.error.message);
-
-                const reply = data.candidates[0].content.parts[0].text.replace(/\*\*/g, ""); 
-                messages.innerHTML += `<div style="align-self: flex-start; background: white; padding: 10px 15px; border-radius: 15px 15px 15px 0; border: 1px solid #e9ecef; max-width: 85%;">${reply}</div>`;
-
-            } catch (error) {
-                if(document.getElementById('loading')) document.getElementById('loading').remove();
-                messages.innerHTML += `<div style="color: red; font-size: 12px;">⚠️ Error: ${error.message}</div>`;
+                let data = await res.json();
+                document.getElementById("loading").remove();
+                
+                let reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, error aa gaya.";
+                msgs.innerHTML += `<div style="background:#e9ecef; color:black; padding:10px; border-radius:10px; align-self:flex-start; max-width:80%; border:1px solid #ccc;">${reply.replace(/\*\*/g, "")}</div>`;
+            } catch (e) {
+                if(document.getElementById("loading")) document.getElementById("loading").remove();
+                msgs.innerHTML += `<div style="color:red; font-size:12px;">Error: Net check karein.</div>`;
             }
-            messages.scrollTop = messages.scrollHeight;
+            msgs.scrollTop = msgs.scrollHeight;
         }
     </script>
 </body>
