@@ -91,7 +91,66 @@
             transition: 0.3s;
             width: 80%;
         }
+
         .buy-btn:hover { background: #e69900; }
+
+/* 🏃‍♂️ RUNNING DEAL TICKER CSS 🏃‍♂️ */
+        .ticker-container {
+            width: 100%;
+            overflow: hidden; /* Jo screen se bahar jaye use chupao */
+            background: #0d1117;
+            border-bottom: 2px solid #ffae42;
+            padding: 10px 0;
+        }
+
+        .ticker-track {
+            display: flex;
+            white-space: nowrap; /* Sab ek line mein rahe */
+            /* Ye animation hai jo right se left le jayegi */
+            animation: scrollTicker 20s linear infinite; 
+        }
+        
+        /* Mouse le jaane par ruk jaye */
+        .ticker-track:hover { animation-play-state: paused; }
+
+        .deal-panel {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #1f2937, #161b22);
+            border: 1px solid #ffae42;
+            border-radius: 50px; /* Golaakar Panel */
+            padding: 5px 20px 5px 5px;
+            margin-right: 50vw; /* Do baar aane ke beech ka gap */
+            text-decoration: none; /* Link ki underline hatao */
+            box-shadow: 0 0 10px rgba(255, 174, 66, 0.3);
+        }
+
+        .deal-panel img {
+            height: 50px;
+            border-radius: 50%; /* Gool Photo */
+            border: 2px solid #ffae42;
+            margin-right: 15px;
+        }
+
+        .deal-text {
+            color: #fff;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .deal-price-ticker {
+            color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Animation ka Rasta */
+        @keyframes scrollTicker {
+            0% { transform: translateX(100%); } /* Screen ke right bahar se shuru */
+            100% { transform: translateX(-100%); } /* Screen ke left bahar tak */
+        }
     </style>
 </head>
 <body>
@@ -110,25 +169,19 @@
         <p style="color: #8b949e;">Best Tech & Lifestyle Products Handpicked by Asif</p>
 
         <div class="market-grid">
-            
-<div class="product-card">
-                <div style="position: absolute; top: 10px; right: 10px; background: #22c55e; color: white; padding: 2px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">BESTSELLER</div>
-                
-                <img src="https://m.media-amazon.com/images/I/61MbLLagiVL._SX679_.jpg" alt="Amazon Echo Dot" class="product-img">
-                
-                <h3 style="color: #fff; margin-bottom: 5px;">Amazon Echo Dot (Alexa)</h3>
-                <p style="color: #888; font-size: 13px;">Smart Speaker with Alexa (Black)</p>
-                
-                <div class="price-tag">₹3,499 <span style="font-size: 12px; text-decoration: line-through; color: #666;">₹4,499</span></div>
-                
-                <a href="https://www.amazon.in/Echo-Dot-4th-Gen/dp/B084KSR8D3" target="_blank" class="buy-btn">
-                    <i class="fa-brands fa-amazon"></i> Check Deal
-                </a>
-            </div>
-</div>
-
+         <div class="ticker-container">
+        <div class="ticker-track">
+            <a href="https://www.amazon.in/Certified-Refurbished-Detection-Temperature-Bluetooth/dp/B09RXN8J2D?crid=2L0SQKLD3RMF&dib=eyJ2IjoiMSJ9.H75bGx4NvDWoLVAmp-SBBgQWn2tuLpp6E021g3TZQHErEdqM6wZf8l65X3HRe9DGSzz9UtbY_ngekgfXFFx347EmFLwJhjZyFULnPtjZUuF83_5UCb0oNR_fNgNduQBNoZ7smRT7vHioWb0IPQwGQ2WSKAr3p2efyOM7w8QYSB2YA69CKisNqWS61Ucn-vQ_e5Ka8JYU8qegxSssvqw3bmHNUqsgD36PUp_3zznmtEw.d-L0M-07FgeqC3NEZHcRO_putcQ6Bs3hTZ055XCA2Fs&dib_tag=se&keywords=alexa&qid=1767773135&sprefix=alexa%2Caps%2C454&sr=8-10&linkCode=ll1&tag=realasifuni0f-21&linkId=ffbd184dcea67f5e4299eacd9f64ec75&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="deal-panel">
+                <img src="https://m.media-amazon.com/images/I/61MbLLagiVL._SX679_.jpg" alt="Alexa">
+                <div class="deal-text">
+                    🔥 FLASH DEAL: Certified Refurbished Echo Dot (Alexa)
+                </div>
+                <div class="deal-price-ticker">
+                    Just ₹3,499!
+                </div>
+                 <i class="fa-solid fa-angles-right" style="color: #ffae42; margin-left: 10px;"></i>
+            </a>
         </div>
-    </div>
-
+    </div>   
 </body>
 </html>
