@@ -1,54 +1,56 @@
 /* --- style.css --- */
 :root {
-    --primary: #2563eb; /* Corporate Blue */
+    --primary: #2563eb;
     --dark: #1e293b;
     --light: #f8fafc;
-    --success: #22c55e;
+    --text: #1e293b;
+    --card-bg: white;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+/* JAB DARK MODE ACTIVE HOGA TOH YE RANG CHALENGE 👇 */
+body.dark-mode {
+    --light: #0f172a;   /* Background Dark ho jayega */
+    --text: #f8fafc;    /* Text White ho jayega */
+    --card-bg: #1e293b; /* Card Grey ho jayega */
+    --dark: #f8fafc;    /* Logo White ho jayega */
+}
 
-body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; transition: background 0.3s, color 0.3s; }
 
-/* Navbar */
+body { background-color: var(--light); color: var(--text); line-height: 1.6; }
+
 nav {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 5%; background: white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    padding: 20px 5%; background: var(--card-bg); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
+
 .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-.btn-nav { padding: 10px 20px; background: var(--dark); color: white; text-decoration: none; border-radius: 5px; }
+.btn-nav { padding: 10px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 5px; }
 
-/* Hero Section */
 .hero { text-align: center; padding: 80px 20px; }
-.hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--dark); }
-.hero p { font-size: 1.2rem; color: #64748b; margin-bottom: 40px; }
+.hero h1 { font-size: 3rem; margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 40px; }
 
-/* Pricing Cards (New Business Feature) */
-.pricing-container {
-    display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 50px 20px;
-}
+.pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 50px 20px; }
 
 .card {
-    background: white; padding: 40px; width: 300px; border-radius: 15px;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); text-align: center; transition: 0.3s;
-    border: 1px solid #e2e8f0;
+    background: var(--card-bg); /* Ye color change hoga dark mode mein */
+    padding: 40px; width: 300px; border-radius: 15px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); text-align: center; border: 1px solid #e2e8f0;
 }
-
 .card:hover { transform: translateY(-10px); border-color: var(--primary); }
-
 .card.popular { border: 2px solid var(--primary); position: relative; }
-.badge {
-    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-    background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;
-}
+.badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
 
-.price { font-size: 2.5rem; font-weight: bold; margin: 20px 0; color: var(--dark); }
+.price { font-size: 2.5rem; font-weight: bold; margin: 20px 0; color: var(--primary); }
 .features { list-style: none; margin-bottom: 30px; text-align: left; }
-.features li { margin-bottom: 10px; color: #64748b; }
-.features i { color: var(--success); margin-right: 10px; }
+.features li { margin-bottom: 10px; opacity: 0.8; }
+.features i { color: #22c55e; margin-right: 10px; }
 
-.btn-buy {
-    display: block; width: 100%; padding: 15px; background: var(--primary);
-    color: white; border: none; border-radius: 10px; font-size: 1rem; cursor: pointer; transition: 0.3s;
-}
-.btn-buy:hover { background: #1d4ed8; }
+.btn-buy { display: block; width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 1rem; cursor: pointer; }
+.btn-buy:hover { opacity: 0.9; }
+
+/* FOOTER STYLE */
+footer { text-align: center; padding: 40px; margin-top: 50px; border-top: 1px solid #ddd; opacity: 0.7; }
+.socials i { margin: 0 10px; font-size: 1.5rem; cursor: pointer; }
+.socials i:hover { color: var(--primary); }
