@@ -16,6 +16,7 @@ const firebaseConfig = {
   storageBucket: "asif-tech-global.firebasestorage.app",
   messagingSenderId: "517818851316",
   appId: "1:517818851316:web:3907f548fa9cd57bb463a1"
+  measurementId: "G-4G7P9K65ZC"
 };
 
 // ✅ Initialize Firebase
