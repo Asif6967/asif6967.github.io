@@ -1,82 +1,171 @@
-body {
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0072ff, #00c6ff);
-  color: white;
-  height: 100vh;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f9fbff;
+  color: #333;
+}
+
+/* Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0072ff;
+}
+.logo span {
+  color: #00c6ff;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #0072ff;
+}
+
+/* Hero Section */
 .hero {
-  position: relative;
   height: 100vh;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 0 20px;
 }
 
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  top: 0;
-  left: 0;
-}
-
-.content {
-  position: relative;
-  z-index: 1;
+.hero-content {
   max-width: 700px;
-  padding: 20px;
-  animation: fadeIn 1.2s ease-in-out;
 }
 
-h1 {
+.hero h1 {
   font-size: 2.8rem;
-  font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
-
-h1 span {
+.hero h1 span {
   color: #00e0ff;
 }
-
-p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  color: #e0f7ff;
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 12px 28px;
-  background: #fff;
+  background: white;
   color: #0072ff;
-  text-decoration: none;
+  padding: 12px 28px;
   border-radius: 8px;
+  text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
 }
-
 .btn:hover {
   background: #00e0ff;
-  color: #fff;
-  box-shadow: 0px 0px 15px rgba(255,255,255,0.5);
+  color: white;
+  box-shadow: 0px 0px 15px rgba(255,255,255,0.4);
 }
 
-footer {
-  position: absolute;
-  bottom: 15px;
-  width: 100%;
+/* Services */
+.services {
   text-align: center;
-  font-size: 0.9rem;
-  color: #d8f3ff;
+  padding: 100px 20px;
+}
+.services h2 {
+  font-size: 2rem;
+  color: #0072ff;
+  margin-bottom: 40px;
+}
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+.service-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 280px;
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-10px);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* About */
+.about {
+  background: #eef6ff;
+  text-align: center;
+  padding: 100px 20px;
+}
+.about h2 {
+  color: #0072ff;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+.about p {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Contact */
+.contact {
+  padding: 100px 20px;
+  text-align: center;
+}
+.contact h2 {
+  color: #0072ff;
+  margin-bottom: 20px;
+}
+form {
+  max-width: 500px;
+  margin: auto;
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+}
+button.btn {
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Footer */
+footer {
+  background: #0072ff;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
 }
