@@ -6,232 +6,102 @@
     <title>Asif Tech Global | Enterprise Solutions</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* --- GLOBAL CORPORATE SETTINGS --- */
+        /* --- GLOBAL SETTINGS --- */
         :root {
-            --primary: #003366; /* Royal Blue - Trust */
-            --secondary: #00509e; /* Lighter Blue */
-            --accent: #f39c12; /* Gold - Action */
+            --primary: #003366; /* Royal Blue */
+            --secondary: #00509e;
+            --accent: #f39c12; /* Gold */
             --text-dark: #333;
-            --text-light: #666;
-            --bg-light: #f4f7f6;
+            --light-bg: #f4f7f6;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; scroll-behavior: smooth; }
 
-        body {
-            background-color: white;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+        body { background: white; color: var(--text-dark); overflow-x: hidden; }
 
-        /* --- NAVIGATION (Sticky White) --- */
+        /* --- NAVIGATION --- */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background: white;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: white; position: fixed; width: 100%; top: 0;
+            z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
         .logo span { color: var(--accent); }
-
-        .nav-links a {
-            margin-left: 30px;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
+        .nav-links a { margin-left: 30px; text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
-        .nav-btn {
-            padding: 10px 25px;
-            background: var(--primary);
-            color: white !important;
-            border-radius: 5px;
-        }
+        .nav-btn { padding: 10px 25px; background: var(--primary); color: white !important; border-radius: 5px; }
 
-        /* --- HERO SECTION (Video Business) --- */
-        header {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        #bg-video {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(0.5); /* Thoda dark taaki text dikhe */
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-btn {
-            padding: 15px 40px;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
+        /* --- HERO SECTION --- */
+        header { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
+        #bg-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.5); }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .cta-btn { padding: 15px 40px; background: var(--accent); color: white; text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s; }
         .cta-btn:hover { background: #d35400; }
 
-        /* --- STATS SECTION (Trust Building) --- */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            padding: 50px 5%;
-            background: var(--primary);
-            color: white;
-            text-align: center;
-        }
-        .stat-box h3 { font-size: 2.5rem; margin-bottom: 5px; }
-        .stat-box p { font-size: 1rem; opacity: 0.8; }
+        /* --- STATS --- */
+        .stats { display: flex; justify-content: space-around; padding: 40px 5%; background: var(--primary); color: white; text-align: center; }
+        .stat-box h3 { font-size: 2.5rem; }
 
-        /* --- SERVICES SECTION --- */
+        /* --- SERVICES --- */
         .section-padding { padding: 80px 5%; }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        .section-title p { color: var(--text-light); }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { padding: 30px; background: var(--light-bg); border-radius: 10px; transition: 0.3s; border-bottom: 4px solid transparent; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        /* --- CONTACT FORM --- */
+        .contact-container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; outline: none; }
+        .submit-btn { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { background: var(--secondary); }
 
-        .service-card {
-            background: var(--bg-light);
-            padding: 40px;
-            border-radius: 10px;
-            text-align: left;
-            transition: 0.3s;
-            border-bottom: 4px solid transparent;
+        /* --- WHATSAPP FLOAT BUTTON --- */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 35px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 2000; transition: 0.3s;
         }
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 4px solid var(--accent);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .service-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        .service-card h3 { margin-bottom: 15px; color: var(--text-dark); }
-        .service-card p { color: var(--text-light); font-size: 0.95rem; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #20ba5a; }
 
-        /* --- GLOBAL PRESENCE (Map) --- */
-        .global-section {
-            background: white;
-            text-align: center;
-        }
-        .map-container {
-            margin-top: 40px;
-            width: 100%;
-            height: 400px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.1; /* Map halka dikhega background me */
-            position: absolute;
-            z-index: 0;
-        }
-        .global-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 60px 5% 20px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
+        /* --- FOOTER (Social Links) --- */
+        footer { background: #1a1a1a; color: white; padding: 60px 5% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
         .footer-col h4 { margin-bottom: 20px; color: var(--accent); }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 10px; }
         .footer-col ul li a { color: #aaa; text-decoration: none; }
         .footer-col ul li a:hover { color: white; }
 
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            font-size: 0.9rem;
-            color: #777;
+        /* Icons */
+        .social-icons a {
+            display: inline-block; width: 40px; height: 40px;
+            background: #333; color: white; text-align: center; line-height: 40px;
+            border-radius: 50%; margin-right: 10px; transition: 0.3s;
         }
+        .social-icons a:hover { background: var(--accent); transform: translateY(-5px); }
 
-        /* Mobile Fix */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .stats { flex-direction: column; gap: 30px; }
-        }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #333; color: gray; }
+        
+        @media (max-width: 768px) { .nav-links { display: none; } .stats { flex-direction: column; gap: 20px; } }
     </style>
 </head>
 <body>
+
+    <a href="https://wa.me/919568591635" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <nav>
         <div class="logo">ASIF TECH <span>GLOBAL</span></div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#services">Solutions</a>
-            <a href="#global">Global Reach</a>
             <a href="#contact" class="nav-btn">Contact Us</a>
         </div>
     </nav>
@@ -240,98 +110,73 @@
         <video autoplay muted loop id="bg-video">
             <source src="https://videos.pexels.com/video-files/855564/855564-hd_1920_1080_24fps.mp4" type="video/mp4">
         </video>
-        
         <div class="hero-content">
             <h1>Empowering Global Business.</h1>
-            <p>Leading provider of IT Infrastructure, Cloud Security, and Enterprise Software Solutions worldwide.</p>
+            <p>IT Infrastructure • Cloud Security • Enterprise Software</p>
             <a href="#contact" class="cta-btn">Get Started</a>
         </div>
     </header>
 
     <section class="stats">
-        <div class="stat-box">
-            <h3>500+</h3>
-            <p>Projects Delivered</p>
-        </div>
-        <div class="stat-box">
-            <h3>12+</h3>
-            <p>Countries Served</p>
-        </div>
-        <div class="stat-box">
-            <h3>24/7</h3>
-            <p>Global Support</p>
-        </div>
-        <div class="stat-box">
-            <h3>100%</h3>
-            <p>Client Satisfaction</p>
-        </div>
+        <div class="stat-box"><h3>500+</h3><p>Projects</p></div>
+        <div class="stat-box"><h3>12+</h3><p>Countries</p></div>
+        <div class="stat-box"><h3>100%</h3><p>Success</p></div>
     </section>
 
     <section class="section-padding" id="services">
         <div class="section-title">
             <h2>Our Expertise</h2>
-            <p>We deliver scalable solutions for modern enterprises.</p>
+            <p>Scalable solutions for modern enterprises.</p>
         </div>
-
         <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-globe-americas"></i>
-                <h3>Global IT Strategy</h3>
-                <p>Helping businesses expand across borders with robust digital infrastructure.</p>
-            </div>
-
-            <div class="service-card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Business Growth</h3>
-                <p>Data-driven analytics and AI tools to maximize your revenue.</p>
-            </div>
-
-            <div class="service-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Enterprise Security</h3>
-                <p>Bank-grade security protocols to protect your corporate data.</p>
-            </div>
+            <div class="service-card"><i class="fas fa-globe-americas"></i><h3>Global IT Strategy</h3><p>Helping businesses expand across borders.</p></div>
+            <div class="service-card"><i class="fas fa-shield-alt"></i><h3>Cyber Security</h3><p>Bank-grade security protocols.</p></div>
+            <div class="service-card"><i class="fas fa-chart-line"></i><h3>Business Growth</h3><p>AI-driven analytics to maximize revenue.</p></div>
         </div>
     </section>
 
-    <section class="section-padding global-section" id="global">
-        <div class="section-title global-content">
-            <h2>Global Presence</h2>
-            <p>Headquartered in India, operating Worldwide.</p>
-        </div>
-        <div class="map-container"></div> <div class="global-content" style="margin-top: 50px;">
-            <p style="font-size: 1.5rem; font-weight: bold; color: #003366;">
-                USA • UK • DUBAI • INDIA • SINGAPORE
-            </p>
+    <section class="section-padding" id="contact" style="background: #f9f9f9;">
+        <div class="section-title"><h2>Contact Us</h2><p>Start your project today.</p></div>
+        <div class="contact-container">
+            
+            <form action="https://formsubmit.co/mohdasif696788@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="https://asif-tech-global.onrender.com">
+                <input type="hidden" name="_subject" value="New Project Query!">
+                
+                <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+                <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+                <div class="form-group"><textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea></div>
+                <button type="submit" class="submit-btn">SEND MESSAGE 🚀</button>
+            </form>
+
         </div>
     </section>
 
-    <footer id="contact">
+    <footer>
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Asif Tech Global</h4>
-                <p style="color: #aaa;">Making businesses digital, secure, and profitable since 2024.</p>
+                <p style="color: #aaa; margin-bottom: 20px;">Making businesses digital, secure, and profitable since 2024.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100081486422743" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
+
             <div class="footer-col">
                 <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Careers</a></li>
-                </ul>
+                <ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul>
             </div>
+
             <div class="footer-col">
-                <h4>Contact</h4>
+                <h4>Contact Info</h4>
                 <ul>
-                    <li><i class="fas fa-envelope"></i> contact@asiftechglobal.com</li>
-                    <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    <li><i class="fas fa-envelope"></i> mohdasif696788@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +91 95685 91635</li>
                 </ul>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 Asif Tech Global. All Rights Reserved.</p>
-        </div>
+        <div class="copyright"><p>&copy; 2025 Asif Tech Global. All Rights Reserved.</p></div>
     </footer>
 
 </body>
