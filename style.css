@@ -1,6 +1,4 @@
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -13,7 +11,6 @@ body {
 .top-bar {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: 60px;
   background: #0b1c2d;
@@ -22,73 +19,64 @@ body {
   justify-content: space-between;
   padding: 0 30px;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
 
 .logo {
   color: #fff;
-  font-size: 20px;
   font-weight: bold;
+  font-size: 20px;
 }
 
 nav a {
   color: #fff;
   margin-left: 20px;
   text-decoration: none;
-  font-size: 15px;
 }
 
 /* HERO */
 .hero {
-  background: linear-gradient(to right, #0b1c2d, #123456);
+  background: linear-gradient(120deg, #0b1c2d, #123456);
   color: #fff;
   text-align: center;
-  padding: 120px 20px 100px;
+  padding: 130px 20px 110px;
 }
 
-.hero h1 {
-  font-size: 38px;
-}
-
-.hero p {
-  margin-top: 10px;
-}
+.hero h1 { font-size: 40px; }
 
 .btn {
   display: inline-block;
-  margin-top: 25px;
-  padding: 12px 28px;
+  margin-top: 30px;
+  padding: 14px 32px;
   background: #f4b400;
   color: #000;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 /* SECTIONS */
 .section {
-  padding: 70px 30px;
+  padding: 80px 30px;
   text-align: center;
   scroll-margin-top: 80px;
 }
 
-.dark {
-  background: #f2f2f2;
-}
+.dark { background: #f2f2f2; }
 
 /* CARDS */
 .cards {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .card {
   background: #fff;
-  padding: 25px;
+  padding: 30px;
   width: 260px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,.1);
 }
 
 /* FOOTER */
@@ -96,7 +84,7 @@ footer {
   background: #0b1c2d;
   color: #fff;
   text-align: center;
-  padding: 15px;
+  padding: 18px;
 }
 
 /* MOBILE */
@@ -117,13 +105,6 @@ footer {
     width: 200px;
     flex-direction: column;
   }
-
-  nav a {
-    padding: 12px;
-    display: block;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
+  nav a { padding: 12px; }
+  .menu-toggle { display: block; }
 }
