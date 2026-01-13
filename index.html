@@ -1,60 +1,57 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Asif Tech | Admin Control Panel</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .admin-table { width: 90%; margin: 100px auto; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .admin-table th, .admin-table td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
-        .admin-table th { background-color: #1e3a8a; color: white; }
-        .status-badge { padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; background: #dcfce7; color: #166534; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asif Tech | Senior Systems Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar"><div class="logo">ASIF<span>.</span>ADMIN</div></nav>
-    
-    <h2 style="text-align:center; margin-top:120px;">Strategic Inquiry <span>Logs</span></h2>
-    
-    <table class="admin-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Client Email</th>
-                <th>Service Requested</th>
-                <th>C++ Analysis Rate</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody id="admin-data">
-            </tbody>
-    </table>
+<body class="bg-gray-900 text-gray-100 font-sans tracking-tight">
 
-    <script>
-        async function loadInquiries() {
-            const response = await fetch('http://127.0.0.1:5000/admin/all');
-            const data = await response.json();
-            const tableBody = document.getElementById('admin-data');
-            tableBody.innerHTML = '';
+    <nav class="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                ASIF TECH <span class="text-xs font-mono text-gray-500 uppercase tracking-widest">v2.0</span>
+            </h1>
+            <div class="space-x-8 hidden md:flex text-sm font-medium text-gray-400">
+                <a href="#" class="hover:text-blue-400 transition">Systems</a>
+                <a href="#" class="hover:text-blue-400 transition">Vault</a>
+                <a href="#" class="hover:text-blue-400 transition">Network</a>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition shadow-lg shadow-blue-900/20">Admin Access</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-extrabold mb-6 tracking-tight">Advanced Tech <span class="text-blue-500">Infrastructure</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg">Senior level cloud architecture and secure data management systems for Asif Tech Global operations.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-2xl bg-gray-800/50 border border-gray-700 hover:border-blue-500/50 transition-all group">
+                <i class="fa-solid fa-server text-3xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Mainframe Core</h3>
+                <p class="text-sm text-gray-400">High-availability server clusters with 99.9% uptime for global tech services.</p>
+            </div>
             
-            data.forEach(row => {
-                tableBody.innerHTML += `
-                    <tr>
-                        <td>#${row[0]}</td>
-                        <td>${row[1]}</td>
-                        <td>${row[2]}</td>
-                        <td><strong>${row[3]}%</strong></td>
-                        <td><span class="status-badge">Active</span></td>
-                    </tr>`;
-            });
-        }
-        window.onload = loadInquiries;
-    </script>
-    <footer>
-        <p>© 2026 Asif Tech Global. All Rights Reserved.</p>
-        <a href="admin.html" style="color: #666; text-decoration: none; font-size: 0.8rem; margin-top: 10px; display: block;">Dashboard Access</a>
-    </footer>
+            <div class="p-8 rounded-2xl bg-gray-800/50 border border-gray-700 hover:border-cyan-500/50 transition-all group">
+                <i class="fa-solid fa-shield-halved text-3xl text-cyan-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Vault Security</h3>
+                <p class="text-sm text-gray-400">Military-grade encryption for all Asif Tech internal assets and vault data.</p>
+            </div>
 
-    <script src="script.js"></script> </body>
-</html>
+            <div class="p-8 rounded-2xl bg-gray-800/50 border border-gray-700 hover:border-purple-500/50 transition-all group">
+                <i class="fa-solid fa-code-branch text-3xl text-purple-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Git Pipeline</h3>
+                <p class="text-sm text-gray-400">Automated deployment sync between VS Code and Vercel infrastructure.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 border-t border-gray-800 py-10 text-center text-gray-500 text-xs">
+        &copy; 2026 ASIF TECH GLOBAL | DEPLOYED VIA VERCEL SYSTEMS
+    </footer>
 </body>
 </html>
