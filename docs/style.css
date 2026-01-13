@@ -194,3 +194,7 @@ footer {
   z-index: 9999;
   padding: 20px;
 }
+.cta {
+  background: linear-gradient(120deg, #0b1c2d, #123456);
+  color: #fff;
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asif6967.github.io/sitemap.xml
