@@ -148,3 +148,35 @@ footer {
     display: block;
   }
 }
+.executive {
+  background: #ffffff;
+}
+
+.exec-text {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.exec-sign {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #0b1c2d;
+}
+.metrics {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.metric h3 {
+  font-size: 42px;
+  color: #0b1c2d;
+  margin-bottom: 5px;
+}
+
+.metric p {
+  font-size: 15px;
+}
