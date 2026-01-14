@@ -52,3 +52,17 @@ My goal was to demonstrate:
 This is meant to be **production-style design**, not a beginner demo.
 
 Thanks in advance for your feedback .
+## C++ Business Logic Engine
+
+This module represents a standalone computation layer designed
+for enterprise systems.
+
+Responsibilities:
+- Financial metrics calculation
+- Business rule evaluation
+- Performance-critical operations
+
+Designed to be integrated via:
+- REST API wrapper
+- Python bindings
+- Microservice deployment

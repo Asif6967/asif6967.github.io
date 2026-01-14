@@ -1,15 +1,18 @@
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <numeric>
+
+class RevenueEngine {
+public:
+    static double calculateGrowth(const std::vector<double>& revenue) {
+        if (revenue.size() < 2) return 0.0;
+        return ((revenue.back() - revenue.front()) / revenue.front()) * 100;
+    }
+};
 
 int main() {
-    int revenue, cost;
-    cout << "Enter revenue: ";
-    cin >> revenue;
-    cout << "Enter cost: ";
-    cin >> cost;
-
-    int profit = revenue - cost;
-    cout << "Business Profit = " << profit << endl;
-
+    std::vector<double> revenue = {10000, 12000, 15000, 20000};
+    std::cout << "Revenue Growth (%): "
+              << RevenueEngine::calculateGrowth(revenue) << std::endl;
     return 0;
 }
