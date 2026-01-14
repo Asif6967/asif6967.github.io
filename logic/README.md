@@ -66,3 +66,33 @@ Designed to be integrated via:
 - REST API wrapper
 - Python bindings
 - Microservice deployment
+## Architecture Review Request
+
+This project is structured with a clear separation between:
+- Static frontend (GitHub Pages)
+- Planned backend interface
+- High-performance C++ business logic engine
+
+Senior-level feedback on architecture, scalability, and maintainability is welcome.
+# C++ Business Logic Engine
+
+This module contains the high-performance computation layer for ASIF TECH GLOBAL.
+
+## Purpose
+- Business rule evaluation
+- Pricing and validation logic
+- Enterprise-grade performance layer
+
+## Why C++
+C++ is used for deterministic performance, memory control, and scalability.
+
+## Architecture Role
+This engine is designed to be invoked by:
+- Python backend
+- Node.js API
+- Microservice layer
+
+## Future Roadmap
+- REST / gRPC interface
+- Multithreading
+- Rule configuration via JSON

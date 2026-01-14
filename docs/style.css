@@ -198,3 +198,123 @@ footer {
   background: linear-gradient(120deg, #0b1c2d, #123456);
   color: #fff;
 }
+/* Architecture Page Fixed Header */
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;           /* apne design ke hisab se */
+  background: linear-gradient(135deg, #0a1f33, #0d2b4d);
+  color: #fff;
+  padding: 60px 40px;
+  z-index: 1000;
+}
+
+/* Content ko header ke niche push karne ke liye */
+.page-content {
+  margin-top: 220px;       /* hero height + thoda gap */
+}
+/* ================================
+   ARCHITECTURE PAGE STYLES
+================================ */
+
+.architecture-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.site-header {
+    background: #0b1f33;
+    color: #ffffff;
+    padding: 60px 20px;
+}
+
+.site-header h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+/* Main Content */
+.page-content {
+    flex: 1;
+    padding: 60px 20px;
+}
+
+.arch-section {
+    max-width: 1000px;
+    margin: 0 auto 60px;
+}
+
+.arch-section h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.arch-section p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.arch-section ul {
+    padding-left: 20px;
+}
+
+.arch-section li {
+    margin-bottom: 8px;
+}
+
+/* Architecture Flow */
+.arch-flow {
+    background: #f4f6f8;
+    padding: 20px;
+    border-left: 4px solid #0b1f33;
+    overflow-x: auto;
+}
+
+/* Footer */
+.site-footer {
+    background: #0b1f33;
+    color: #ffffff;
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.site-footer span {
+    display: block;
+    margin-top: 6px;
+    opacity: 0.8;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: #0b1f33;
+  color: white;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.page-content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+.site-footer {
+  background: #0b1f33;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
