@@ -3,133 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarkari Job Portal | Official Updates</title>
+    <title>Asif Tech Global | All India Job Portal</title>
     <style>
-        /* --- SARKARI STYLE CSS --- */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff; }
+        /* --- PROFESSIONAL PORTAL CSS --- */
+        body { font-family: 'Verdana', sans-serif; margin: 0; padding: 0; background: #f0f0f0; }
         
-        .header { background: #ab0000; color: white; text-align: center; padding: 15px; border-bottom: 4px solid #000; }
-        .header h1 { margin: 0; font-size: 28px; text-transform: uppercase; letter-spacing: 1px; }
-        .header p { margin: 5px 0 0; color: #ffeb3b; font-weight: bold; font-size: 14px; }
+        /* Header */
+        .header { background: #8B0000; color: white; text-align: center; padding: 10px; border-bottom: 5px solid #000; }
+        .header h1 { margin: 0; font-size: 30px; text-transform: uppercase; font-weight: 900; }
+        .header p { margin: 5px 0 0; color: #FFFF00; font-weight: bold; font-size: 14px; }
 
-        .marquee-box { background: #000; color: #fff; padding: 6px; font-weight: bold; border-bottom: 2px solid #ccc; }
-        
-        /* GRID LAYOUT */
-        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 20px; max-width: 1200px; margin: 0 auto; }
-        
-        .box { flex: 1; min-width: 300px; border: 2px solid #000; }
-        .box-header { color: white; text-align: center; padding: 10px; font-size: 20px; font-weight: bold; border-bottom: 2px solid #000; }
-        
-        .bg-result { background: #ff007b; } /* Result Color */
-        .bg-admit { background: #000088; } /* Admit Card Color */
-        .bg-job { background: #ab0000; }   /* Latest Job Color */
+        /* Marquee */
+        .marquee-strip { background: #000; color: #fff; padding: 8px; font-weight: bold; font-size: 14px; border-bottom: 1px solid #ddd; }
 
-        ul { list-style: none; padding: 0; margin: 0; }
-        li { border-bottom: 1px solid #ccc; padding: 8px 10px; text-align: center; }
-        li:hover { background: #f0f0f0; }
-        li a { text-decoration: none; color: #0000ee; font-weight: bold; font-size: 15px; }
-        li a:hover { color: #ff0000; text-decoration: underline; }
-
-        /* LIVE BLINKING DOT */
-        .live-dot {
-            height: 10px; width: 10px; background-color: #0f0; border-radius: 50%;
-            display: inline-block; margin-right: 5px;
-            box-shadow: 0 0 5px #0f0; animation: blink 1s infinite;
+        /* MAIN GRID CONTAINER */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Auto-Adjust columns */
+            gap: 15px;
+            padding: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
+
+        /* BOX DESIGN */
+        .box { background: #fff; border: 2px solid #000; min-height: 300px; }
+        
+        /* HEADERS COLORS */
+        .head-result { background: #FF007F; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 20px; border-bottom: 2px solid #000; }
+        .head-admit { background: #000088; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 20px; border-bottom: 2px solid #000; }
+        .head-job { background: #8B0000; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 20px; border-bottom: 2px solid #000; }
+        .head-answer { background: #FF4500; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 20px; border-bottom: 2px solid #000; }
+        .head-syllabus { background: #2E8B57; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 20px; border-bottom: 2px solid #000; }
+        .head-admission { background: #800080; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 20px; border-bottom: 2px solid #000; }
+
+        /* LIST LINKS */
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { border-bottom: 1px solid #ccc; padding: 10px; font-size: 14px; line-height: 1.4; }
+        li:hover { background: #ffffcc; }
+        li a { text-decoration: none; color: #0000FF; font-weight: bold; }
+        li a:hover { color: #FF0000; text-decoration: underline; }
+
+        .new-tag { color: red; font-size: 10px; font-weight: bold; vertical-align: super; animation: blink 1s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* Footer */
-        .footer { text-align: center; padding: 20px; background: #333; color: white; margin-top: 20px; font-size: 13px; }
+        /* FOOTER */
+        .footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; font-size: 12px; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>Sarkari Job Portal</h1>
-        <p>WWW.ASIFWEBSITE.COM</p>
+        <h1>ASIF TECH JOB STATION</h1>
+        <p>INDIA'S NO. 1 EDUCATION & JOB PORTAL (Verified Updates)</p>
     </div>
 
-    <div class="marquee-box">
+    <div class="marquee-strip">
         <marquee scrollamount="12" onmouseover="this.stop();" onmouseout="this.start();">
-            <span class="live-dot"></span> LIVE UPDATES: Railway NTPC Exam Date Out • UP Police Constable Form 2026 • SSC CGL Notification Released • Download SBI PO Admit Card
+            🔥 UP Police 2026 Notification • SSC CGL Online Form • Railway NTPC Exam Date • Bihar Police Admit Card • NEET 2026 Registration Open • Download SBI PO Result
         </marquee>
     </div>
 
-    <div class="container">
+    <div class="grid-container">
         
         <div class="box">
-            <div class="box-header bg-result">Result</div>
+            <div class="head-result">Result</div>
             <ul>
-                <li><a href="#">UP Police Constable Result 2025</a></li>
-                <li><a href="#">SSC GD 2025 Marks Status</a></li>
-                <li><a href="#">BSSC CGL Final Result</a></li>
-                <li><a href="#">UPSC IAS Pre Result 2025</a></li>
-                <li><a href="#">Gate 2026 Score Card</a></li>
+                <li><a href="https://uppbpb.gov.in" target="_blank">UP Police Constable Result 2025</a></li>
+                <li><a href="https://ssc.nic.in" target="_blank">SSC GD Constable Final Result 2025</a></li>
+                <li><a href="https://ctet.nic.in" target="_blank">CTET January 2026 Result Declared</a></li>
+                <li><a href="https://bssc.bihar.gov.in" target="_blank">Bihar BSSC CGL 3 Result</a></li>
+                <li><a href="https://ibps.in" target="_blank">IBPS PO Mains Result 2025</a></li>
+                <li><a href="https://upsc.gov.in" target="_blank">UPSC IAS Pre 2025 Result Name Wise</a></li>
+                <li><a href="#" target="_blank">Railway Group D Zone Wise Result</a></li>
             </ul>
         </div>
 
         <div class="box">
-            <div class="box-header bg-admit">Admit Card</div>
+            <div class="head-admit">Admit Card</div>
             <ul>
-                <li><a href="#">SBI PO Mains Admit Card 2026</a></li>
-                <li><a href="#">NTA JEE Main Phase 2 Hall Ticket</a></li>
-                <li><a href="#">CRPF Tradesman Admit Card</a></li>
-                <li><a href="#">UPSSSC PET 2025 Admit Card</a></li>
-                <li><a href="#">Airforce Agniveer Exam City</a></li>
+                <li><a href="https://sbi.co.in" target="_blank">SBI PO Mains Admit Card 2026</a> <span class="new-tag">New</span></li>
+                <li><a href="https://jeemain.nta.nic.in" target="_blank">NTA JEE Main 2026 Phase 2 Hall Ticket</a></li>
+                <li><a href="https://gate.iitk.ac.in" target="_blank">GATE 2026 Admit Card Download</a></li>
+                <li><a href="https://upsssc.gov.in" target="_blank">UPSSSC PET 2025 Admit Card</a></li>
+                <li><a href="https://rectt.bsf.gov.in" target="_blank">BSF Tradesman Exam Admit Card</a></li>
+                <li><a href="#" target="_blank">Rajasthan CET Graduate Level Admit Card</a></li>
+                <li><a href="#" target="_blank">Airforce Agniveer Exam City Check</a></li>
             </ul>
         </div>
 
         <div class="box">
-            <div class="box-header bg-job">Latest Jobs <span style="font-size:12px; color:#ffeb3b;">(Live)</span></div>
-            <ul id="job-feed">
-                <li style="color:gray;">Loading Updates...</li>
+            <div class="head-job">Latest Jobs</div>
+            <ul id="live-job-feed">
+                <li><a href="https://uppbpb.gov.in" target="_blank">UP Police Constable 2026 Online Form</a> <span class="new-tag">New</span></li>
+                <li><a href="https://ssc.nic.in" target="_blank">SSC CGL 2026 Apply Online</a></li>
+                <li><a href="https://indianrailways.gov.in" target="_blank">Railway RRB NTPC Recruitment 2026</a></li>
+                <li><a href="https://upsc.gov.in" target="_blank">UPSC IAS / IFS Online Form 2026</a></li>
+                <li><a href="#" target="_blank">Bihar Police Constable New Vacancy</a></li>
+                <li><a href="#" target="_blank">Indian Navy SSR / MR Online Form</a></li>
+                <li style="color:green; text-align:center;"><b>View More...</b></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="box">
+            <div class="head-answer">Answer Key</div>
+            <ul>
+                <li><a href="#" target="_blank">UGC NET Dec 2025 Answer Key</a></li>
+                <li><a href="#" target="_blank">SSC CPO SI 2025 Paper I Answer Key</a></li>
+                <li><a href="#" target="_blank">UPPSC RO / ARO Answer Key PDF</a></li>
+                <li><a href="#" target="_blank">CTET Answer Key & Objection</a></li>
+                <li><a href="#" target="_blank">Railway Group D Answer Key</a></li>
             </ul>
         </div>
 
+        <div class="box">
+            <div class="head-syllabus">Syllabus</div>
+            <ul>
+                <li><a href="#" target="_blank">UP Police Constable Syllabus 2026</a></li>
+                <li><a href="#" target="_blank">SSC CGL New Exam Pattern / Syllabus</a></li>
+                <li><a href="#" target="_blank">UPSC IAS Pre & Mains Syllabus Hindi</a></li>
+                <li><a href="#" target="_blank">Railway NTPC Syllabus & Syllabus</a></li>
+                <li><a href="#" target="_blank">Bihar Police Constable Syllabus</a></li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <div class="head-admission">Admission</div>
+            <ul>
+                <li><a href="https://neet.nta.nic.in" target="_blank">NTA NEET UG 2026 Online Form</a> <span class="new-tag">New</span></li>
+                <li><a href="https://jeecup.admissions.nic.in" target="_blank">UP Polytechnic JEECUP 2026 Apply</a></li>
+                <li><a href="#" target="_blank">BHU UET / PET Admission Online Form</a></li>
+                <li><a href="#" target="_blank">UP B.Ed JEE 2026 Online Form</a></li>
+                <li><a href="#" target="_blank">NTA CUET UG 2026 Registration</a></li>
+                <li><a href="#" target="_blank">IGNOU January 2026 Admission</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid-container" style="grid-template-columns: 1fr 1fr;">
+        <div class="box" style="min-height: 200px;">
+            <div class="head-job" style="background: #333;">Important / Certificate</div>
+            <ul>
+                <li><a href="#" target="_blank">Aadhar Card Download / Correction</a></li>
+                <li><a href="#" target="_blank">Pan Card Online Apply (UTI / NSDL)</a></li>
+                <li><a href="#" target="_blank">UP Scholarship Online Form 2025-26</a></li>
+                <li><a href="#" target="_blank">Voter ID Card Apply / Correction</a></li>
+            </ul>
+        </div>
+        <div class="box" style="min-height: 200px;">
+            <div class="head-job" style="background: #333;">Other Online Forms</div>
+            <ul>
+                <li><a href="#" target="_blank">KVS Online Form 2026</a></li>
+                <li><a href="#" target="_blank">Anganwadi Bharti All India 2026</a></li>
+                <li><a href="#" target="_blank">PM Kisan Samman Nidhi Status</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="footer">
-        © Copyright 2026 | All Rights Reserved
+        © 2026 Asif Tech Global | Disclaimer: Check Official Website Before Applying
     </div>
 
     <script>
-        async function updateJobs() {
-            const feed = document.getElementById('job-feed');
+        async function fetchLiveUpdates() {
+            const feed = document.getElementById('live-job-feed');
             try {
-                // 't=' browser ko force karta hai naya data lene ke liye
-                const response = await fetch('http://127.0.0.1:5000/api/jobs?t=' + new Date().getTime());
-                const jobs = await response.json();
-
-                if (jobs.length > 0) {
-                    feed.innerHTML = ''; // Purani list saaf
-                    jobs.forEach(job => {
-                        const item = `
-                            <li>
-                                <a href="${job.link}" target="_blank">➤ ${job.title}</a>
-                                <img src="https://www.sarkariresult.com/images/new.gif" style="height:10px; margin-left:5px;">
-                            </li>
-                        `;
-                        feed.innerHTML += item;
+                // Fetching from your Python Server
+                const res = await fetch('http://127.0.0.1:5000/api/jobs?t=' + Date.now());
+                const data = await res.json();
+                
+                if(data.length > 0) {
+                    // Keep the top static link as "Featured" and add dynamic ones below
+                    let html = `<li><a href="https://uppbpb.gov.in" target="_blank">🔥 UP Police Constable 2026 (Verified)</a> <span class="new-tag">Top</span></li>`;
+                    
+                    data.forEach(job => {
+                        html += `<li><a href="${job.link}" target="_blank">➤ ${job.title}</a> <span class="new-tag">New</span></li>`;
                     });
+                    
+                    html += `<li style="text-align:center;"><a href="#">View All Jobs...</a></li>`;
+                    feed.innerHTML = html;
                 }
-            } catch (err) {
-                // Agar server band ho to backup links
-                if(feed.innerHTML.includes("Loading")) {
-                     feed.innerHTML = `
-                        <li><a href="https://uppbpb.gov.in">UP Police Constable 2026 Form</a></li>
-                        <li><a href="https://ssc.nic.in">SSC CGL Online Form 2026</a></li>
-                        <li><a href="https://ibps.in">IBPS PO Apply Online</a></li>
-                        <li><a href="https://indianrailways.gov.in">Railway Group D Form</a></li>
-                    `;
-                }
+            } catch(e) {
+                console.log("Using static backup links.");
             }
         }
-
-        // 1. Page load hote hi data lao
-        updateJobs();
-
-        // 2. Har 30 second mein refresh karo (Auto-Update)
-        setInterval(updateJobs, 30000); 
+        
+        // Auto Update every 30 seconds
+        fetchLiveUpdates();
+        setInterval(fetchLiveUpdates, 30000);
     </script>
 
 </body>
