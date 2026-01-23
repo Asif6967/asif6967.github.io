@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Tech Global | Verified Job Portal</title>
+    <title>Asif Tech Global | India's No.1 Job & Tool Portal</title>
     <style>
-        /* --- PROFESSIONAL PORTAL CSS --- */
+        /* --- CORE CSS --- */
         body { font-family: 'Verdana', sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
         
         /* Header */
@@ -31,12 +31,9 @@
         
         /* HEADERS */
         .head-common { color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 20px; border-bottom: 2px solid #000; text-transform: uppercase; }
-        .bg-result { background: #FF007F; }
-        .bg-admit { background: #000088; }
-        .bg-job { background: #8B0000; }
-        .bg-key { background: #FF4500; }
-        .bg-syll { background: #2E8B57; }
-        .bg-adm { background: #6A0DAD; }
+        .bg-result { background: #FF007F; } .bg-admit { background: #000088; } .bg-job { background: #8B0000; }
+        .bg-key { background: #FF4500; } .bg-syll { background: #2E8B57; } .bg-adm { background: #6A0DAD; }
+        .bg-tools { background: #333; }
 
         /* LINKS */
         ul { list-style: none; padding: 0; margin: 0; }
@@ -48,8 +45,35 @@
         .new-blink { color: red; font-size: 10px; font-weight: bold; vertical-align: super; animation: blink 0.8s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* FOOTER */
+        /* --- NEW ADDITIONS CSS --- */
+        
+        /* Social Media Bar */
+        .social-bar {
+            text-align: center; padding: 20px; background: #fff; margin: 20px auto; max-width: 1270px; border: 2px solid #000;
+        }
+        .btn-social {
+            display: inline-block; padding: 12px 25px; margin: 5px; color: white; text-decoration: none; font-weight: bold; border-radius: 50px; font-size: 16px; transition: 0.3s;
+        }
+        .btn-wa { background: #25D366; border: 2px solid #128C7E; }
+        .btn-tele { background: #0088cc; border: 2px solid #005f8f; }
+        .btn-yt { background: #FF0000; border: 2px solid #cc0000; }
+        .btn-social:hover { transform: scale(1.05); opacity: 0.9; }
+
+        /* Tools Grid */
+        .tool-item {
+            text-align: center; padding: 15px; border-bottom: 1px dashed #ccc;
+        }
+        .tool-icon { font-size: 24px; margin-bottom: 5px; display: block; }
+
+        /* App Banner */
+        .app-banner {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white; text-align: center; padding: 30px; margin: 20px auto; max-width: 1270px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
         .footer { background: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 20px; font-size: 12px; }
+        .footer a { color: #fff; text-decoration: none; margin: 0 10px; }
     </style>
 </head>
 <body>
@@ -63,6 +87,13 @@
         <marquee scrollamount="12" onmouseover="this.stop();" onmouseout="this.start();">
             🔥 UP Police 2026 Notification Out • SSC CGL Online Form • Railway NTPC Exam Date • SBI PO Admit Card Download • NEET 2026 Registration Open
         </marquee>
+    </div>
+
+    <div class="social-bar">
+        <h3 style="margin-top:0;">🚀 Join Our Communities for Instant Alerts</h3>
+        <a href="https://web.whatsapp.com/" target="_blank" class="btn-social btn-wa">Join WhatsApp Group</a>
+        <a href="https://telegram.org/" target="_blank" class="btn-social btn-tele">Join Telegram Channel</a>
+        <a href="https://youtube.com/" target="_blank" class="btn-social btn-yt">Subscribe YouTube</a>
     </div>
 
     <div class="grid-container">
@@ -115,7 +146,6 @@
                 <li><a href="https://ssc.gov.in" target="_blank">SSC CPO SI Paper I Key</a></li>
                 <li><a href="https://uppsc.up.nic.in" target="_blank">UPPSC RO / ARO Answer Key</a></li>
                 <li><a href="https://ctet.nic.in" target="_blank">CTET Official Answer Key</a></li>
-                <li><a href="https://www.google.com/search?q=Railway+Group+D+Answer+Key" target="_blank">Railway Group D Answer Key</a></li>
             </ul>
         </div>
 
@@ -126,7 +156,6 @@
                 <li><a href="https://ssc.gov.in" target="_blank">SSC CGL New Exam Pattern</a></li>
                 <li><a href="https://upsc.gov.in" target="_blank">UPSC IAS Syllabus Hindi/Eng</a></li>
                 <li><a href="https://indianrailways.gov.in" target="_blank">Railway NTPC Syllabus</a></li>
-                <li><a href="https://csbc.bih.nic.in" target="_blank">Bihar Police Syllabus 2026</a></li>
             </ul>
         </div>
 
@@ -137,42 +166,75 @@
                 <li><a href="https://jeecup.admissions.nic.in" target="_blank">UP Polytechnic JEECUP 2026</a></li>
                 <li><a href="https://bhuonline.in" target="_blank">BHU UET / PET Admission</a></li>
                 <li><a href="https://bucjhansi.ac.in" target="_blank">UP B.Ed JEE 2026 Form</a></li>
-                <li><a href="https://cuet.samarth.ac.in" target="_blank">NTA CUET UG Registration</a></li>
             </ul>
         </div>
     </div>
 
+    <div class="grid-container">
+        <div class="box">
+            <div class="head-common bg-tools">Important Tools</div>
+            <ul>
+                <li><a href="https://www.google.com/search?q=image+resizer+kb" target="_blank">✂️ Image Resizer (Jpg to PDF)</a></li>
+                <li><a href="https://www.google.com/search?q=age+calculator" target="_blank">📅 Age Calculator</a></li>
+                <li><a href="https://www.google.com/search?q=resume+maker+online+free" target="_blank">📄 Resume / CV Maker</a></li>
+                <li><a href="https://www.google.com/search?q=typing+test+online" target="_blank">⌨️ Hindi/English Typing Test</a></li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <div class="head-common bg-tools">Certificate Verification</div>
+            <ul>
+                <li><a href="https://myaadhaar.uidai.gov.in/" target="_blank">🆔 Aadhar Card Download</a></li>
+                <li><a href="https://www.onlineservices.nsdl.com/" target="_blank">💳 Pan Card Apply Online</a></li>
+                <li><a href="https://scholarship.up.gov.in/" target="_blank">🎓 UP Scholarship Status</a></li>
+                <li><a href="https://voters.eci.gov.in/" target="_blank">🗳️ Voter ID Card Apply</a></li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <div class="head-common bg-tools">Other Forms</div>
+            <ul>
+                <li><a href="#" target="_blank">KVS Online Form 2026</a></li>
+                <li><a href="#" target="_blank">Anganwadi Bharti 2026</a></li>
+                <li><a href="#" target="_blank">CCC Online Form</a></li>
+                <li><a href="#" target="_blank">O Level Registration</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="app-banner">
+        <h2>📱 Download Asif Tech Official Mobile App</h2>
+        <p>Get Fast Job Alerts, Mock Tests & Daily Current Affairs.</p>
+        <button style="background:white; color:black; padding:10px 20px; border:none; font-weight:bold; cursor:pointer;">Download Android App (Coming Soon)</button>
+    </div>
+
     <div class="footer">
-        © 2026 Asif Tech Global. All Links redirect to Official Government Websites.
+        <p>© 2026 Asif Tech Global. All Rights Reserved.</p>
+        <p>
+            <a href="#">About Us</a> | 
+            <a href="#">Contact Us</a> | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Disclaimer</a>
+        </p>
     </div>
 
     <script>
         async function fetchLiveUpdates() {
             const feed = document.getElementById('live-job-feed');
             try {
-                // Fetch from Local Python Server
                 const res = await fetch('http://127.0.0.1:5000/api/jobs?t=' + Date.now());
                 const data = await res.json();
                 
                 if(data.length > 0) {
-                    // Start with Featured Static Link
                     let html = `<li><a href="https://uppbpb.gov.in" target="_blank">🔥 UP Police Constable 2026 (Verified)</a> <span class="new-blink">Top</span></li>`;
-                    
-                    // Add Dynamic Jobs
                     data.forEach(job => {
                         html += `<li><a href="${job.link}" target="_blank">➤ ${job.title}</a> <span class="new-blink">New</span></li>`;
                     });
-                    
-                    // End with View All
                     html += `<li style="text-align:center; background:#eee;"><a href="https://www.google.com/search?q=latest+govt+jobs" target="_blank">View All Jobs...</a></li>`;
-                    
                     feed.innerHTML = html;
                 }
-            } catch(e) {
-                console.log("Server offline, showing backup links.");
-            }
+            } catch(e) { console.log("Using backup links"); }
         }
-        
         fetchLiveUpdates();
         setInterval(fetchLiveUpdates, 30000);
     </script>
