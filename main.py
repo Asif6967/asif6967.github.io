@@ -36,3 +36,17 @@ if __name__ == '__main__':
 
 # Example use for your dashboard
 print(f"Next Month Predicted Sales: ₹{predict_sales([12000, 15000, 20000])}")
+from fastapi import FastAPI
+from datetime import datetime
+import time
+
+app = FastAPI()
+START_TIME = time.time()
+
+@app.get("/health")
+def health():
+    return {
+        "status": "online",
+        "server_time": datetime.utcnow().isoformat(),
+        "uptime_seconds": int(time.time() - START_TIME)
+    }

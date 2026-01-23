@@ -22,3 +22,14 @@ string encryptData(string data) {
         data[i] = data[i] + 5; // Simple Caesar Cipher for security
     return data;
 }
+// Predict future sales based on growth
+static double predictNext(double current, double growthRate) {
+    return current + (current * (growthRate / 100));
+}
+// logic.cpp
+#include <iostream>
+
+int main() {
+    std::cout << "C++ Engine Loaded Successfully\n";
+    return 0;
+}

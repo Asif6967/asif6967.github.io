@@ -131,6 +131,15 @@
     <p>> Loading MBA_Accounting_Module... [OK]</p>
 </div>
     </script>
+    <script>
+fetch("http://127.0.0.1:8000/health")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("status").innerText = data.status;
+    document.getElementById("uptime").innerText = data.uptime_seconds + " sec";
+  });
+</script>
+
 </body>
 </html>
 </body>
