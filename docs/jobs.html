@@ -3,77 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Tech Global | India's No.1 Job & Tool Portal</title>
+    <title>Asif Tech Global | JSON Powered Job Portal</title>
     <style>
-        /* --- CORE CSS --- */
+        /* --- CSS STYLES (SAME AS BEFORE) --- */
         body { font-family: 'Verdana', sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-        
-        /* Header */
         .header { background: #800000; color: white; text-align: center; padding: 15px; border-bottom: 4px solid #000; }
         .header h1 { margin: 0; font-size: 28px; text-transform: uppercase; font-weight: 900; letter-spacing: 1px; }
         .header p { margin: 5px 0 0; color: #FFD700; font-weight: bold; font-size: 13px; }
-
-        /* Marquee */
+        
         .marquee-strip { background: #000; color: #fff; padding: 8px; font-weight: bold; font-size: 14px; border-bottom: 2px solid #555; }
-
-        /* GRID */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 15px;
-            padding: 15px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        /* BOX STYLE */
+        
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; padding: 15px; max-width: 1300px; margin: 0 auto; }
         .box { background: #fff; border: 2px solid #333; min-height: 300px; box-shadow: 3px 3px 0px rgba(0,0,0,0.2); }
         
-        /* HEADERS */
         .head-common { color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 20px; border-bottom: 2px solid #000; text-transform: uppercase; }
         .bg-result { background: #FF007F; } .bg-admit { background: #000088; } .bg-job { background: #8B0000; }
         .bg-key { background: #FF4500; } .bg-syll { background: #2E8B57; } .bg-adm { background: #6A0DAD; }
-        .bg-tools { background: #333; }
-        .bg-state { background: #008080; } 
-        .bg-notes { background: #FF5733; } 
+        .bg-tools { background: #333; } .bg-state { background: #008080; } .bg-notes { background: #FF5733; }
 
-        /* LINKS */
         ul { list-style: none; padding: 0; margin: 0; }
         li { border-bottom: 1px solid #ccc; padding: 12px 10px; font-size: 14px; }
         li:hover { background: #fffde7; cursor: pointer; }
         li a { text-decoration: none; color: #0000FF; font-weight: bold; display: block; }
         li a:hover { color: #FF0000; text-decoration: underline; }
-
         .new-blink { color: red; font-size: 10px; font-weight: bold; vertical-align: super; animation: blink 0.8s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* --- SOCIAL BAR --- */
-        .social-bar {
-            text-align: center; padding: 20px; background: #fff; margin: 20px auto; max-width: 1270px; border: 2px solid #000;
-        }
-        .btn-social {
-            display: inline-block; padding: 12px 25px; margin: 5px; color: white; text-decoration: none; font-weight: bold; border-radius: 50px; font-size: 16px; transition: 0.3s;
-        }
+        /* Social & State Buttons */
+        .social-bar { text-align: center; padding: 20px; background: #fff; margin: 20px auto; max-width: 1270px; border: 2px solid #000; }
+        .btn-social { display: inline-block; padding: 12px 25px; margin: 5px; color: white; text-decoration: none; font-weight: bold; border-radius: 50px; font-size: 16px; transition: 0.3s; }
         .btn-wa { background: #25D366; border: 2px solid #128C7E; }
         .btn-tele { background: #0088cc; border: 2px solid #005f8f; }
         .btn-yt { background: #FF0000; border: 2px solid #cc0000; }
         .btn-social:hover { transform: scale(1.05); opacity: 0.9; }
 
-        /* --- STATE BUTTONS CSS --- */
         .state-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 15px; }
-        .btn-state {
-            background: #fff; border: 2px solid #008080; color: #008080; padding: 10px 20px;
-            font-weight: bold; text-decoration: none; border-radius: 5px; transition: 0.3s;
-        }
+        .btn-state { background: #fff; border: 2px solid #008080; color: #008080; padding: 10px 20px; font-weight: bold; text-decoration: none; border-radius: 5px; transition: 0.3s; }
         .btn-state:hover { background: #008080; color: white; }
 
-        /* App Banner */
-        .app-banner {
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
-            color: white; text-align: center; padding: 30px; margin: 20px auto; max-width: 1270px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Footer */
+        .app-banner { background: linear-gradient(45deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 30px; margin: 20px auto; max-width: 1270px; border-radius: 10px; }
         .footer { background: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 20px; font-size: 12px; }
     </style>
 </head>
@@ -81,158 +49,177 @@
 
     <div class="header">
         <h1>ASIF TECH JOB STATION</h1>
-        <p>INDIA'S NO. 1 VERIFIED EDUCATION & JOB PORTAL</p>
+        <p>INDIA'S NO. 1 JSON POWERED JOB PORTAL</p>
     </div>
 
     <div class="marquee-strip">
         <marquee scrollamount="12" onmouseover="this.stop();" onmouseout="this.start();">
-            🔥 UP Police 2026 Notification Out • SSC CGL Online Form • Railway NTPC Exam Date • SBI PO Admit Card Download • NEET 2026 Registration Open
+            🔥 JSON Mode Activated • Live Updates from Python Server • Download App Now • Join WhatsApp Group
         </marquee>
     </div>
 
     <div class="social-bar">
-        <h3 style="margin-top:0;">🚀 Join Our Communities for Instant Alerts</h3>
-        
+        <h3 style="margin-top:0;">🚀 Join Our Communities</h3>
         <a href="https://whatsapp.com/channel/0029Vb73fjEFnSz6IcUhpU07" target="_blank" class="btn-social btn-wa">Join WhatsApp Channel</a>
-        
         <a href="https://telegram.org/" target="_blank" class="btn-social btn-tele">Join Telegram Channel</a>
-        
         <a href="https://www.youtube.com/channel/UCRfvXfU4toossqCIbuXNblA" target="_blank" class="btn-social btn-yt">Subscribe YouTube</a>
     </div>
 
     <div class="grid-container">
         <div class="box">
             <div class="head-common bg-result">Result</div>
-            <ul>
-                <li><a href="https://uppbpb.gov.in" target="_blank">UP Police Constable Result 2025</a></li>
-                <li><a href="https://ssc.gov.in" target="_blank">SSC GD Constable Final Result</a></li>
-                <li><a href="https://ctet.nic.in" target="_blank">CTET January 2026 Result</a></li>
-                <li><a href="https://bssc.bihar.gov.in" target="_blank">Bihar BSSC CGL 3 Result</a></li>
-                <li><a href="https://ibps.in" target="_blank">IBPS PO Mains Result 2025</a></li>
-            </ul>
+            <ul id="list-result"><li style="color:gray;">Loading Data...</li></ul>
         </div>
 
         <div class="box">
             <div class="head-common bg-admit">Admit Card</div>
-            <ul>
-                <li><a href="https://sbi.co.in" target="_blank">SBI PO Mains Admit Card 2026</a> <span class="new-blink">New</span></li>
-                <li><a href="https://jeemain.nta.nic.in" target="_blank">NTA JEE Main Phase 2 Hall Ticket</a></li>
-                <li><a href="https://gate2025.iitr.ac.in" target="_blank">GATE 2026 Admit Card</a></li>
-                <li><a href="https://upsssc.gov.in" target="_blank">UPSSSC PET 2025 Admit Card</a></li>
-                <li><a href="https://rectt.bsf.gov.in" target="_blank">BSF Tradesman Admit Card</a></li>
-            </ul>
+            <ul id="list-admit"><li style="color:gray;">Loading Data...</li></ul>
         </div>
 
         <div class="box">
             <div class="head-common bg-job">Latest Jobs</div>
-            <ul id="live-job-feed">
-                <li><a href="https://uppbpb.gov.in" target="_blank">UP Police Constable 2026 Form</a> <span class="new-blink">Top</span></li>
-                <li><a href="https://ssc.gov.in" target="_blank">SSC CGL 2026 Apply Online</a></li>
-                <li><a href="https://indianrailways.gov.in" target="_blank">Railway RRB NTPC Recruitment</a></li>
-                <li><a href="https://upsc.gov.in" target="_blank">UPSC IAS / IFS Online Form</a></li>
-                <li style="text-align:center; background:#eee;"><a href="https://www.google.com/search?q=latest+govt+jobs" target="_blank">View All Jobs...</a></li>
-            </ul>
+            <ul id="list-jobs"><li style="color:gray;">Connecting to Server...</li></ul>
         </div>
     </div>
 
     <div class="grid-container">
         <div class="box">
             <div class="head-common bg-key">Answer Key</div>
-            <ul>
-                <li><a href="https://ugcnet.nta.nic.in" target="_blank">UGC NET Dec 2025 Answer Key</a></li>
-                <li><a href="https://ssc.gov.in" target="_blank">SSC CPO SI Paper I Key</a></li>
-                <li><a href="https://uppsc.up.nic.in" target="_blank">UPPSC RO / ARO Answer Key</a></li>
-            </ul>
+            <ul id="list-key"></ul>
         </div>
-
         <div class="box">
             <div class="head-common bg-syll">Syllabus</div>
-            <ul>
-                <li><a href="https://uppbpb.gov.in" target="_blank">UP Police Constable Syllabus PDF</a></li>
-                <li><a href="https://ssc.gov.in" target="_blank">SSC CGL New Exam Pattern</a></li>
-                <li><a href="https://upsc.gov.in" target="_blank">UPSC IAS Syllabus Hindi/Eng</a></li>
-            </ul>
+            <ul id="list-syllabus"></ul>
         </div>
-
         <div class="box">
             <div class="head-common bg-adm">Admission</div>
-            <ul>
-                <li><a href="https://neet.nta.nic.in" target="_blank">NTA NEET UG 2026 Form</a> <span class="new-blink">New</span></li>
-                <li><a href="https://jeecup.admissions.nic.in" target="_blank">UP Polytechnic JEECUP 2026</a></li>
-                <li><a href="https://bhuonline.in" target="_blank">BHU UET / PET Admission</a></li>
-            </ul>
+            <ul id="list-admission"></ul>
         </div>
     </div>
 
     <div class="grid-container">
         <div class="box">
             <div class="head-common bg-tools">Tools & Certificates</div>
-            <ul>
-                <li><a href="https://www.google.com/search?q=image+resizer+kb" target="_blank">✂️ Image Resizer</a></li>
-                <li><a href="https://www.google.com/search?q=age+calculator" target="_blank">📅 Age Calculator</a></li>
-                <li><a href="https://myaadhaar.uidai.gov.in/" target="_blank">🆔 Aadhar Card Download</a></li>
-                <li><a href="https://www.onlineservices.nsdl.com/" target="_blank">💳 Pan Card Apply</a></li>
-            </ul>
+            <ul id="list-tools"></ul>
         </div>
-
         <div class="box" style="grid-column: span 2;">
             <div class="head-common bg-state">🌍 Find Jobs By State</div>
-            <div class="state-grid">
-                <a href="https://www.google.com/search?q=UP+Govt+Jobs" target="_blank" class="btn-state">Uttar Pradesh</a>
-                <a href="https://www.google.com/search?q=Bihar+Govt+Jobs" target="_blank" class="btn-state">Bihar</a>
-                <a href="https://www.google.com/search?q=Delhi+Govt+Jobs" target="_blank" class="btn-state">Delhi</a>
-                <a href="https://www.google.com/search?q=Rajasthan+Govt+Jobs" target="_blank" class="btn-state">Rajasthan</a>
-                <a href="https://www.google.com/search?q=MP+Govt+Jobs" target="_blank" class="btn-state">Madhya Pradesh</a>
-                <a href="https://www.google.com/search?q=Haryana+Govt+Jobs" target="_blank" class="btn-state">Haryana</a>
-                <a href="https://www.google.com/search?q=Maharashtra+Govt+Jobs" target="_blank" class="btn-state">Maharashtra</a>
-                <a href="https://www.google.com/search?q=Uttarakhand+Govt+Jobs" target="_blank" class="btn-state">Uttarakhand</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-container">
-        <div class="box" style="width:100%;">
-            <div class="head-common bg-notes">📚 Free PDF Notes (Download Now)</div>
-            <ul style="display:flex; flex-wrap:wrap; justify-content:space-around; padding:15px;">
-                <li style="border:none;"><a href="#" target="_blank">📘 Lucent GK Hindi PDF</a></li>
-                <li style="border:none;"><a href="#" target="_blank">📐 R.S. Aggarwal Math Book</a></li>
-                <li style="border:none;"><a href="#" target="_blank">🧠 Reasoning Verbal/Non-Verbal</a></li>
-                <li style="border:none;"><a href="#" target="_blank">📅 Yearly Current Affairs 2026</a></li>
-                <li style="border:none;"><a href="#" target="_blank">📝 UP Police Previous Papers</a></li>
-            </ul>
+            <div class="state-grid" id="state-buttons"></div>
         </div>
     </div>
 
     <div class="app-banner">
-        <h2>📱 Download Asif Tech Official Mobile App</h2>
-        <p>Get Fast Job Alerts, Mock Tests & Daily Current Affairs.</p>
-        <button style="background:white; color:black; padding:10px 20px; border:none; font-weight:bold; cursor:pointer;">Download Android App (Coming Soon)</button>
+        <h2>📱 Download Asif Tech Official App</h2>
+        <p>Get Fast Job Alerts & JSON Data Support.</p>
+        <button style="background:white; color:black; padding:10px 20px; border:none; font-weight:bold; cursor:pointer;">Download Now</button>
     </div>
 
-    <div class="footer">
-        © 2026 Asif Tech Global. All Rights Reserved.
-    </div>
+    <div class="footer">© 2026 Asif Tech Global. Powered by JSON & Python.</div>
 
     <script>
-        async function fetchLiveUpdates() {
-            const feed = document.getElementById('live-job-feed');
-            try {
-                const res = await fetch('http://127.0.0.1:5000/api/jobs?t=' + Date.now());
-                const data = await res.json();
-                
-                if(data.length > 0) {
-                    let html = `<li><a href="https://uppbpb.gov.in" target="_blank">🔥 UP Police Constable 2026 (Verified)</a> <span class="new-blink">Top</span></li>`;
-                    data.forEach(job => {
-                        html += `<li><a href="${job.link}" target="_blank">➤ ${job.title}</a> <span class="new-blink">New</span></li>`;
-                    });
-                    html += `<li style="text-align:center; background:#eee;"><a href="https://www.google.com/search?q=latest+govt+jobs" target="_blank">View All Jobs...</a></li>`;
-                    feed.innerHTML = html;
-                }
-            } catch(e) { console.log("Using backup links"); }
-        }
-        fetchLiveUpdates();
-        setInterval(fetchLiveUpdates, 30000);
-    </script>
+        // --- 1. THE MAIN DATA (JSON FORMAT) ---
+        // Yahan par data edit karna bahut aasaan hai. Bas text change karo, site update ho jayegi.
+        const jobData = {
+            results: [
+                { title: "UP Police Constable Result 2025", link: "https://uppbpb.gov.in" },
+                { title: "SSC GD Constable Final Result", link: "https://ssc.gov.in" },
+                { title: "CTET January 2026 Result", link: "https://ctet.nic.in" },
+                { title: "Bihar BSSC CGL 3 Result", link: "https://bssc.bihar.gov.in" },
+                { title: "IBPS PO Mains Result 2025", link: "https://ibps.in" }
+            ],
+            admitCards: [
+                { title: "SBI PO Mains Admit Card 2026", link: "https://sbi.co.in", new: true },
+                { title: "NTA JEE Main Phase 2 Hall Ticket", link: "https://jeemain.nta.nic.in" },
+                { title: "GATE 2026 Admit Card", link: "https://gate2025.iitr.ac.in" },
+                { title: "UPSSSC PET 2025 Admit Card", link: "https://upsssc.gov.in" },
+                { title: "BSF Tradesman Admit Card", link: "https://rectt.bsf.gov.in" }
+            ],
+            answerKeys: [
+                { title: "UGC NET Dec 2025 Answer Key", link: "https://ugcnet.nta.nic.in" },
+                { title: "SSC CPO SI Paper I Key", link: "https://ssc.gov.in" },
+                { title: "UPPSC RO / ARO Answer Key", link: "https://uppsc.up.nic.in" }
+            ],
+            syllabus: [
+                { title: "UP Police Constable Syllabus PDF", link: "https://uppbpb.gov.in" },
+                { title: "SSC CGL New Exam Pattern", link: "https://ssc.gov.in" },
+                { title: "UPSC IAS Syllabus Hindi/Eng", link: "https://upsc.gov.in" }
+            ],
+            admission: [
+                { title: "NTA NEET UG 2026 Form", link: "https://neet.nta.nic.in", new: true },
+                { title: "UP Polytechnic JEECUP 2026", link: "https://jeecup.admissions.nic.in" },
+                { title: "BHU UET / PET Admission", link: "https://bhuonline.in" }
+            ],
+            tools: [
+                { title: "✂️ Image Resizer", link: "https://www.google.com/search?q=image+resizer" },
+                { title: "📅 Age Calculator", link: "https://www.google.com/search?q=age+calculator" },
+                { title: "🆔 Aadhar Card Download", link: "https://myaadhaar.uidai.gov.in/" },
+                { title: "💳 Pan Card Apply", link: "https://www.onlineservices.nsdl.com/" }
+            ],
+            states: [ "Uttar Pradesh", "Bihar", "Delhi", "Rajasthan", "Madhya Pradesh", "Haryana", "Maharashtra", "Uttarakhand" ]
+        };
 
+        // --- 2. FUNCTION TO RENDER LISTS (Automated) ---
+        function renderList(elementId, dataArray) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = ""; // Clear existing
+            dataArray.forEach(item => {
+                const isNew = item.new ? ' <span class="new-blink">New</span>' : '';
+                container.innerHTML += `<li><a href="${item.link}" target="_blank">➤ ${item.title}</a>${isNew}</li>`;
+            });
+        }
+
+        // --- 3. FUNCTION FOR STATE BUTTONS ---
+        function renderStates() {
+            const container = document.getElementById('state-buttons');
+            jobData.states.forEach(state => {
+                container.innerHTML += `<a href="https://www.google.com/search?q=${state}+Govt+Jobs" target="_blank" class="btn-state">${state}</a>`;
+            });
+        }
+
+        // --- 4. HYBRID FETCH: PYTHON SERVER + JSON BACKUP ---
+        async function fetchLiveJobs() {
+            const container = document.getElementById('list-jobs');
+            try {
+                // Try fetching from Python Server (main.py)
+                const res = await fetch('http://127.0.0.1:5000/api/jobs?t=' + Date.now());
+                const liveData = await res.json();
+                
+                if (liveData.length > 0) {
+                    container.innerHTML = "";
+                    // Top Static Featured Link
+                    container.innerHTML += `<li><a href="https://uppbpb.gov.in" target="_blank">🔥 UP Police Constable 2026 (Verified)</a> <span class="new-blink">Top</span></li>`;
+                    
+                    // Python Data
+                    liveData.forEach(job => {
+                        container.innerHTML += `<li><a href="${job.link}" target="_blank">➤ ${job.title}</a> <span class="new-blink">Live</span></li>`;
+                    });
+                }
+            } catch (error) {
+                // Agar Python Server band hai, toh JSON se dikhao (Backup)
+                console.log("Server Offline. Using JSON backup.");
+                renderList('list-jobs', [
+                    { title: "UP Police Constable 2026 Form", link: "https://uppbpb.gov.in", new: true },
+                    { title: "SSC CGL 2026 Apply Online", link: "https://ssc.gov.in" },
+                    { title: "Railway RRB NTPC Recruitment", link: "https://indianrailways.gov.in" },
+                    { title: "UPSC IAS / IFS Online Form", link: "https://upsc.gov.in" }
+                ]);
+            }
+        }
+
+        // --- 5. INITIALIZE EVERYTHING ---
+        window.onload = function() {
+            renderList('list-result', jobData.results);
+            renderList('list-admit', jobData.admitCards);
+            renderList('list-key', jobData.answerKeys);
+            renderList('list-syllabus', jobData.syllabus);
+            renderList('list-admission', jobData.admission);
+            renderList('list-tools', jobData.tools);
+            renderStates();
+            
+            // Start Auto-Update for Jobs
+            fetchLiveJobs();
+            setInterval(fetchLiveJobs, 30000);
+        };
+    </script>
 </body>
 </html>
