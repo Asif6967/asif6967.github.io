@@ -181,3 +181,11 @@ footer {
   padding: 26px;
   margin-top: 80px;
 }
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+.menu-toggle span { width: 25px; height: 3px; background: #38bdf8; border-radius: 2px; }
+
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+    nav { display: none; flex-direction: column; position: absolute; top: 60px; width: 100%; background: #0f172a; }
+    nav.active { display: flex; }
+}
