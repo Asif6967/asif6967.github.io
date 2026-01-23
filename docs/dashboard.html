@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Asif Tech Global - Pro Panel</title>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+    <style>
+        body { background: #0f172a; color: #f8fafc; font-family: sans-serif; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: #1e293b; padding: 20px; border-radius: 12px; border-top: 5px solid #38bdf8; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .btn { background: #38bdf8; color: #0f172a; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; transition: 0.3s; }
+        .btn:hover { opacity: 0.8; transform: scale(1.02); }
+        input { width: 93%; padding: 10px; margin: 5px 0; border-radius: 5px; border: none; background: #334155; color: white; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #0f172a; border-radius: 8px; overflow: hidden; }
+        th { background: #38bdf8; color: #0f172a; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #334155; }
+        .chart-container { position: relative; height: 300px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div id='loginOverlay' style='position:fixed; top:0; left:0; width:100%; height:100%; background:#0f172a; display:flex; justify-content:center; align-items:center; z-index:999;'>
+        <div class='card' style='width:300px; text-align:center;'>
+            <h2>ASIF TECH LOGIN</h2>
+            <input type='password' id='pass' placeholder='Password (asif786)'>
+            <button class='btn' onclick='checkPass()'>Unlock Panel</button>
+            <p id='loginErr' style='color:#f87171; display:none;'>Galat Key Hai Bhai!</p>
+        </div>
+    </div>
+
+    <h1 style='text-align:center; color:#38bdf8;'>Asif Tech Global - Business Panel Pro</h1>
+    <div class='grid'>
+        <div class='card'>
+            <h3>Revenue Trend (Dynamic)</h3>
+            <div style='display:flex; gap:5px; margin-bottom:10px;'>
+                <button onclick="switchChart('line')" class='btn' style='font-size:0.8rem;'>Line</button>
+                <button onclick="switchChart('bar')" class='btn' style='font-size:0.8rem; background:#4ade80;'>Bar</button>
+                <button onclick="switchChart('pie')" class='btn' style='font-size:0.8rem; background:#facc15;'>Pie</button>
+            </div>
+            <div class='chart-container'><canvas id='revChart'></canvas></div>
+        </div>
+        <div class='card'>
+            <h3>Profit Margin Calculator</h3>
+            <input type='number' id='rev' placeholder='Monthly Sales (₹)'>
+            <input type='number' id='exp' placeholder='Total Expenses (₹)'>
+            <button class='btn' onclick='calcProfit()'>Analyze Business Health</button>
+            <div id='profitResult'></div>
+        </div>
+        <div class='card'>
+            <h3>MBA Reports & Export</h3>
+            <button class='btn' style='background:#facc15' onclick='genReport()'>Generate MBA Summary</button>
+            <button class='btn' style='background:white' onclick='window.print()'>Print PDF Report</button>
+            <button class='btn' style='background:#f87171; color:white;' onclick='clearAll()'>Clear All Data (Reset)</button>
+            <div id='repBox' style='display:none; margin-top:15px; border:1px solid #facc15; padding:10px;'></div>
+        </div>
+        <div class='card' style='grid-column: 1 / -1;'>
+            <h3>Asset Management (SLM/WDV)</h3>
+            <div style='display:flex; gap:10px;'>
+                <input type='number' id='aC' placeholder='Asset Cost (₹)'>
+                <input type='number' id='sV' placeholder='Scrap Value (₹)'>
+                <input type='number' id='dR' placeholder='Dep. Rate %'>
+            </div>
+            <div style='display:flex; gap:10px;'>
+                <button class='btn' onclick='doDep("SLM")'>SLM Method</button>
+                <button class='btn' onclick='doDep("WDV")' style='background:#4ade80'>WDV Method</button>
+            </div>
+            <div id='dTab'></div>
+        </div>
+    </div>
+
+    <script>
+    let myChart = null;
+    window.onload = function() { initChart('line'); };
+    function checkPass() { if(document.getElementById('pass').value === 'asif786') { document.getElementById('loginOverlay').style.display = 'none'; } else { document.getElementById('loginErr').style.display = 'block'; } }
+    function initChart(type) {
+        const ctx = document.getElementById('revChart').getContext('2d');
+        if (myChart) { myChart.destroy(); }
+        let r = parseFloat(document.getElementById('rev').value) || 0, e = parseFloat(document.getElementById('exp').value) || 0;
+        myChart = new Chart(ctx, {
+            type: type,
+            data: {
+                labels: type === 'pie' ? ['Net Revenue', 'Expenses'] : ['Start', 'Current'],
+                datasets: [{
+                    label: 'Business Flow (₹)',
+                    data: type === 'pie' ? [r, e] : [0, r],
+                    backgroundColor: type === 'pie' ? ['#4ade80', '#f87171'] : 'rgba(56, 189, 248, 0.2)',
+                    borderColor: '#38bdf8', borderWidth: 4, fill: true, tension: 0.4, pointRadius: 6
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+    }
+    function calcProfit() {
+        let r = parseFloat(document.getElementById('rev').value) || 0, e = parseFloat(document.getElementById('exp').value) || 0;
+        initChart(myChart.config.type);
+        let p = r - e, m = r > 0 ? (p / r) * 100 : 0;
+        document.getElementById('profitResult').innerHTML = "<div style='background:#0f172a; padding:15px; margin-top:15px; border-radius:8px; border-left:5px solid #4ade80;'><b style='color:#38bdf8'>Net Profit: ₹" + p.toFixed(2) + "</b><br><span style='color:#4ade80'>Margin: " + m.toFixed(2) + "%</span></div>";
+    }
+    function doDep(m) {
+        let c = parseFloat(document.getElementById('aC').value) || 0, s = parseFloat(document.getElementById('sV').value) || 0, r = (parseFloat(document.getElementById('dR').value) || 0) / 100;
+        if (c <= 0) { alert("Asset Cost dalo bhai!"); return; }
+        let h = "<table><tr style='background:#38bdf8; color:#0f172a'><th>Year</th><th>Opening</th><th>Depreciation</th><th>Closing</th></tr>", v = c;
+        for(let i=1; i<=5; i++) {
+            let d = (m == 'SLM') ? ((c-s)*r) : (v*r);
+            let cl = v - d; if(cl < s) cl = s;
+            h += "<tr><td>Year "+i+"</td><td>₹"+v.toFixed(0)+"</td><td>₹"+d.toFixed(0)+"</td><td>₹"+cl.toFixed(0)+"</td></tr>";
+            v = cl; if(v <= s) break;
+        }
+        document.getElementById('dTab').innerHTML = "<h4 style='color:#4ade80'>"+m+" Schedule Generated</h4>" + h + "</table>";
+    }
+    function clearAll() { document.querySelectorAll('input').forEach(i => i.value = ''); document.getElementById('profitResult').innerHTML = ''; document.getElementById('dTab').innerHTML = ''; initChart('line'); }
+    function switchChart(t) { initChart(t); }
+    function genReport() { document.getElementById('repBox').style.display='block'; document.getElementById('repBox').innerHTML="<b>MBA Summary:</b> Business Health is Optimized."; }
+    </script>
+</body>
+</html>
