@@ -1,18 +1,28 @@
-# Future backend API
-# This file will expose C++ logic via REST API
 from flask import Flask, request, jsonify
 import sqlite3
+import time
 
 app = Flask(__name__)
 
-# Database initialization
+# --- AI LOGIC SECTION ---
+def predict_sales(last_three_months):
+    # Function ke andar 4 spaces zaroori hain (Indentation fix)
+    prediction = sum(last_three_months) / len(last_three_months) * 1.10 
+    return round(prediction, 2)
+
+# --- DATABASE SECTION ---
 def init_db():
-    conn = sqlite3.connect('logic/asif_tech_global.db') # Path based on your folder
+    conn = sqlite3.connect('logic/asif_tech_global.db') 
     cursor = conn.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS inquiries 
                       (id INTEGER PRIMARY KEY, name TEXT, email TEXT, message TEXT)''')
     conn.commit()
     conn.close()
+
+# --- ROUTES SECTION ---
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({"status": "online", "message": "ASIF TECH GLOBAL API is Live"})
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -27,26 +37,7 @@ def submit():
 
 if __name__ == '__main__':
     init_db()
+    # Terminal mein prediction test karne ke liye
+    print(f"Next Month Predicted Sales: ₹{predict_sales([12000, 15000, 20000])}")
     print("Server running on http://127.0.0.1:5000")
     app.run(debug=True)
-    def predict_sales(last_three_months):
-    # Simple AI Logic: Moving Average + Growth Factor
-    prediction = sum(last_three_months) / len(last_three_months) * 1.10 
-    return round(prediction, 2)
-
-# Example use for your dashboard
-print(f"Next Month Predicted Sales: ₹{predict_sales([12000, 15000, 20000])}")
-from fastapi import FastAPI
-from datetime import datetime
-import time
-
-app = FastAPI()
-START_TIME = time.time()
-
-@app.get("/health")
-def health():
-    return {
-        "status": "online",
-        "server_time": datetime.utcnow().isoformat(),
-        "uptime_seconds": int(time.time() - START_TIME)
-    }
